@@ -3,7 +3,7 @@
 
 app.titel          = HalligHooge
 app.unterzeile     = Gezeiten, Priele und Landunter um die Hallig
-app.version        = 2.5
+app.version        = 2.6
 app.logo           = HARBOR
 app.icon           = HalligHooge.png
 app.szenen         = Hooge.szenen
@@ -243,4 +243,11 @@ guete.modell       = ../../daten/guete/Hooge.modell
 guete.datei        = Hooge.guete
 guete.kopie        = ../../dist/abbild/HalligHooge/app/szenen/Hooge.guete
 guete.ansicht      =
-guete.hinweis      = Modell: Wasserstand der App an der Zelle mit dem tiefsten Grund im Umkreis von 500 m um den Pegel (Gitter G2, 200 m). Messung: PEGELONLINE (WSV, ungeprüfte Rohdaten), Mittel über 10 Minuten; Hoch- und Niedrigwasser aus der Scheitelsuche des Messarchivs. Bias und Versatz: Modell minus Messung. Skill nach Willmott (1 = deckungsgleich). Windstau im Modell: Hochwasser des Modells minus die Gezeit am Pegel. Xaver (Dezember 2013): nur das höchste Tidehochwasser (HThw) der Kennwerte von PEGELONLINE, ohne Reihe.
+# seit DB4 (Werkbuch HalligHooge 173; F272–F275 A): der Wind des Modells (ERA5 im Archiv) an den Windstationen des DWD
+# (Kennung; Lage aus daten/gebiet/wind/wind.txt) gegen die Messung, auf 10 m; der Faktor zählt ab guete.wind.min m/s, „Sturm“
+# ab guete.wind.sturm m/s gemessen. Mittelwasser: gemessenes Mittel über guete.mittelwasser.tage Tage um die Mitte des Laufs.
+guete.wind         = 03032; 02115
+guete.wind.min     = 5
+guete.wind.sturm   = 15
+guete.mittelwasser.tage = 30
+guete.hinweis      = Modell: Wasserstand der App an der Zelle mit dem tiefsten Grund im Umkreis von 500 m um den Pegel (Gitter G2, 200 m). Messung: PEGELONLINE (WSV, ungeprüfte Rohdaten), Mittel über 10 Minuten; Hoch- und Niedrigwasser aus der Scheitelsuche des Messarchivs. Bias und Versatz: Modell minus Messung. Skill nach Willmott (1 = deckungsgleich). Windstau im Modell: Hochwasser des Modells minus die Gezeit am Pegel. Xaver (Dezember 2013): nur das höchste Tidehochwasser (HThw) der Kennwerte von PEGELONLINE, ohne Reihe. Mittelwasser: Mittel der Messung über 30 Tage um den Lauf; das Modell rechnet mit dem Mittel aus seinem Antrieb (0,0 m). Wind: ERA5 im Modell (10 m) gegen den DWD (List, Helgoland; Geber 10 m); Faktor = Mittel Modell / Messung ab 5 m/s, der Windschub wächst mit seinem Quadrat.

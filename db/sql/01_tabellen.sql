@@ -222,9 +222,50 @@ CREATE TABLE HH_GUETE (
   MODELL_AM_TAG NUMBER(6,3),
   MODELL_AM_TAG_ZEIT DATE,
   BERECHNET DATE,
+  MITTELWASSER NUMBER(6,3),
+  TIDEMITTEL NUMBER(6,3),
+  BIAS_OHNE_MW NUMBER(6,3),
   CONSTRAINT HH_GUETE_PK PRIMARY KEY (LAUF_ID, STATION_ID),
   CONSTRAINT HH_GUETE_LAUF_FK FOREIGN KEY (LAUF_ID) REFERENCES HH_LAUF (LAUF_ID),
   CONSTRAINT HH_GUETE_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
+);
+
+-- seit DB4 (Werkbuch HalligHooge 173): der Wind des Modells (ERA5 aus dem Archiv, 10 m) an den Windstationen und seine
+-- Kennzahlen gegen den DWD. Wie HH_MODELL: je Lauf als Ganzes ersetzt, wächst nur mit den Archiven.
+
+CREATE TABLE HH_MODELL_WIND (
+  LAUF_ID NUMBER(4) NOT NULL,
+  STATION_ID NUMBER(4) NOT NULL,
+  ZEIT DATE NOT NULL,
+  FF NUMBER(5,2) NOT NULL,
+  DD NUMBER(5,1),
+  CONSTRAINT HH_MODELL_WIND_PK PRIMARY KEY (LAUF_ID, STATION_ID, ZEIT),
+  CONSTRAINT HH_MODELL_WIND_CK CHECK (FF BETWEEN 0 AND 80 AND (DD IS NULL OR DD BETWEEN 0 AND 360)),
+  CONSTRAINT HH_MODELL_WIND_LAUF_FK FOREIGN KEY (LAUF_ID) REFERENCES HH_LAUF (LAUF_ID),
+  CONSTRAINT HH_MODELL_WIND_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
+) PCTFREE 0;
+
+CREATE TABLE HH_GUETE_WIND (
+  LAUF_ID NUMBER(4) NOT NULL,
+  STATION_ID NUMBER(4) NOT NULL,
+  GITTER VARCHAR2(10),
+  ZELLE NUMBER(8),
+  ABSTAND NUMBER(8,1),
+  WERTE NUMBER(6),
+  FAKTOR NUMBER(6,3),
+  BIAS NUMBER(6,2),
+  RMSE NUMBER(6,2),
+  RICHTUNG NUMBER(6,1),
+  STURM_WERTE NUMBER(6),
+  STURM_FAKTOR NUMBER(6,3),
+  STURM_BIAS NUMBER(6,2),
+  STURM_RICHTUNG NUMBER(6,1),
+  MAX_MODELL NUMBER(5,2),
+  MAX_MESSUNG NUMBER(5,2),
+  BERECHNET DATE,
+  CONSTRAINT HH_GUETE_WIND_PK PRIMARY KEY (LAUF_ID, STATION_ID),
+  CONSTRAINT HH_GUETE_WIND_LAUF_FK FOREIGN KEY (LAUF_ID) REFERENCES HH_LAUF (LAUF_ID),
+  CONSTRAINT HH_GUETE_WIND_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
 );
 
 COMMENT ON TABLE HH_SCHEMA IS 'Ausbaustufe des Messarchivs (com.dan.store.Einrichter)';
@@ -260,3 +301,11 @@ COMMENT ON COLUMN HH_GUETE.SKILL IS 'Skill nach Willmott (1981), 1 heißt deckun
 COMMENT ON COLUMN HH_GUETE.HW_ZEIT IS 'mittlerer Versatz der Hochwasser in min, Modell minus Messung';
 COMMENT ON COLUMN HH_GUETE.STAU_ANTEIL IS 'Windstau im Modell (Hochwasser minus Gezeit) geteilt durch den gemessenen, über die Hochwasser mit Stau ab guete.stau';
 COMMENT ON COLUMN HH_GUETE.MODELL_AM_TAG IS 'höchstes Hochwasser des Modells am Tag des HThw (nur, wenn der Lauf den Tag abdeckt)';
+COMMENT ON COLUMN HH_GUETE.MITTELWASSER IS 'seit DB4: gemessenes Mittel des Wasserstands in m NHN über guete.mittelwasser.tage Tage um die Mitte des Laufs';
+COMMENT ON COLUMN HH_GUETE.TIDEMITTEL IS 'seit DB4: gemessenes Mittel über eine Tide (24 h 50 min) um die Mitte des Laufs, mit dem Windstau dieser Tage';
+COMMENT ON COLUMN HH_GUETE.BIAS_OHNE_MW IS 'seit DB4: Bias plus (Mittelwasser minus Mittel im Antrieb des Modells): der Bias, wenn das Modell um das fehlende Mittelwasser höher stünde';
+COMMENT ON TABLE HH_MODELL_WIND IS 'seit DB4: Wind des Modells (ERA5 aus dem Archiv) in 10 m an der Zelle der Windstation, Geschwindigkeit in m/s, Richtung woher in Grad';
+COMMENT ON TABLE HH_GUETE_WIND IS 'seit DB4: Zelle der Windstation und Kennzahlen des Winds, Modell gegen DWD (auf 10 m gebracht)';
+COMMENT ON COLUMN HH_GUETE_WIND.FAKTOR IS 'Summe Modell durch Summe Messung über die Werte ab guete.wind.min, das Quadrat ist das Verhältnis des Windschubs';
+COMMENT ON COLUMN HH_GUETE_WIND.RICHTUNG IS 'Versatz der Richtung in Grad, Modell minus Messung, Kreismittel gewichtet mit der gemessenen Geschwindigkeit';
+COMMENT ON COLUMN HH_GUETE_WIND.STURM_FAKTOR IS 'wie FAKTOR, nur über die Werte ab guete.wind.sturm gemessen';

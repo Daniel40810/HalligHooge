@@ -202,10 +202,14 @@ nur bei einem neuen Ereignis neu schreibt; die App liest nur diese Datei. Seit D
 | `src/szenen/Hooge.guete` | seit DB3: Modell gegen Messung, vom Sammler geschrieben (nur bei Änderung); die App zeigt es unter Labor › Modell gegen Messung (Strg Umschalt M) |
 | `daten/guete/Hooge.modell` | seit DB3: der Wasserstand des Modells an den Pegeln, aus den Archiven gelesen (`Ausgabe --guete`); bleibt lokal bei den Daten |
 | `tools/lauf_DB3.cmd` | DB3: Schema Stufe 3, HThw, Archive lesen, Kennzahlen, Abbild 2.5.0 |
+| `tools/lauf_DB4.cmd` | DB4: Schema Stufe 4, Wind des Modells gegen DWD, Mittelwasser, Abbild 2.6.0 |
 
 **Modell gegen Messung (DB3).** Wenn ein Archiv neu gerechnet ist: `Ausgabe --guete` (liest je Archiv und Pegel nur die
 Zelle, rund eine Sekunde je Archiv), dann `tools\sammler.cmd --guete`. Der Sammler ersetzt einen Lauf nur, wenn sich
-seine Kennung (SHA-256 über die Reihen des Modells) ändert, und schreibt `Hooge.guete` nur bei Änderung.
+seine Kennung (SHA-256 über die Reihen des Modells) ändert, und schreibt `Hooge.guete` nur bei Änderung. Seit DB4 liest die Ausgabe auch den Wind des
+Modells (ERA5 im Archiv) an den Windstationen `guete.wind` (List, Helgoland) und der Sammler stellt ihn neben den DWD
+(Faktor, Windschub, Richtung, auch bei Sturm); dazu je Pegel das gemessene Mittelwasser über 30 Tage und der Bias ohne
+Mittelwasser. Im Fenster schaltet oben links „Wasserstand | Wind“.
 
 **Wachstumsgrenze.** Nur der Sammler lässt die Datenbank wachsen, darum räumt er bei jedem Lauf selbst auf. Die
 Minutenwerte liegen in Monatsfächern (Partitionen nach Intervall) und fallen nach `messung.roh.monate` (6) als Ganzes
