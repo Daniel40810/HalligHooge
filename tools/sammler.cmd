@@ -6,6 +6,7 @@ rem   tools\sammler.cmd --pflege --nur-plan             was die Pflege wegnehmen
 rem   tools\sammler.cmd --pruefen --gebiet daten\gebiet Pruefsteine DB1
 rem   tools\sammler.cmd --verbinden                     Verbindung pruefen, fehlt das Passwort: einmal fragen
 rem   tools\sammler.cmd --guete                         seit DB3: Modell gegen Messung (nach Ausgabe --guete), schreibt Hooge.guete
+rem   tools\sammler.cmd --gezeiten                      seit DB5: die Gezeit waechst mit (sonst am 1. jedes Monats von selbst)
 rem Vorher bauen (Clean and Build oder tools\lauf_DB1.cmd).
 setlocal EnableExtensions
 chcp 65001 >nul

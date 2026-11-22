@@ -10,6 +10,8 @@ INSERT INTO HH_SCHEMA (VERSION, TEXT) VALUES (3, 'DB3 Modell gegen Messung: Läu
 
 INSERT INTO HH_SCHEMA (VERSION, TEXT) VALUES (4, 'DB4 Antrieb gegen Messung: Wind des Modells an den Windstationen, Mittelwasser');
 
+INSERT INTO HH_SCHEMA (VERSION, TEXT) VALUES (5, 'DB5 Gezeiten wachsen mit: Analysen je Pegel und Monat mit Prüfung, Tiden, Mittelwasser je Monat ohne Windstau');
+
 INSERT INTO HH_QUELLE (QUELLE_ID, KURZ, TITEL, ANBIETER, LIZENZ, ADRESSE) VALUES (1, 'PEGELONLINE', 'Wasserstand an den Pegeln, Rohdaten je Minute', 'Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV)', 'DL-DE Zero 2.0', 'https://www.pegelonline.wsv.de/webservices/rest-api/v2');
 
 INSERT INTO HH_QUELLE (QUELLE_ID, KURZ, TITEL, ANBIETER, LIZENZ, ADRESSE) VALUES (2, 'DWD', 'Wind, 10-Minuten-Werte an Stationen', 'Deutscher Wetterdienst, Climate Data Center', 'CC BY 4.0, Quelle: Deutscher Wetterdienst', 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/wind/');

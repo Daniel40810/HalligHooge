@@ -196,13 +196,14 @@ nur bei einem neuen Ereignis neu schreibt; die App liest nur diese Datei. Seit D
 | `guete.*` in `src/szenen/Hooge.steuerhaus` | seit DB3: Pegel, Umkreis der Zelle, Einschwingen, Windstau, Dateien |
 | `tools/lauf_DB1.cmd` | einmal: bauen, prüfen, Schema einrichten, Bestand aus `daten/gebiet` übernehmen, erster Abruf, Aufgabe anlegen |
 | `tools/sammler_aufgabe.cmd` | die stündliche Aufgabe „HalligHooge Messarchiv“ anlegen (`aus`: entfernen) |
-| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet`, `--chronik`, `--wind-nachladen`, `--guete` |
+| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet`, `--chronik`, `--wind-nachladen`, `--guete`, `--gezeiten` |
 | `src/szenen/Hooge.chronik` | seit DB2: die Chronik der Hochwasser, vom Sammler geschrieben, nur wenn ein Ereignis dazukommt; die App zeigt sie unter Labor › Chronik der Hochwasser (Strg Umschalt H) und unter der Landunter-Uhr |
 | `tools/lauf_DB2.cmd` | DB2: Chronik, Wind 2020 bis 2025, Füllstand je Tabelle, Abbild 2.4.0 |
 | `src/szenen/Hooge.guete` | seit DB3: Modell gegen Messung, vom Sammler geschrieben (nur bei Änderung); die App zeigt es unter Labor › Modell gegen Messung (Strg Umschalt M) |
 | `daten/guete/Hooge.modell` | seit DB3: der Wasserstand des Modells an den Pegeln, aus den Archiven gelesen (`Ausgabe --guete`); bleibt lokal bei den Daten |
 | `tools/lauf_DB3.cmd` | DB3: Schema Stufe 3, HThw, Archive lesen, Kennzahlen, Abbild 2.5.0 |
 | `tools/lauf_DB4.cmd` | DB4: Schema Stufe 4, Wind des Modells gegen DWD, Mittelwasser, Abbild 2.6.0 |
+| `tools/lauf_DB5.cmd` | DB5: Renderer mit neuen Tiden, Schema Stufe 5, Gezeiten wachsen mit (erster Lauf), Abbild 2.7.0 |
 
 **Modell gegen Messung (DB3).** Wenn ein Archiv neu gerechnet ist: `Ausgabe --guete` (liest je Archiv und Pegel nur die
 Zelle, rund eine Sekunde je Archiv), dann `tools\sammler.cmd --guete`. Der Sammler ersetzt einen Lauf nur, wenn sich
@@ -210,6 +211,13 @@ seine Kennung (SHA-256 über die Reihen des Modells) ändert, und schreibt `Hoog
 Modells (ERA5 im Archiv) an den Windstationen `guete.wind` (List, Helgoland) und der Sammler stellt ihn neben den DWD
 (Faktor, Windschub, Richtung, auch bei Sturm); dazu je Pegel das gemessene Mittelwasser über 30 Tage und der Bias ohne
 Mittelwasser. Im Fenster schaltet oben links „Wasserstand | Wind“.
+
+**Gezeiten wachsen mit (DB5).** Am 1. jedes Monats (erster Abruf ab 3 Uhr) rechnet der Sammler je Pegel einen Kandidaten
+aus allen Tagen im Messarchiv und prüft ihn an den jüngsten 30 Tagen gegen die geltenden Konstanten; nur wenn er besser
+trifft, gilt er (`HH_ANALYSE`, `HH_GEZEIT`), und die Scheitel bekommen Gezeit und Windstau neu. Für den Tidenkalender
+ebenso, mit und ohne Faktor auf die Kennwerte; `src/szenen/Hooge.gezeiten` (und die Kopie im Abbild) ändert sich nur dann –
+den neuen Stand bitte wie gewohnt pushen. Dazu je Pegel und Monat das Mittelwasser ohne Windstau (`HH_MITTELWASSER_V`).
+Von Hand: `tools\sammler.cmd --gezeiten`. Im Kalender zeigt der Knopf „Herkunft“, woher die Gezeit stammt.
 
 **Wachstumsgrenze.** Nur der Sammler lässt die Datenbank wachsen, darum räumt er bei jedem Lauf selbst auf. Die
 Minutenwerte liegen in Monatsfächern (Partitionen nach Intervall) und fallen nach `messung.roh.monate` (6) als Ganzes

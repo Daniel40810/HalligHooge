@@ -3,7 +3,7 @@
 
 app.titel          = HalligHooge
 app.unterzeile     = Gezeiten, Priele und Landunter um die Hallig
-app.version        = 2.6
+app.version        = 2.7
 app.logo           = HARBOR
 app.icon           = HalligHooge.png
 app.szenen         = Hooge.szenen
@@ -160,7 +160,14 @@ gezeiten.modell   = morpho, morpho2, ruhig
 gezeiten.einschwingen = 24
 gezeiten.stau     = 0.25
 gezeiten.marke    = 2.01; Landunter (Sommerdeich)
-gezeiten.hinweis  = Astronomische Gezeit ohne Wind und Luftdruck: aus 30 Tagen Messung am Pegel Pellworm Anleger (PEGELONLINE, WSV), mit dem Modell auf den Anleger Hooge übertragen. Wind kann Hoch- und Niedrigwasser um Dezimeter, bei Sturm um Meter heben oder senken und verschieben. Nicht zur Navigation; amtlich ist der Gezeitenkalender des BSH.
+# Seit DB5 (Werkbuch HalligHooge 176, F276–F282 A) wächst die Gezeit mit der Messung: Der Sammler rechnet am 1. jedes Monats
+# (erster Abruf ab gezeiten.wachsen.uhr, Ortszeit) je Pegel einen Kandidaten aus allen Tagen im Messarchiv und prüft ihn an den
+# jüngsten 30 Tagen; Hooge.gezeiten (und die Kopie im Abbild) ändert sich nur, wenn er besser ist. Von Hand: Sammler --gezeiten.
+# gezeiten.wachsen = aus: nur von Hand.
+gezeiten.wachsen  = an
+gezeiten.wachsen.uhr = 3
+gezeiten.kopie    = ../../dist/abbild/HalligHooge/app/szenen/Hooge.gezeiten
+gezeiten.hinweis  = Astronomische Gezeit ohne Wind und Luftdruck: aus der Messung am Pegel Pellworm Anleger (PEGELONLINE, WSV), jeden Monat neu gerechnet und nur übernommen, wenn sie besser trifft (Knopf Herkunft), mit dem Modell auf den Anleger Hooge übertragen. Wind kann Hoch- und Niedrigwasser um Dezimeter, bei Sturm um Meter heben oder senken und verschieben. Nicht zur Navigation; amtlich ist der Gezeitenkalender des BSH.
 
 # Landunter-Uhr (Z2, Werkbuch HalligHooge 156; F249, F250 A): das nächste Hochwasser mit Windstau – gemessen (PEGELONLINE,
 # Mittel aus Pellworm Anleger und Wittdün, je Messung minus Gezeit der letzten Stunde; seit Z2b) oder gewählt – gegen zwei Höhen: die niedrigste Krone

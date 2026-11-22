@@ -126,6 +126,7 @@ CREATE TABLE HH_SCHEITEL (
   GEZEIT NUMBER(6,3),
   STAU NUMBER(6,3),
   HERKUNFT VARCHAR2(12) NOT NULL,
+  ANALYSE_ID NUMBER(8),
   CONSTRAINT HH_SCHEITEL_PK PRIMARY KEY (STATION_ID, ART, ZEIT),
   CONSTRAINT HH_SCHEITEL_ART_CK CHECK (ART IN ('H', 'N')),
   CONSTRAINT HH_SCHEITEL_HERKUNFT_CK CHECK (HERKUNFT IN ('MESSUNG', 'SCHAETZUNG')),
@@ -225,6 +226,8 @@ CREATE TABLE HH_GUETE (
   MITTELWASSER NUMBER(6,3),
   TIDEMITTEL NUMBER(6,3),
   BIAS_OHNE_MW NUMBER(6,3),
+  MW_RUHIG NUMBER(6,3),
+  BIAS_OHNE_MW_RUHIG NUMBER(6,3),
   CONSTRAINT HH_GUETE_PK PRIMARY KEY (LAUF_ID, STATION_ID),
   CONSTRAINT HH_GUETE_LAUF_FK FOREIGN KEY (LAUF_ID) REFERENCES HH_LAUF (LAUF_ID),
   CONSTRAINT HH_GUETE_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
@@ -268,6 +271,69 @@ CREATE TABLE HH_GUETE_WIND (
   CONSTRAINT HH_GUETE_WIND_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
 );
 
+-- seit DB5 (Werkbuch HalligHooge 176): Gezeiten wachsen mit. Je Pegel einmal im Monat ein Kandidat aus allen Tagen, geprüft an
+-- den jüngsten 30 Tagen gegen die geltenden Konstanten (HH_GEZEIT); angenommen nur, wenn er besser ist. Jeder Kandidat bleibt
+-- mit seinen Tiden stehen (rund 30 Zeilen je Pegel und Monat). Dazu das Mittelwasser je Monat ohne die Zeiten mit Windstau.
+
+CREATE SEQUENCE HH_ANALYSE_SEQ START WITH 1 INCREMENT BY 1 NOCACHE;
+
+CREATE TABLE HH_ANALYSE (
+  ANALYSE_ID NUMBER(8) NOT NULL,
+  STATION_ID NUMBER(4) NOT NULL,
+  ZWECK VARCHAR2(10) NOT NULL,
+  STAND DATE NOT NULL,
+  VON DATE NOT NULL,
+  BIS DATE NOT NULL,
+  TAGE NUMBER(7,2),
+  WERTE NUMBER(8),
+  GENUTZT NUMBER(8),
+  REST NUMBER(6,4),
+  Z0 NUMBER(7,4),
+  TIDEN NUMBER(3),
+  ABGELEITET VARCHAR2(200),
+  PRUEF_VON DATE,
+  PRUEF_BIS DATE,
+  PRUEF_N NUMBER(5),
+  FEHLER_HOEHE NUMBER(6,4),
+  FEHLER_ZEIT NUMBER(6,2),
+  ALT_FEHLER_HOEHE NUMBER(6,4),
+  ALT_FEHLER_ZEIT NUMBER(6,2),
+  ALT_HERKUNFT VARCHAR2(20),
+  FAKTOR NUMBER(7,5),
+  ANGENOMMEN CHAR(1) NOT NULL,
+  GRUND VARCHAR2(400),
+  CONSTRAINT HH_ANALYSE_PK PRIMARY KEY (ANALYSE_ID),
+  CONSTRAINT HH_ANALYSE_ZWECK_CK CHECK (ZWECK IN ('PEGEL', 'KALENDER')),
+  CONSTRAINT HH_ANALYSE_ANGENOMMEN_CK CHECK (ANGENOMMEN IN ('J', 'N')),
+  CONSTRAINT HH_ANALYSE_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
+);
+
+CREATE INDEX HH_ANALYSE_STATION_IX ON HH_ANALYSE (STATION_ID, ZWECK, STAND);
+
+CREATE TABLE HH_ANALYSE_TIDE (
+  ANALYSE_ID NUMBER(8) NOT NULL,
+  TIDE VARCHAR2(8) NOT NULL,
+  AMPLITUDE NUMBER(9,5) NOT NULL,
+  PHASE NUMBER(7,3) NOT NULL,
+  ABGELEITET CHAR(1) NOT NULL,
+  CONSTRAINT HH_ANALYSE_TIDE_PK PRIMARY KEY (ANALYSE_ID, TIDE),
+  CONSTRAINT HH_ANALYSE_TIDE_CK CHECK (ABGELEITET IN ('J', 'N')),
+  CONSTRAINT HH_ANALYSE_TIDE_FK FOREIGN KEY (ANALYSE_ID) REFERENCES HH_ANALYSE (ANALYSE_ID)
+);
+
+CREATE TABLE HH_MITTELWASSER (
+  STATION_ID NUMBER(4) NOT NULL,
+  MONAT DATE NOT NULL,
+  MITTEL NUMBER(6,3),
+  MITTEL_ALLE NUMBER(6,3),
+  GESAMT NUMBER(6),
+  GENUTZT NUMBER(6),
+  ANALYSE_ID NUMBER(8),
+  BERECHNET DATE,
+  CONSTRAINT HH_MITTELWASSER_PK PRIMARY KEY (STATION_ID, MONAT),
+  CONSTRAINT HH_MITTELWASSER_STATION_FK FOREIGN KEY (STATION_ID) REFERENCES HH_STATION (STATION_ID)
+);
+
 COMMENT ON TABLE HH_SCHEMA IS 'Ausbaustufe des Messarchivs (com.dan.store.Einrichter)';
 COMMENT ON TABLE HH_QUELLE IS 'Quellen der Daten mit Lizenz';
 COMMENT ON TABLE HH_STATION IS 'Pegel (PEGELONLINE), Windstationen (DWD) und Orte ohne Pegel, deren Hochwasser geschätzt wird';
@@ -309,3 +375,20 @@ COMMENT ON TABLE HH_GUETE_WIND IS 'seit DB4: Zelle der Windstation und Kennzahle
 COMMENT ON COLUMN HH_GUETE_WIND.FAKTOR IS 'Summe Modell durch Summe Messung über die Werte ab guete.wind.min, das Quadrat ist das Verhältnis des Windschubs';
 COMMENT ON COLUMN HH_GUETE_WIND.RICHTUNG IS 'Versatz der Richtung in Grad, Modell minus Messung, Kreismittel gewichtet mit der gemessenen Geschwindigkeit';
 COMMENT ON COLUMN HH_GUETE_WIND.STURM_FAKTOR IS 'wie FAKTOR, nur über die Werte ab guete.wind.sturm gemessen';
+COMMENT ON COLUMN HH_SCHEITEL.ANALYSE_ID IS 'seit DB5: die Analyse (HH_ANALYSE), aus der Gezeit und Windstau stammen (leer: die 30 Tage der Übernahme oder die Tafel vor DB5)';
+COMMENT ON COLUMN HH_GUETE.MW_RUHIG IS 'seit DB5 (DB4b): Mittelwasser in m NHN über dieselben Tage wie MITTELWASSER, ohne die Zeiten mit Windstau (über 25 h mehr als 0,25 m)';
+COMMENT ON COLUMN HH_GUETE.BIAS_OHNE_MW_RUHIG IS 'seit DB5 (DB4b): Bias plus (MW_RUHIG minus Mittel im Antrieb des Modells)';
+COMMENT ON TABLE HH_ANALYSE IS 'seit DB5: je Pegel und Monat ein Kandidat der harmonischen Analyse (ZWECK PEGEL) und für den Tidenkalender am Bezug (KALENDER), mit Prüfung und Entscheidung';
+COMMENT ON COLUMN HH_ANALYSE.VON IS 'Beginn der Analyse: der erste 10-Minuten-Wert im Messarchiv';
+COMMENT ON COLUMN HH_ANALYSE.BIS IS 'Ende der Analyse und Beginn der Prüfzeit (die jüngsten 30 Tage, nie vor dem Ende der geltenden Analyse)';
+COMMENT ON COLUMN HH_ANALYSE.TAGE IS 'Tage ohne Windstau, die in die Analyse eingingen';
+COMMENT ON COLUMN HH_ANALYSE.TIDEN IS 'Zahl der analysierten Tiden (Rayleigh 1), die abgeleiteten stehen in ABGELEITET';
+COMMENT ON COLUMN HH_ANALYSE.FEHLER_HOEHE IS 'mittlerer Betrag der Abweichung der Hoch- und Niedrigwasser ohne Windstau in der Prüfzeit, Kandidat, in m';
+COMMENT ON COLUMN HH_ANALYSE.FEHLER_ZEIT IS 'dasselbe für die Zeit in min';
+COMMENT ON COLUMN HH_ANALYSE.ALT_FEHLER_HOEHE IS 'dasselbe für die geltenden Konstanten (ALT_HERKUNFT), in derselben Prüfzeit';
+COMMENT ON COLUMN HH_ANALYSE.FAKTOR IS 'Faktor auf die Kennwerte (Tidenhub 2011 bis 2020), 1 heißt ohne';
+COMMENT ON COLUMN HH_ANALYSE.ANGENOMMEN IS 'J, wenn Höhe oder Zeit um mindestens 0,5 cm oder 1 min besser wurde und keins um mehr schlechter';
+COMMENT ON TABLE HH_ANALYSE_TIDE IS 'seit DB5: Amplitude (m) und Phase (Grad, Greenwich) je Tide einer Analyse, ABGELEITET J aus der Nachbartide';
+COMMENT ON TABLE HH_MITTELWASSER IS 'seit DB5: Mittelwasser je Pegel und Monat (UTC) in m NHN, ohne die Zeiten mit Windstau, daneben das Mittel aller Werte';
+COMMENT ON COLUMN HH_MITTELWASSER.MITTEL IS 'Z0 der geltenden Gezeit plus das Mittel von Messung minus Gezeit über die Zeiten mit Windstau (über 25 h) bis 0,25 m';
+COMMENT ON COLUMN HH_MITTELWASSER.MITTEL_ALLE IS 'Mittel aller 10-Minuten-Werte des Monats, mit den Sturmtagen';
