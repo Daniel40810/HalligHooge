@@ -1,0 +1,15 @@
+# Chronik der Hochwasser (DB2, Werkbuch HalligHooge 169): geschrieben vom Sammler des Messarchivs
+# (com.dan.steuerhaus.messung), nur wenn ein Ereignis dazukommt oder sich ändert - nicht von Hand ändern.
+# Zeiten UTC, Höhen m NHN. Am Ort geschätzt, an den Pegeln gemessen (ungeprüfte Rohdaten); nicht amtlich, amtlich warnen BSH und LKN.SH.
+erstellt   = 2026-11-22T16:57:10Z
+ort        = Anleger Hooge
+krone      = 2.010; Krone des Sommerdeichs
+nass       = 2.500; Fennen nass
+seit       = 2026-10-13T00:52:38Z
+quelle     = Messarchiv HALLIGHOOGE: Pegel von PEGELONLINE (WSV, DL-DE Zero 2.0, ungeprüfte Rohdaten), am Ort geschätzt aus der Gezeit des Tidenkalenders und dem Windstau an den Bezugspegeln, Sturmflut nach BSH über dem MThw der Kennwerte
+ereignis.1  = KRONE; 2026-10-14T01:27:00Z; 2026-10-14T01:27:00Z; 2026-10-14T01:27:00Z; 1; 2.035; 0.265; Anleger Hooge; Wasser über der Krone bei einer Tide, geschätzt aus der Gezeit und dem Windstau an den Bezugspegeln
+ereignis.2  = KRONE; 2026-10-24T10:35:43Z; 2026-10-24T10:35:43Z; 2026-10-24T10:35:43Z; 1; 2.078; 0.409; Anleger Hooge; Wasser über der Krone bei einer Tide, geschätzt aus der Gezeit und dem Windstau an den Bezugspegeln
+ereignis.3  = LANDUNTER; 2026-10-25T11:13:00Z; 2026-10-26T11:48:40Z; 2026-10-25T23:34:04Z; 3; 3.512; 1.755; Anleger Hooge; Landunter über drei Tiden, geschätzt aus der Gezeit und dem Windstau an den Bezugspegeln
+ereignis.4  = STURMFLUT; 2026-10-25T21:14:00Z; 2026-10-26T11:01:00Z; 2026-10-25T22:12:00Z; 2; 3.896; 2.336; Eider-Sperrwerk AP; Sturmflut nach BSH an 19 Pegeln, am höchsten Eider-Sperrwerk AP mit 2,34 m über dem MThw
+ereignis.5  = KRONE; 2026-10-28T00:38:41Z; 2026-10-28T13:01:24Z; 2026-10-28T13:01:24Z; 2; 2.441; 0.414; Anleger Hooge; Wasser über der Krone über zwei Tiden, geschätzt aus der Gezeit und dem Windstau an den Bezugspegeln
+ereignis.6  = KRONE; 2026-11-12T13:27:39Z; 2026-11-13T01:38:54Z; 2026-11-13T01:38:54Z; 2; 2.375; 0.794; Anleger Hooge; Wasser über der Krone über zwei Tiden, geschätzt aus der Gezeit und dem Windstau an den Bezugspegeln

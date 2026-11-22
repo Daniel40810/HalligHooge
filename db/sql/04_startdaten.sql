@@ -4,6 +4,8 @@
 
 INSERT INTO HH_SCHEMA (VERSION, TEXT) VALUES (1, 'DB1 Messarchiv: Pegel, Wind, Mittel, Scheitel, Schätzung am Ort, Wachstumsgrenze');
 
+INSERT INTO HH_SCHEMA (VERSION, TEXT) VALUES (2, 'DB2 Chronik der Hochwasser, Wind 2020 bis 2025, Füllstand je Tabelle');
+
 INSERT INTO HH_QUELLE (QUELLE_ID, KURZ, TITEL, ANBIETER, LIZENZ, ADRESSE) VALUES (1, 'PEGELONLINE', 'Wasserstand an den Pegeln, Rohdaten je Minute', 'Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV)', 'DL-DE Zero 2.0', 'https://www.pegelonline.wsv.de/webservices/rest-api/v2');
 
 INSERT INTO HH_QUELLE (QUELLE_ID, KURZ, TITEL, ANBIETER, LIZENZ, ADRESSE) VALUES (2, 'DWD', 'Wind, 10-Minuten-Werte an Stationen', 'Deutscher Wetterdienst, Climate Data Center', 'CC BY 4.0, Quelle: Deutscher Wetterdienst', 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/wind/');

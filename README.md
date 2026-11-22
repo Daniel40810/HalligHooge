@@ -183,7 +183,9 @@ PEGELONLINE gibt den Wasserstand nur 30 Tage rückwirkend her. Das Messarchiv h�
 Wind des DWD (Helgoland, List) in ein Oracle-Schema `HALLIGHOOGE` (Präfix `HH_`, Lage in ETRS89 / UTM 32, SRID 25832).
 Daraus werden 10-Minuten-Mittel, Hoch- und Niedrigwasser mit Windstau, Sturmfluten nach den Klassen des BSH und, für
 den Anleger Hooge ohne eigenen Pegel, das geschätzte Hochwasser mit Landunter (Gezeit aus dem Tidenkalender plus
-Windstau an Pellworm Anleger und Wittdün, wie die Landunter-Uhr). **Die App läuft ohne Datenbank.**
+Windstau an Pellworm Anleger und Wittdün, wie die Landunter-Uhr). **Die App läuft ohne Datenbank:** Was das Archiv findet,
+steht seit DB2 in der Chronik `src/szenen/Hooge.chronik` (Landunter, Wasser über der Krone, Sturmfluten), die der Sammler
+nur bei einem neuen Ereignis neu schreibt; die App liest nur diese Datei.
 
 | Teil | Inhalt |
 |---|---|
@@ -191,7 +193,9 @@ Windstau an Pellworm Anleger und Wittdün, wie die Landunter-Uhr). **Die App lä
 | `messung.*` in `src/szenen/Hooge.steuerhaus` | Zugang, Aufbewahrung, Grenze, Quellen, Ort |
 | `tools/lauf_DB1.cmd` | einmal: bauen, prüfen, Schema einrichten, Bestand aus `daten/gebiet` übernehmen, erster Abruf, Aufgabe anlegen |
 | `tools/sammler_aufgabe.cmd` | die stündliche Aufgabe „HalligHooge Messarchiv“ anlegen (`aus`: entfernen) |
-| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet` |
+| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet`, `--chronik`, `--wind-nachladen` |
+| `src/szenen/Hooge.chronik` | seit DB2: die Chronik der Hochwasser, vom Sammler geschrieben, nur wenn ein Ereignis dazukommt; die App zeigt sie unter Labor › Chronik der Hochwasser (Strg Umschalt H) und unter der Landunter-Uhr |
+| `tools/lauf_DB2.cmd` | DB2: Chronik, Wind 2020 bis 2025, Füllstand je Tabelle, Abbild 2.4.0 |
 
 **Wachstumsgrenze.** Nur der Sammler lässt die Datenbank wachsen, darum räumt er bei jedem Lauf selbst auf. Die
 Minutenwerte liegen in Monatsfächern (Partitionen nach Intervall) und fallen nach `messung.roh.monate` (6) als Ganzes

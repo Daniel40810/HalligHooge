@@ -3,7 +3,7 @@
 
 app.titel          = HalligHooge
 app.unterzeile     = Gezeiten, Priele und Landunter um die Hallig
-app.version        = 2.3
+app.version        = 2.4
 app.logo           = HARBOR
 app.icon           = HalligHooge.png
 app.szenen         = Hooge.szenen
@@ -213,3 +213,15 @@ messung.pegelonline = https://www.pegelonline.wsv.de/webservices/rest-api/v2
 messung.dwd         = https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/wind/recent
 messung.dwd.stunden = 20
 messung.ort         = HOOGE_ANLEGER; Anleger Hooge
+
+# Chronik der Hochwasser (DB2, Werkbuch HalligHooge 169; F266 A, F267 A): der Sammler des Messarchivs schreibt Hooge.chronik
+# neben dieses Manifest (und in die Kopie im Abbild, wenn es das gibt), aber nur, wenn ein Ereignis dazukommt oder sich
+# ändert. Die App liest nur die Datei: Menü Labor › Chronik der Hochwasser (Strg Umschalt H), Startseite (Gruppe „Labor“),
+# dazu unter der Landunter-Uhr „Zuletzt Landunter …“ und der gemessene Windstau des jüngsten Landunters zur Auswahl.
+# Der Knopf eines Ereignisses öffnet das erste Szenario, dessen Archiv die Zeit abdeckt (eine Stunde vor dem höchsten
+# Wasser), am Ort mit chronik.ansicht.
+chronik.name    = Chronik der Hochwasser
+chronik.datei   = Hooge.chronik
+chronik.kopie   = ../../dist/abbild/HalligHooge/app/szenen/Hooge.chronik
+chronik.ansicht = landunter_hanswarft
+chronik.hinweis = Landunter und Wasser über der Krone am Anleger Hooge sind geschätzt: Gezeit aus dem Tidenkalender plus Windstau an Pellworm Anleger und Wittdün (PEGELONLINE, WSV, ungeprüfte Rohdaten); Landunter ab 2,50 m außen ist im Modell abgelesen. Sturmfluten nach den Klassen des BSH über dem mittleren Hochwasser (MThw) der Pegel. Nicht amtlich: amtlich warnen das BSH und der LKN.SH.
