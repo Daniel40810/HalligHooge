@@ -1,0 +1,39 @@
+# Build- und Ausgabeordner (Ant/NetBeans)
+/build/
+/dist/
+*.class
+
+# Lokale NetBeans-Einstellungen
+/nbproject/private/
+
+# Bibliotheken nicht im Repo (F258 B), siehe README, Abschnitt Bibliotheken.
+# Nur die NetBeans-Bibliotheksdefinition bleibt, damit das Projekt sauber oeffnet.
+/lib/*
+!/lib/nblibraries.properties
+!/lib/CopyLibs/
+
+# Daten, Downloads und Pruefberichte bleiben lokal (F260 A), siehe README
+/daten/
+/download/
+/docs/
+/lwjgl-*.zip
+/vulkanbook-master.zip
+
+# Zugangsdaten: nie ins Git (Vorlagen: db.properties.example, USER.sql.example)
+/db/db.properties
+/db/USER.sql
+
+# Arbeitsstaende, Absturzprotokolle
+/_to_delete/
+/Claude outputs/
+hs_err_pid*.log
+
+# Python-Zwischenstaende
+__pycache__/
+*.pyc
+
+# Backups und temporaere Dateien
+*.bak
+*~
+Thumbs.db
+.DS_Store

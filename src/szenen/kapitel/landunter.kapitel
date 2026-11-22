@@ -1,0 +1,57 @@
+# HalligHooge · Kapitel 2 (X2, Werkbuch HalligHooge 146): aus dem Regiebuch „Landunter an der Hanswarft“. Texte: Entwurf Claude.
+Regiebuch: Landunter
+Beschreibung: Sturmflut am 25. Oktober 2026 – am Mittag hält der Sommerdeich, in der Nacht läuft die Hallig voll
+Länge: 2:10
+0:00 weiter
+0:00 szenario seegang
+0:00 zeit 25.10.2026 11:00
+0:00 raffer 120
+0:00 einblendung uhr,minikarte
+0:00 ansicht brandung
+0:00 tafel Sturm aus West | 25. Oktober 2026, 11:00: Wind aus West mit 14 m/s. Er schiebt Wasser gegen die Küste und hebt den Wasserstand über die astronomische Tide hinaus – den Windstau. Vor dem Japsand läuft der Seegang aus der Nordsee ein und bricht auf dem Sand.
+0:00 sonde 470410 6048090 Pegel Hooge
+0:15 ansicht westkante
+0:30 halt
+0:30 warte klick
+0:30 weiter
+0:30 szenario seegang
+0:30 zeit 25.10.2026 12:45
+0:30 raffer 120
+0:30 ansicht hanswarft_haeuser
+0:30 tafel Der Sommerdeich hält | Um 13:25 steht das Hochwasser bei +2,25 m NHN – über der Marke von 2,01 m. Und doch bleibt die Fenne trocken: Der Sommerdeich ist an seiner niedrigsten Stelle so hoch wie die Marke, und das Wasser braucht Zeit, um über die Krone zu laufen. Danach fällt es schon wieder.
+0:50 halt
+0:50 warte klick
+0:50 weiter
+0:50 szenario seegang
+0:50 zeit 25.10.2026 21:30
+0:50 raffer 300
+0:50 ansicht landunter_hanswarft
+0:50 tafel Landunter | Die nächste Flut kommt mit dem Sturm höher. Um 22:30 steht der Pegel bei +2,31 m NHN, und das Wasser läuft über den Sommerdeich auf die Hallig. Die Fennen laufen voll; nur die Warften bleiben trocken.
+0:50 sonde 470800 6046470 Fenne vor der Hanswarft
+0:56 warte pegel > 2,3
+0:56 raffer 60
+1:00 fahrt Um die Hanswarft
+2:04 halt
+2:04 warte klick
+2:04 weiter
+2:04 szenario seegang
+2:04 zeit 25.10.2026 23:30
+2:04 raffer 240
+2:04 ansicht warften
+2:04 tafel Die Warften als Inseln | In der Nacht stehen die Warften wie Inseln im Meer. Um 00:55 erreicht die Sturmflut am Anleger ihren Scheitel mit +3,03 m NHN. Die Kuppe der Hanswarft liegt gut 2,9 m darüber – dafür wurden die Warften aufgeworfen.
+2:08 halt
+2:08 warte klick
+2:08 einblendung aus
+2:10 sage Ende des Kapitels „Landunter“
+
+Fahrt: Um die Hanswarft
+0:00 470767 6046427 10 nhn 45 -3 55
+0:08 470700 6046590 10 nhn 90 -3 55
+0:16 470767 6046753 10 nhn 135 -3 55
+0:24 470930 6046820 10 nhn 180 -3 55
+0:32 471093 6046753 10 nhn 225 -3 55
+0:40 471160 6046590 10 nhn 270 -3 55
+0:48 471093 6046427 10 nhn 315 -3 55
+0:56 470930 6046360 10 nhn 0 -3 55
+1:04 470767 6046427 10 nhn 45 -3 55
+Ende

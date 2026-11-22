@@ -1,0 +1,192 @@
+# HalligHooge – Manifest im Steuerhaus (Werkbuch HalligHooge 110, F178 A)
+# Format wie Rezept und Szenendatei: schluessel = wert, # leitet einen Kommentar ein.
+
+app.titel          = HalligHooge
+app.unterzeile     = Gezeiten, Priele und Landunter um die Hallig
+app.version        = 2.3
+app.logo           = HARBOR
+app.icon           = HalligHooge.png
+app.szenen         = Hooge.szenen
+app.thema          = nautik
+app.arbeitsbereich = steuern
+app.fotos          = docs/fotos
+# seit W4: Ablage der Videos und Stärke des Filmkorns in Video und Standbild (1 = Vision3 250D, 0 = aus; seit W4b 0,5, F207 A)
+ausgabe.videos     = docs/video
+ausgabe.korn       = 0.5
+app.zone           = Europe/Berlin
+
+# Einblendungen (W2, Werkbuch HalligHooge 113): die Minikarte über Hooge und den Japsand (UTM 32: Ost, Nord, Ost, Nord),
+# die Ortsnamen aus OpenStreetMap (tools/orte/orte.py schreibt orte.txt in den Ordner des Gebiets; F187 A).
+# Weitere Schlüssel: orte.ohne = Name, Name · orte.umbenennen = Alt > Neu; … · orte.dazu.1 = Art; Name; Ost; Nord · einblendung.mass = 1.25
+minikarte  = 461000 6043000 475000 6051000
+orte.arten = Hallig, Insel, Warft, Sand, Kirche, Anleger
+
+# Regie (W3, Werkbuch HalligHooge 116; Teil C, Werkbuch 135): Regiebücher (Menü Regie › Regiebuch im Kino), Aufnahmen der App, Lesezeichen
+regie.1          = regie/tag.regie
+regie.2          = regie/landunter.regie
+regie.3          = regie/xaver.regie
+regie.4          = regie/stroemung.regie
+regie.5          = regie/sediment.regie
+regie.6          = regie/luft.regie
+regie.7          = regie/hooge.regie
+regie.aufnahmen  = regie/aufnahmen.regie
+app.lesezeichen  = Hooge.lesezeichen
+
+# Quellennachweis (Wortlaute aus tools/kartenmaterial/kartenmaterial.py, je Quelle)
+quelle.1  = DGM1, bDOM, DOP20, DTK5, DTK25 und 3D-Gebäudemodell LoD2: © GeoBasis-DE/LVermGeo SH/CC BY 4.0
+quelle.2  = Watt und Sände (TrilaWatt 2021), Bathymetrie, Kennwerte und Sedimentologie (EasyGSH-DB): Quellenvermerk: Bundesanstalt für Wasserbau 2026 (CC BY 4.0); nicht für die Navigation
+quelle.3  = Wetter, Seegang und Strahlung: ERA5, Copernicus Climate Change Service (C3S), ECMWF; enthält modifizierte Copernicus-Daten
+quelle.4  = Gelände außerhalb Schleswig-Holsteins: Copernicus DEM GLO-30, © DLR e.V. 2010–2014 und © Airbus Defence and Space GmbH 2014–2018, bereitgestellt im Rahmen des Copernicus-Programms
+quelle.5  = Satellitenbilder: enthält modifizierte Copernicus-Sentinel-Daten (Sentinel-2, 2024–2026)
+quelle.6  = Bathymetrie der Nordsee: EMODnet Bathymetry Consortium, EMODnet Digital Bathymetry (DTM); GEBCO Compilation Group, GEBCO 2025 Grid
+quelle.7  = Gezeiten am Rand: EOT20, Hart-Davis u. a. (2021), CC BY 4.0
+quelle.8  = Pegel: PEGELONLINE, Wasserstraßen- und Schifffahrtsverwaltung des Bundes (WSV), DL-DE Zero 2.0
+quelle.9  = Wind an Land: Quelle: Deutscher Wetterdienst (CC BY 4.0)
+quelle.10 = Küste und Szene: © OpenStreetMap-Mitwirkende (ODbL 1.0); Natural Earth (gemeinfrei)
+
+# Katalog: Gruppen der Szenarien und Ansichten (Schlüssel aus Hooge.szenen; was fehlt, steht unter „Weitere“)
+katalog.szenarien.1 = Tide und Sturm: ruhig, sturm, xaver, live
+katalog.szenarien.2 = Seegang: seegang, ruhigsee
+katalog.szenarien.3 = Sediment: sediment, ruhigsed, livesed
+katalog.szenarien.4 = Luft und Sand: kimmung, flugsand
+katalog.szenarien.5 = Ein Jahr Morphologie: morpho, morpho2, morphosturm
+
+katalog.ansichten.1 = Hallig und Warften: hanswarft, hanswarft_haeuser, kirchwarft, backenswarft, warften, fething, gehoelz, halme, hafen
+katalog.ansichten.2 = Landunter: landunter_hanswarft, landunter_kirchwarft
+katalog.ansichten.3 = Deich und Kante: westspitze, westkante, steinkante_west, abend, vorland, lahnungen
+katalog.ansichten.4 = Watt und Priele: prielmuendung, rippel, sandfegen
+katalog.ansichten.5 = Japsand und Brandung: japsand, japsand_oben, brandung, brandung_hanswarft
+katalog.ansichten.6 = Überblick: vogelblick, fernglas
+
+# Vorschaubilder (--vorschau): Szenario und Zeit (UTC) je Ansicht; ohne Eintrag das erste Szenario zu seinem Beginn
+vorschau.ansicht.landunter_hanswarft  = sturm 2026-10-25T23:30:00Z
+vorschau.ansicht.landunter_kirchwarft = sturm 2026-10-25T23:30:00Z
+vorschau.ansicht.brandung             = seegang 2026-10-25T10:00:00Z
+vorschau.ansicht.brandung_hanswarft   = seegang 2026-10-25T10:00:00Z
+vorschau.ansicht.prielmuendung        = sediment 2026-10-25T10:00:00Z
+vorschau.ansicht.rippel               = ruhigsed 2026-10-30T10:00:00Z
+vorschau.ansicht.abend                = ruhig 2026-10-30T15:00:00Z
+vorschau.ansicht.fernglas             = kimmung 2026-10-18T08:00:00Z
+vorschau.ansicht.sandfegen            = flugsand 2026-10-17T15:40:00Z
+
+# Motivsuche für die Regiebücher (Teil C, Werkbuch HalligHooge 134, F226 A): je Szenario die Ansichten der Kontaktbögen;
+# hinter „@“ die Ebenen des Messblicks (partikel, lic, linien). Optional .bereich = von bis (UTC), sonst das ganze Archiv.
+motivsuche.ruhig        = westspitze, rippel, abend, prielmuendung@partikel,lic
+motivsuche.ruhigsed     = rippel, prielmuendung, vorland
+motivsuche.sturm        = hanswarft_haeuser, landunter_hanswarft, warften, prielmuendung@partikel,lic
+motivsuche.seegang      = brandung, westkante, brandung_hanswarft
+motivsuche.ruhigsee     = westspitze, brandung
+motivsuche.xaver        = steinkante_west, brandung_hanswarft, landunter_kirchwarft, vogelblick
+motivsuche.sediment     = prielmuendung, japsand_oben
+motivsuche.morpho       = japsand_oben
+motivsuche.morpho2      = japsand_oben
+motivsuche.morphosturm  = japsand_oben
+motivsuche.kimmung      = fernglas, japsand
+motivsuche.kimmung.bereich  = 2026-10-18T04:00:00Z 2026-10-18T12:00:00Z
+motivsuche.flugsand     = sandfegen, japsand
+motivsuche.flugsand.bereich = 2026-10-17T13:00:00Z 2026-10-18T08:00:00Z
+
+# Startseite und Atlas (X1, Werkbuch HalligHooge 145; F241 A, F243 A): die Startseite zeigt den Atlas, die Infotafeln und
+# die Kacheln. Den Atlas rechnet einmal  ... --manifest src\szenen\Hooge.steuerhaus --atlas  (Gebiet und Archive auf D:);
+# danach liest die Startseite nur noch src\szenen\atlas\ und die Texte in Hooge.atlas.
+app.startseite = an
+atlas.texte    = Hooge.atlas
+atlas.karte    = 459500 6040000 475500 6052000
+atlas.zelle    = 3
+atlas.blick    = 469700 6046900 7500
+atlas.ebene.1  = niedrig; Niedrigwasser; ruhig; niedrig
+atlas.ebene.2  = hoch; Hochwasser; ruhig; hoch
+atlas.ebene.3  = landunter; Landunter; sturm; scheitel
+atlas.sturm    = sturm
+atlas.ruhig    = ruhig
+
+# Kapitel (X2, Werkbuch HalligHooge 146, F244 A): Regiebücher mit Tafeln und Haltepunkten; Startseite und Menü Regie › Kapitel.
+kapitel.1 = kapitel/tag.kapitel
+kapitel.2 = kapitel/landunter.kapitel
+kapitel.3 = kapitel/xaver.kapitel
+kapitel.4 = kapitel/stroemung.kapitel
+kapitel.5 = kapitel/sediment.kapitel
+kapitel.6 = kapitel/luft.kapitel
+
+# Rundgänge (X3, Werkbuch HalligHooge 148, F240 A): Halte an Orten der Karte, dazwischen auf Augenhöhe die Wege entlang.
+# Die Quellen schreibt man von Hand; die Wege rechnet einmal  ... --manifest src\szenen\Hooge.steuerhaus --wege
+# (OSM-Wege und Gelände auf D:) nach rundgang\<name>.weg. Startseite (Gruppe „Rundgänge“) und Menü Regie › Rundgang.
+rundgang.1 = rundgang/warften.rundgang
+rundgang.2 = rundgang/landunter.rundgang
+
+# Postkarte (X4, Werkbuch HalligHooge 150): Datei › Postkarte (Strg P) – der Blick jetzt mit Rahmen und Unterschrift.
+# Vorlage = Name; Stil (gold, weiss, ohne); Titel; Zeile. Platzhalter: {titel} {ort} {ansicht} {szenario} {datum} {uhr}
+# {pegel} {pegelname} {wind}; ein Teil zwischen „·“, dessen Platzhalter leer bleibt, fällt weg.
+postkarte.titel     = Hallig Hooge
+postkarte.vorlage.1 = Goldkante; gold; {titel}; {ort} · {datum}, {uhr} · {pegelname} {pegel} · Wind {wind}
+postkarte.vorlage.2 = Gruß von der Hallig; weiss; Gruß von der {titel}; {ort} · {datum}, {uhr}
+postkarte.vorlage.3 = Randlos; ohne; {ort}; {titel} · {datum}, {uhr} · Wind {wind}
+postkarte.vorlage.4 = Landunter; gold; Landunter auf {titel}; {datum}, {uhr} · {pegelname} {pegel} · {ort}
+
+# Vergleiche (Y1, Werkbuch HalligHooge 152; F246 B): zwei Szenarien, dieselbe Kamera, gleiche Phase der Tide – als
+# Bildfolge der Ausgabe, im Spieler mit Schieber und den Kurven derselben Sonden. Menü Labor › Vergleich, Startseite
+# (Gruppe „Vergleiche“). Beim ersten Öffnen rechnet die Ausgabe die Mappe nach ausgabe.vergleiche/<schluessel>.
+vergleich.datei    = Hooge.vergleiche
+ausgabe.vergleiche = docs/vergleich
+
+# Ein Jahr in einer Minute (Y3, Werkbuch HalligHooge 154): der Boden der drei Läufe des Modelljahrs (P9c) als
+# Differenzkarte im Zeitraffer, mit der Linie +1 m NHN des Japsands und einem Profil quer über den Sand bis Hooge.
+# Menü Labor (Strg Umschalt J), Startseite (Gruppe „Labor“). Die Mappe rechnet einmal  ... --jahr  (Ausgabe; Archive
+# und Gebiet auf D:), sonst beim ersten Öffnen. jahr.dauer: Sekunden je Abschnitt in der Minute (der Sturm langsamer).
+jahr.name     = Ein Jahr in einer Minute
+jahr.1        = morpho; Erstes Halbjahr
+jahr.2        = morpho2; Zweites Halbjahr
+jahr.3        = morphosturm; Sturm
+jahr.dauer    = 24 24 12
+jahr.sand     = Japsand
+jahr.kasten   = 462000 6043000 468500 6051000
+jahr.schwelle = 1.0
+jahr.profil   = 462500 6046000 471500 6046000
+jahr.ansicht  = japsand_oben
+jahr.hinweis  = Modell, keine Messung: Drei Tage Wetter vom Oktober 2026 mit dem Boden mal 60 stehen für je ein halbes Jahr, der Sturm vom 25./26.10. mal 4 für fünf Tage (P9c). Das erste Halbjahr ist zum Teil Anpassung des Bodens an das Modell. Der Japsand wandert im Modell etwa halb so schnell nach Osten wie gemessen (6 statt 13 m im Jahr), fast ganz im Sturm; die Rinnen bewegen sich eher zu viel.
+ausgabe.jahr  = docs/jahr
+
+# Tidenkalender (Z1, Werkbuch HalligHooge 155; F248 B): Hoch- und Niedrigwasser je Tag, Spring- und Nipptide, Mond,
+# Ausblick über acht Wochen. Auf Hooge gibt es keinen Pegel bei PEGELONLINE: die Konstanten kommen aus der Messung am
+# Pegel Pellworm Anleger (gebiet/pegel), mit dem Modell auf den Anleger übertragen und an Wittdün geprüft. Einmal rechnen:
+# ... --gezeiten (Ausgabe; Pegel, Gebiet und Archive auf D:) nach Hooge.gezeiten; danach liest die App nur diese Datei.
+# Menü Begleiter › Tidenkalender (Strg Umschalt T), Startseite (Gruppe „Begleiter“).
+gezeiten.name     = Tidenkalender
+gezeiten.datei    = Hooge.gezeiten
+gezeiten.ort      = Anleger Hooge; 471381 6047983; 300
+gezeiten.bezug    = PELLWORM_ANLEGER; Pellworm Anleger; 500
+gezeiten.pruef    = WITTDÜN; Wittdün (Amrum); 500
+gezeiten.modell   = morpho, morpho2, ruhig
+gezeiten.einschwingen = 24
+gezeiten.stau     = 0.25
+gezeiten.marke    = 2.01; Landunter (Sommerdeich)
+gezeiten.hinweis  = Astronomische Gezeit ohne Wind und Luftdruck: aus 30 Tagen Messung am Pegel Pellworm Anleger (PEGELONLINE, WSV), mit dem Modell auf den Anleger Hooge übertragen. Wind kann Hoch- und Niedrigwasser um Dezimeter, bei Sturm um Meter heben oder senken und verschieben. Nicht zur Navigation; amtlich ist der Gezeitenkalender des BSH.
+
+# Landunter-Uhr (Z2, Werkbuch HalligHooge 156; F249, F250 A): das nächste Hochwasser mit Windstau – gemessen (PEGELONLINE,
+# Mittel aus Pellworm Anleger und Wittdün, je Messung minus Gezeit der letzten Stunde; seit Z2b) oder gewählt – gegen zwei Höhen: die niedrigste Krone
+# des Sommerdeichs (dort läuft Wasser über) und die Höhe außen, ab der im Modell die Fennen an den Warften nass werden
+# (Landunter; in drei Stürmen frühestens 2,52 m). Dazu die Warften des Atlas beim Scheitel. Rechnet mit den Konstanten
+# des Tidenkalenders (gezeiten.*; der Bezug und der Fehler des Windstaus stehen seit Z2 mit in Hooge.gezeiten).
+# Menü Begleiter › Landunter-Uhr (Strg Umschalt U), Startseite (Gruppe „Begleiter“). LandunterCheck prüft an landunter.modell.
+landunter.name    = Landunter-Uhr
+landunter.krone   = 2.01; Krone des Sommerdeichs
+landunter.nass    = 2.50; Fennen nass
+landunter.modell  = seegang, xaver
+landunter.hallig  = Hooge; 2500
+landunter.sturm   = an
+landunter.wahl.1  = 1.50; Sturmflut, BSH-Klasse
+landunter.wahl.2  = 2.50; Schwere Sturmflut, BSH-Klasse
+landunter.hinweis = Gezeit wie im Tidenkalender plus ein Windstau, der über die Tide gleich bleibt. Gemessen heißt: Mittel aus Messung minus Gezeit an den Pegeln Pellworm Anleger und Wittdün in der letzten Stunde (PEGELONLINE, WSV, ungeprüfte Rohdaten); Hooge liegt dazwischen, dort kann er anders sein, und er ändert sich mit dem Wind. Die BSH-Klassen gelten über dem mittleren Hochwasser, hier als Windstau. Landunter ab 2,50 m außen ist im Modell abgelesen (drei Stürme), nicht gemessen. Höhen der Warften aus dem Atlas (DGM1). Nicht zur Navigation und nicht zur Warnung: amtlich warnen das BSH und der LKN.SH.
+
+# Watt-Fenster (Z3, Werkbuch HalligHooge 158): wann der Weg von der Westspitze zum Japsand trocken ist und wie lange.
+# Einmal rechnen: ... --watt (Ausgabe; Gelände und Archive auf D:, dazu Hooge.gezeiten) nach Hooge.watt und watt/;
+# danach liest die App nur diese Dateien. Menü Begleiter › Watt-Fenster (Strg Umschalt W), Startseite (Gruppe „Begleiter“).
+watt.name    = Watt-Fenster
+watt.datei   = Hooge.watt
+watt.start   = Westspitze; 468290 6047690
+watt.ziel    = Japsand; 465987 6046653; 300
+watt.karte   = 463000 6044000 470000 6050000; 5
+watt.priel   = 120
+watt.modell  = morpho, morpho2, ruhig
+watt.gehen   = 3
+watt.hinweis = Modell, nicht zur Navigation. Trocken heißt hier: Der höchste Weg im Gelände (DGM1, TrilaWatt 2021) liegt über dem Wasser; wann das Watt leerläuft und wieder vollläuft, kommt aus dem Modell, die Gezeit aus dem Tidenkalender (ohne Wind; Wind kann das Fenster verschieben, kürzen oder schließen). Priele verlagern sich, Nebel und Schlick sind nicht enthalten. Ins Watt zum Japsand nur mit Nationalpark-Wattführerin oder -Wattführer.

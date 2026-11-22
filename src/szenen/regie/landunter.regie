@@ -1,0 +1,39 @@
+# HalligHooge · Regiebuch 2 (Teil C, Werkbuch HalligHooge 135; seit W3 „Landunter an der Hanswarft“, ausgebaut).
+# Zeiten in MEZ, Zahlen aus der Motivsuche (docs/motivsuche/seegang_motive.txt, Pegel Hooge). Befund der Motivsuche: Zum
+# Hochwasser am Mittag (+2,25 m) steht der Pegel über der Marke, die Fenne bleibt aber trocken; die Hallig läuft erst in
+# der Nacht voll. Darum wartet das Buch auf +2,3 m und nicht auf die Marke. Gestaltet [G]: Abfolge, Blicke, Wortlaut.
+Regiebuch: Landunter an der Hanswarft
+Beschreibung: Sturmflut am 25. Oktober 2026: Am Mittag hält der Sommerdeich, in der Nacht stehen die Warften als Inseln im Meer
+Länge: 3:00
+0:00 szenario seegang
+0:00 zeit 25.10.2026 11:00 | 25. Oktober 2026, 11:00 – Sturm aus West, 14 m/s. Vor dem Japsand läuft der Seegang aus der Nordsee ein
+0:00 raffer 120
+0:00 einblendung aus
+0:00 ansicht brandung
+0:15 ansicht westkante | 11:30, Pegel +1,76 m NHN: Das Wasser steigt gegen den Sommerdeich
+1:00 ansicht hanswarft_haeuser
+1:12 sage 13:25 Hochwasser, +2,25 m NHN – über der Marke von 2,01 m, doch der Sommerdeich hält: Die Fenne bleibt trocken
+1:25 zeit 25.10.2026 21:30 | 21:30 – die nächste Flut kommt mit dem Sturm höher
+1:25 raffer 300
+1:25 ansicht landunter_hanswarft
+1:31 warte pegel > 2,3 | 22:30, +2,31 m NHN: Das Wasser läuft über den Sommerdeich – Landunter
+1:31 raffer 60
+1:35 fahrt Um die Hanswarft | Einmal um die Warft, das Wasser steigt weiter
+2:39 ansicht warften | Die Warften stehen als Inseln im Meer
+2:39 raffer 240
+2:39 einblendung uhr
+2:56 sage 00:55 Scheitel der Sturmflut: +3,03 m NHN am Anleger
+3:00 einblendung aus
+
+# Einmal um die Hanswarft (Mitte 470930 6046590, OSM), 230 m Abstand, 10 m über NHN, Blick zur Mitte; 8 s je Achtel
+Fahrt: Um die Hanswarft
+0:00 470767 6046427 10 nhn 45 -3 55
+0:08 470700 6046590 10 nhn 90 -3 55
+0:16 470767 6046753 10 nhn 135 -3 55
+0:24 470930 6046820 10 nhn 180 -3 55
+0:32 471093 6046753 10 nhn 225 -3 55
+0:40 471160 6046590 10 nhn 270 -3 55
+0:48 471093 6046427 10 nhn 315 -3 55
+0:56 470930 6046360 10 nhn 0 -3 55
+1:04 470767 6046427 10 nhn 45 -3 55
+Ende

@@ -1,0 +1,8 @@
+BEGIN
+    -- Oracle21C
+	-- Servicename: "PDBORCL"
+    -- ROLE: "DB_CONNECT"
+	-- Schema anlegen (Schemaname, Password)
+	-- Vorlage: nach USER.sql kopieren und das Passwort eintragen. USER.sql steht in .gitignore und kommt nie ins Git.
+		manage_user('HalligHooge', '<Passwort>');
+END;

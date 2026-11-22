@@ -1,0 +1,25 @@
+# HalligHooge · Regiebuch 4 (Teil C, Werkbuch HalligHooge 137; F223 A, F224 A). Zeiten in MEZ, Zahlen aus der Motivsuche
+# (docs/motivsuche/ruhig_motive.txt und sturm_motive.txt, Strömung an der Sonde am Pegel Hooge). Der Messblick zeigt die
+# Strömung des Archivs mit Partikeln und LIC (Schlieren längs der Strömung). Gestaltet [G]: Abfolge, Blicke, Wortlaut.
+Regiebuch: Strömung
+Beschreibung: Wie das Wasser fließt: Flutstrom, Kentern und Ebbstrom in der Prielmündung, am ruhigen Tag und im Sturm
+Länge: 2:30
+0:00 szenario ruhig
+0:00 zeit 30.10.2026 12:00 | 30. Oktober 2026, 12:00 – die Flut läuft auf. Partikel und Schlieren folgen der Strömung
+0:00 raffer 300
+0:00 einblendung aus
+0:00 ansicht prielmuendung
+0:00 messblick partikel,lic
+0:12 sage 13:00: Der Flutstrom am Anleger erreicht 0,35 m/s
+0:36 sage Vor dem Hochwasser wird der Strom langsamer
+0:45 raffer 120 | 15:45 Hochwasser: Der Strom kentert, im Priel drehen Wirbel
+1:00 raffer 300
+1:12 sage 17:15: Der Ebbstrom setzt ein, gut 0,4 m/s am Anleger
+1:30 szenario sturm
+1:30 zeit 25.10.2026 19:30 | 25. Oktober 2026, 19:30, Sturm: Die nächste Flut strömt schneller ein, bis 0,57 m/s am Anleger
+1:30 ansicht prielmuendung
+1:30 messblick partikel,lic
+2:02 ansicht vogelblick | 22:10: Das Wasser strömt über den Sommerdeich auf die Hallig
+2:20 messblick aus
+2:20 einblendung uhr
+2:30 einblendung aus

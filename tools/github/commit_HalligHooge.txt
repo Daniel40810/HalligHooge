@@ -1,0 +1,10 @@
+Initial commit: HalligHooge 2.3
+
+Gezeiten, Priele und Landunter um Hallig Hooge mit Japsand, Norderoogsand und Süderoogsand:
+Szenen, Ansichten, Regiebücher, Ausstellung, Sturmflut-Labor und Hallig-Begleiter über Renderer
+und Steuerhaus, dazu die Werkzeuge, mit denen Kartenmaterial und Daten entstanden sind. Stand
+nach D1. Die Daten (daten, rund 17 GB), die Prüfberichte (docs) und die Bibliotheken (lib) liegen
+nicht im Repository, siehe README.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_017B1juzy9zDkHcnBVz928cb

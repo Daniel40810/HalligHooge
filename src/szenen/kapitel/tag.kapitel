@@ -1,0 +1,55 @@
+# HalligHooge · Kapitel 1 (X2, Werkbuch HalligHooge 146, F244 A): aus dem Regiebuch „Ein Tag auf Hooge“, mit Haltepunkten.
+# Jeder Abschnitt beginnt mit „weiter“ und stellt Szenario, Zeit und Ansicht selbst (so geht „zurück“), endet mit
+# „halt“ und „warte klick“. Zahlen aus der Motivsuche (docs/motivsuche/ruhigsed_motive.txt). Texte: Entwurf Claude.
+Regiebuch: Ebbe und Flut
+Beschreibung: Ein ruhiger Tag, 30. Oktober 2026 – wie die Tide über das Watt läuft
+Länge: 1:50
+0:00 weiter
+0:00 szenario ruhigsed
+0:00 zeit 30.10.2026 08:30
+0:00 raffer 300
+0:00 einblendung uhr,minikarte
+0:00 ansicht prielmuendung
+0:00 tafel Das Wasser geht | Zweimal am Tag läuft das Wasser auf und wieder ab. Die Gezeiten folgen vor allem dem Mond; eine Tide dauert im Mittel 12 Stunden und 25 Minuten. Am Morgen des 30. Oktober 2026 fällt das Wasser: Der Ebbstrom zieht es durch die Priele zurück in die Nordsee.
+0:00 sonde 470410 6048090 Pegel Hooge
+0:16 warte pegel < -1,6
+0:16 halt
+0:16 warte klick
+0:16 weiter
+0:16 szenario ruhigsed
+0:16 zeit 30.10.2026 10:00
+0:16 raffer 300
+0:16 ansicht japsand
+0:16 tafel Niedrigwasser | Um 10:15 steht der Pegel Hooge bei −1,72 m NHN. Das Watt zwischen Hooge und dem Japsand fällt weit trocken: Sand und Schlick, durchzogen von Prielen, die auch jetzt Wasser führen.
+0:30 halt
+0:30 warte klick
+0:30 weiter
+0:30 szenario ruhigsed
+0:30 zeit 30.10.2026 11:30
+0:30 raffer 300
+0:30 ansicht rippel
+0:30 tafel Rippel im Watt | Wo der Strom den Sand bewegt, legt er ihn in Kämme: Rippel. Im trockenen Watt bleiben sie liegen, bis die nächste Flut sie umformt. Das Modell rechnet sie aus der Schubspannung, mit der das Wasser am Boden zieht.
+0:44 halt
+0:44 warte klick
+0:44 weiter
+0:44 szenario ruhigsed
+0:44 zeit 30.10.2026 13:00
+0:44 raffer 300
+0:44 ansicht hanswarft_haeuser
+0:44 tafel Die Flut läuft auf | Um 13:00 steht der Pegel wieder bei +0,13 m NHN. Die Fennen um die Hanswarft bleiben trocken: Steindeckwerk und Sommerdeich halten das Wasser bei einer gewöhnlichen Flut draußen.
+1:00 ansicht westspitze
+1:08 halt
+1:08 warte klick
+1:08 weiter
+1:08 szenario ruhigsed
+1:08 zeit 30.10.2026 15:00
+1:08 raffer 300
+1:08 ansicht westspitze
+1:08 tafel Hochwasser | Um 15:45 erreicht die Flut ihren höchsten Stand: +1,28 m NHN, gut 70 cm unter der Marke für Landunter (2,01 m NHN). An einem ruhigen Tag bleibt die Hallig trocken. Erst Sturm aus West drückt das Wasser so hoch, dass es über den Sommerdeich läuft – davon erzählt das nächste Kapitel.
+1:08 sonde 470410 6048090 Pegel Hooge
+1:26 ansicht abend
+1:26 raffer 120
+1:46 halt
+1:46 warte klick
+1:46 einblendung aus
+1:50 sage Ende des Kapitels „Ebbe und Flut“

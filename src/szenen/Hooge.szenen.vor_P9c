@@ -1,0 +1,129 @@
+# Szenendatei für HalligHooge (Werkbuch HalligHooge Teil B, B.3 bis B.5; F71 A, F72 A)
+# Format wie das Rezept: Schlüssel = Wert; # beginnt einen Kommentar. Gelesen von com.dan.lauf.Szenen.
+# Ansichten und Szenarien erscheinen in der Anwendung in der Reihenfolge dieser Datei.
+# Orte in UTM 32 (Ost Nord, m), Zeiten in UTC. [G] heißt gesetzt.
+
+gebiet                          = D:\Daten\HalligHooge\gebiet
+
+# Pegel Hooge (Anleger), wie in der Vorgabe des Gebiets; es gilt die tiefste Zelle im Umkreis
+pegel.name                      = Hooge
+pegel.ort                       = 470410 6048090
+pegel.umkreis                   = 300
+pegel.marke                     = 2.01          # m NHN: niedrigste Krone des Sommerdeichs; darüber läuft die Hallig voll
+pegel.marke.name                = Landunter
+
+# ---------------------------------------------------------------- Ansichten
+
+ansicht.westspitze.name         = Deich an der Westspitze
+ansicht.westspitze.ort          = 468290 6047690
+ansicht.westspitze.hoehe        = 1.7 boden     # auf der Krone des Sommerdeichs
+ansicht.westspitze.richtung     = 259           # über den Japsand
+ansicht.westspitze.neigung      = -2
+ansicht.westspitze.bildwinkel   = 55
+
+ansicht.hanswarft.name          = Hanswarft nach Westen
+ansicht.hanswarft.ort           = 470900 6046615
+ansicht.hanswarft.hoehe         = 1.7 boden
+ansicht.hanswarft.richtung      = 270
+ansicht.hanswarft.neigung       = -2
+ansicht.hanswarft.bildwinkel    = 55
+
+ansicht.japsand.name            = Japsand
+ansicht.japsand.ort             = 466800 6047200
+ansicht.japsand.hoehe           = 4 nhn
+ansicht.japsand.richtung        = 90            # zurück nach Hooge
+ansicht.japsand.neigung         = -2
+ansicht.japsand.bildwinkel      = 55
+
+ansicht.abend.name              = Südwestdeich zur Sonne
+ansicht.abend.ort               = 470200 6046370
+ansicht.abend.hoehe             = 1.7 boden
+ansicht.abend.richtung          = sonne         # Azimut der Sonne zur Szenenzeit
+ansicht.abend.neigung           = -1
+ansicht.abend.bildwinkel        = 55
+
+ansicht.vogelblick.name         = Vogelblick über Hooge
+ansicht.vogelblick.ort          = 470400 6044300
+ansicht.vogelblick.hoehe        = 300 nhn
+ansicht.vogelblick.richtung     = 20
+ansicht.vogelblick.neigung      = -30
+ansicht.vogelblick.bildwinkel   = 60
+
+# Brandung (P8b): über dem Wasser westlich des Japsands nach Westen, wo der Seegang aus der Nordsee einläuft
+ansicht.brandung.name           = Brandung vor dem Japsand
+ansicht.brandung.ort            = 466300 6047300
+ansicht.brandung.hoehe          = 8 nhn
+ansicht.brandung.richtung       = 265
+ansicht.brandung.neigung        = -3
+ansicht.brandung.bildwinkel     = 55
+
+# Sediment (P9b): von oben auf die Enge zwischen Japsand und Norderoogsand, wo der Ebbstrom Sand aufnimmt
+ansicht.prielmuendung.name      = Prielmündung im Ebbstrom
+ansicht.prielmuendung.ort       = 466600 6043700
+ansicht.prielmuendung.hoehe     = 500 nhn
+ansicht.prielmuendung.richtung  = 350
+ansicht.prielmuendung.neigung   = -30
+ansicht.prielmuendung.bildwinkel = 60
+
+# Rippel (P9b): im trockengefallenen Watt zwischen Japsand und Hooge, quer über die Kämme
+ansicht.rippel.name             = Rippel im Watt
+ansicht.rippel.ort              = 468990 6045410
+ansicht.rippel.hoehe            = 1.2 boden
+ansicht.rippel.richtung         = 250
+ansicht.rippel.neigung          = -22
+ansicht.rippel.bildwinkel       = 50
+
+# ---------------------------------------------------------------- Szenarien
+
+# Ruhiger Tag (F48 A): Hochdruck, wenig Wind, kurz nach Vollmond. Niedrigwasser 09:15 UTC, das Watt fällt weit trocken.
+szenario.ruhig.name             = Ruhiger Tag, 30.10.2026
+szenario.ruhig.archiv           = D:\Daten\HalligHooge\_p6\archiv_ruhig
+szenario.ruhig.beginn           = 2026-10-30T07:30:00Z
+szenario.ruhig.zeitraffer       = 300
+szenario.ruhig.ansicht          = westspitze
+
+# Sturmflut: Hochwasser 12:20 UTC am Deich, Landunter in der Nacht (Scheitel 23:45 UTC, +2,97 m NHN).
+szenario.sturm.name             = Sturmflut, 25.10.2026
+szenario.sturm.archiv           = D:\Daten\HalligHooge\_p6\archiv
+szenario.sturm.beginn           = 2026-10-25T10:00:00Z
+szenario.sturm.zeitraffer       = 300
+szenario.sturm.ansicht          = westspitze
+
+# Sturmflut mit Seegang (P8b): dasselbe Wetter, dazu der Seegang aus physics.waves (Rand aus ERA5) im Bild (Stufe 2).
+szenario.seegang.name           = Sturmflut mit Seegang, 25.10.2026
+szenario.seegang.archiv         = D:\Daten\HalligHooge\_p8c\archiv
+szenario.seegang.beginn         = 2026-10-25T10:00:00Z
+szenario.seegang.zeitraffer     = 300
+szenario.seegang.ansicht        = brandung
+
+# Ruhiger Tag mit Seegang (P8b): Dünung aus der Nordsee bei wenig Wind.
+szenario.ruhigsee.name          = Ruhiger Tag mit Seegang, 30.10.2026
+szenario.ruhigsee.archiv        = D:\Daten\HalligHooge\_p8c\archiv_ruhig
+szenario.ruhigsee.beginn        = 2026-10-30T07:30:00Z
+szenario.ruhigsee.zeitraffer    = 300
+szenario.ruhigsee.ansicht       = westspitze
+
+# Sturmflut mit Sediment (P9b): dazu Schwebstoff, Rippel und Schlick aus physics.sediment; die Trübung des Wassers folgt
+# dem Schwebstoff am Ort. G3 ist hier das Fenster O 462–476 km (F82 A), der Japsand liegt ganz darin.
+szenario.sediment.name          = Sturmflut mit Sediment, 25.10.2026
+szenario.sediment.archiv        = D:\Daten\HalligHooge\_p9b\archiv
+szenario.sediment.beginn        = 2026-10-25T10:00:00Z
+szenario.sediment.zeitraffer    = 300
+szenario.sediment.ansicht       = prielmuendung
+szenario.sediment.schwebstoff   = 20            # g/m³ außerhalb des Fensters von G3 (der Hintergrund am Rand des Sediments)
+
+# Ruhiger Tag mit Sediment (P9b): Niedrigwasser 09:40 UTC; die Rippel liegen bis gegen Mittag trocken.
+szenario.ruhigsed.name          = Ruhiger Tag mit Sediment, 30.10.2026
+szenario.ruhigsed.archiv        = D:\Daten\HalligHooge\_p9b\archiv_ruhig
+szenario.ruhigsed.beginn        = 2026-10-30T11:00:00Z
+szenario.ruhigsed.zeitraffer    = 300
+szenario.ruhigsed.ansicht       = rippel
+szenario.ruhigsed.schwebstoff   = 20
+
+# Live: der Lauf rechnet neben dem Bild, aus der Ruhe mit 3 h Anlauf; die Physik begrenzt den Zeitraffer (rund 125).
+szenario.live.name              = Live ab 29.10.2026, 03:00 UTC
+szenario.live.start             = 2026-10-29T03:00:00Z
+szenario.live.stufen            = G0 | G1 | G2 G3
+szenario.live.fenster3          = 600 850 500 400      # G3 als Fenster um Hooge: i0 j0 ni nj
+szenario.live.zeitraffer        = 100
+szenario.live.ansicht           = vogelblick

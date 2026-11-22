@@ -1,0 +1,49 @@
+# HalligHooge – Texte der Infotafeln im Atlas (Werkbuch HalligHooge 145, F242 A: Entwurf Claude, Prüfung Daniel).
+# Format wie das Manifest. Schlüssel: der Name des Orts klein, Umlaute ausgeschrieben, nur Buchstaben und Ziffern
+# (Hanswarft → hanswarft, Süderoogsand → suederoogsand). Die Werte (Höhen, Häuser, Zeiten) rechnet der Atlas selbst.
+# Knöpfe: tafel.<ort>.knopf.N = Titel; Szenario; Ansicht; Zeit (UTC, wahlweise); Bild: tafel.<ort>.bild = Ansicht (Vorschaubild).
+# Kein Doppelkreuz im Text.
+
+start.titel  = Hallig Hooge
+start.text   = Hooge liegt mitten im nordfriesischen Wattenmeer, zwischen Amrum, Pellworm und den Außensänden. Mit rund 5,7 km² ist sie nach Langeneß die zweitgrößte Hallig. Die Menschen wohnen auf zehn Warften, aufgeworfenen Hügeln, die bei Sturmflut aus dem Wasser ragen.
+start.text2  = Die Karte zeigt die Hallig, wie das Modell sie rechnet: bei Niedrigwasser und Hochwasser eines ruhigen Tags und im Scheitel der Sturmflut vom 25. Oktober 2026. Ein Klick auf einen Ort öffnet seine Tafel; unten führen die Kacheln in die Szene.
+start.quelle = Wikipedia (Halligen, Hooge); Wikivoyage (Hallig Hooge); Werte: eigene Rechnung
+
+tafel.hooge.text    = Hooge ist von einem Steindeckwerk und einem niedrigen Sommerdeich umgeben. Er hält leichte Sturmfluten im Sommer ab; steigt das Wasser höher, läuft die Hallig voll. Bei diesem Landunter stehen nur noch die Warften über dem Wasser.
+tafel.hooge.text2   = Zur Gemeinde Hooge gehört auch die unbewohnte Hallig Norderoog.
+tafel.hooge.quelle  = Wikivoyage (Hallig Hooge); Wikipedia (Hooge)
+tafel.hooge.bild    = warften
+tafel.hooge.knopf.1 = Vogelblick; ruhig; vogelblick
+tafel.hooge.knopf.2 = Landunter von oben; sturm; warften; 2026-10-25T22:45:00Z
+
+tafel.hanswarft.text    = Die Hanswarft ist die Hauptwarft der Hallig und die größte Warft im Wattenmeer. Hier liegen das Gemeinde- und Touristikbüro, der Halligkaufmann, die Schutzstation Wattenmeer und das Sturmflutkino. Zuletzt hat sie einen Ringdeich bekommen; mit dem Plateau ist er 5,80 m hoch.
+tafel.hanswarft.text2   = Im Kapitänshaus von 1776 liegt der Königspesel, eine Friesenstube des 18. Jahrhunderts. Ihren Namen hat sie vom dänischen König, der 1825 wegen Sturm und Hochwasser hier übernachten musste.
+tafel.hanswarft.quelle  = LKN.SH (Ringdeich, 2024); museen-nord.de und ADAC (Königspesel); hooge.de
+tafel.hanswarft.bild    = hanswarft_haeuser
+tafel.hanswarft.knopf.1 = Ansehen; ruhig; hanswarft
+tafel.hanswarft.knopf.2 = Häuser; ruhig; hanswarft_haeuser
+tafel.hanswarft.knopf.3 = Im Landunter; sturm; landunter_hanswarft; 2026-10-25T22:30:00Z
+
+tafel.kirchwarft.text    = Auf der Kirchwarft stehen die Halligkirche St. Johannis und das Pfarrhaus; daneben liegt der Friedhof mit dem Kreuz der Heimatlosen. Ein Sturmflutpfahl am Weg zur Warft zeigt, wie hoch das Wasser bei der Flut von 1825 stand.
+tafel.kirchwarft.quelle  = hooge.de; Wikipedia (Hooge); Exkursionsbericht Hallig Hooge 2022 (HFR Rottenburg); wattlaufen.com (Sturmflutpfähle)
+tafel.kirchwarft.knopf.1 = Ansehen; ruhig; kirchwarft
+tafel.kirchwarft.knopf.2 = Im Landunter; sturm; landunter_kirchwarft; 2026-10-25T22:30:00Z
+
+tafel.backenswarft.text    = Die Backenswarft gehört mit der Hanswarft und der Kirchwarft zu den Stationen der Rundfahrten über die Hallig. Von ihr aus sieht man weit über die Fennen.
+tafel.backenswarft.quelle  = Wikipedia (Hooge); Wikivoyage (Hallig Hooge)
+tafel.backenswarft.knopf.1 = Ansehen; ruhig; backenswarft
+
+tafel.ockeluetzwarft.knopf.1 = Fething; ruhig; fething
+
+tafel.japsand.text    = Der Japsand ist der nördlichste der drei Außensände vor Hooge, rund 3 km² groß. Das Hooger Loch trennt ihn vom Norderoogsand. Die Sände wandern langsam nach Osten; Rechnungen der Universität Kiel lassen erwarten, dass Japsand und Norderoogsand bis 2050 zusammenwachsen.
+tafel.japsand.text2   = Von Hooge aus gibt es geführte Wattwanderungen zum Japsand. Ob der Weg trocken fällt, zeigen die Ebenen der Karte – das Modell ist aber keine Grundlage für eine Wanderung.
+tafel.japsand.quelle  = Wikipedia (Nordfriesische Außensände); J. Kiesel, Seevögel 36 (4), 2015; Welterbe Wattenmeer, Reiseroute Schleswig-Holstein
+tafel.japsand.knopf.1 = Ansehen; ruhig; japsand
+tafel.japsand.knopf.2 = Von oben; ruhig; japsand_oben
+tafel.japsand.knopf.3 = Brandung; seegang; brandung; 2026-10-25T10:00:00Z
+
+tafel.norderoogsand.text   = Der Norderoogsand ist mit rund 10 km² der mittlere der drei Außensände. In seinem Norden ist seit den 2000er Jahren eine Düneninsel mit Salzwiese gewachsen; darum heißt er auch die neue Insel.
+tafel.norderoogsand.quelle = Wikipedia (Nordfriesische Außensände); J. Kiesel, Seevögel 36 (4), 2015
+
+tafel.suederoogsand.text   = Der Süderoogsand ist mit rund 15 km² der größte und südlichste der Außensände. Auf ihm steht seit 1985 ein Leuchtfeuer auf einem Holzgerüst, mit einem Schutzraum für Schiffbrüchige.
+tafel.suederoogsand.quelle = Wikipedia (Nordfriesische Außensände)

@@ -1,0 +1,96 @@
+// strahl.comp — P0.4: Strahlabfrage über einer DGM1-Kachel. Modus 0: Lochkamera, je Bildpunkt ein Strahl, bei Licht ein
+// Schattenstrahl zur Sonne; Modus 1: vier zufällige Strahlen je Faden von Punkten über dem Gebiet schräg nach unten
+// (unzusammenhängend, wie Streuung oder Umgebungslicht). Gezählt wird über die Untergruppe, ein atomarer Zugriff je Gruppe.
+#version 460
+#extension GL_EXT_ray_query : require
+#extension GL_KHR_shader_subgroup_arithmetic : require
+#extension GL_KHR_shader_subgroup_basic : require
+layout(local_size_x = 8, local_size_y = 8) in;
+layout(binding = 0) uniform accelerationStructureEXT tlas;
+layout(std430, binding = 1) writeonly buffer Bild { uint pixel[]; };
+layout(std430, binding = 2) buffer Zaehler { uint zaehler[]; };      // Treffer, Schattenstrahlen, im Schatten, Treffer zufällig
+layout(std430, binding = 3) readonly buffer Ecken { float ecken[]; };   // x, y, z je Ecke (z oben, m NHN)
+layout(std430, binding = 4) readonly buffer Indizes { uint indizes[]; };
+layout(push_constant) uniform Strahl {
+    vec4 auge;      // xyz Auge, w tan(halber Bildwinkel)
+    vec4 vor;       // Blickrichtung, w Seitenverhältnis
+    vec4 sonne;     // Richtung zur Sonne, w 1 = Schattenstrahlen
+    ivec4 groesse;  // Breite, Höhe, Modus, Bildnummer
+    vec4 gebiet;    // x0, y0, Kantenlänge, Höhe der Ursprünge (Modus 1)
+} pk;
+
+vec3 ecke(uint i) { return vec3(ecken[3 * i], ecken[3 * i + 1], ecken[3 * i + 2]); }
+
+uint mischen(uint x) { x ^= x >> 16; x *= 0x7feb352du; x ^= x >> 15; x *= 0x846ca68bu; x ^= x >> 16; return x; }
+float zufall(inout uint s) { s = mischen(s); return float(s >> 8) * (1.0 / 16777216.0); }
+
+bool trifft(vec3 o, vec3 d, float tmax, uint flags, out float t, out int prim) {
+    rayQueryEXT rq;
+    rayQueryInitializeEXT(rq, tlas, flags, 0xFF, o, 0.001, d, tmax);
+    while (rayQueryProceedEXT(rq)) {}
+    if (rayQueryGetIntersectionTypeEXT(rq, true) == gl_RayQueryCommittedIntersectionTriangleEXT) {
+        t = rayQueryGetIntersectionTEXT(rq, true);
+        prim = rayQueryGetIntersectionPrimitiveIndexEXT(rq, true);
+        return true;
+    }
+    t = tmax;
+    prim = -1;
+    return false;
+}
+
+void main() {
+    ivec2 p = ivec2(gl_GlobalInvocationID.xy);
+    int w = pk.groesse.x, h = pk.groesse.y;
+    bool aktiv = p.x < w && p.y < h;
+    uint idx = uint(p.y * w + p.x);
+    uint a = 0u, b = 0u, c = 0u, z = 0u;
+    if (aktiv && pk.groesse.z == 0) {
+        vec3 f = normalize(pk.vor.xyz);
+        vec3 r = normalize(cross(f, vec3(0.0, 0.0, 1.0)));
+        vec3 u = cross(r, f);
+        vec2 ndc = (vec2(p) + 0.5) / vec2(w, h) * 2.0 - 1.0;
+        vec3 d = normalize(f + ndc.x * pk.auge.w * pk.vor.w * r - ndc.y * pk.auge.w * u);
+        float t;
+        int prim;
+        uint grau = 0u;
+        if (trifft(pk.auge.xyz, d, 1e5, gl_RayFlagsOpaqueEXT, t, prim)) {
+            a = 1u;
+            uint i0 = indizes[3 * prim], i1 = indizes[3 * prim + 1], i2 = indizes[3 * prim + 2];
+            vec3 e0 = ecke(i0), e1 = ecke(i1), e2 = ecke(i2);
+            vec3 n = normalize(cross(e1 - e0, e2 - e0));
+            if (n.z < 0.0) n = -n;
+            vec3 hit = pk.auge.xyz + d * t;
+            float licht = max(dot(n, pk.sonne.xyz), 0.0);
+            if (pk.sonne.w > 0.5 && licht > 0.0) {
+                b = 1u;
+                float ts;
+                int ps;
+                if (trifft(hit + n * 0.02, pk.sonne.xyz, 1e5, gl_RayFlagsOpaqueEXT | gl_RayFlagsTerminateOnFirstHitEXT, ts, ps)) {
+                    licht = 0.0;
+                    c = 1u;
+                }
+            }
+            grau = uint(clamp(0.12 + 0.88 * licht, 0.0, 1.0) * 255.0) | 0x100u;   // Bit 8: getroffen
+        }
+        pixel[idx] = grau;
+    } else if (aktiv) {
+        uint s = mischen(idx * 9781u + uint(pk.groesse.w) * 6271u + 1u);
+        for (int k = 0; k < 4; k++) {
+            vec3 o = vec3(pk.gebiet.x + zufall(s) * pk.gebiet.z, pk.gebiet.y + zufall(s) * pk.gebiet.z, pk.gebiet.w);
+            float dz = -(0.05 + 0.95 * zufall(s));
+            float phi = 6.2831853 * zufall(s), rr = sqrt(max(0.0, 1.0 - dz * dz));
+            vec3 d = vec3(rr * cos(phi), rr * sin(phi), dz);
+            float t;
+            int prim;
+            if (trifft(o, d, 2000.0, gl_RayFlagsOpaqueEXT, t, prim)) z++;
+        }
+        pixel[idx] = z;
+    }
+    uint sa = subgroupAdd(a), sb = subgroupAdd(b), sc = subgroupAdd(c), sz = subgroupAdd(z);
+    if (subgroupElect()) {
+        if (sa > 0u) atomicAdd(zaehler[0], sa);
+        if (sb > 0u) atomicAdd(zaehler[1], sb);
+        if (sc > 0u) atomicAdd(zaehler[2], sc);
+        if (sz > 0u) atomicAdd(zaehler[3], sz);
+    }
+}

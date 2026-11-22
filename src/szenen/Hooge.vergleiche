@@ -1,0 +1,54 @@
+# HalligHooge – Vergleiche des Labors (Y1, Werkbuch HalligHooge 152; F246 B: Bildfolge aus der Ausgabe).
+# Format wie das Manifest. Je Vergleich: zwei Szenarien mit Archiv, dieselbe Kamera (Ansicht oder Blick), die Ausrichtung,
+# der Bereich in Stunden um den Bezug und der Abstand der Bilder in Minuten; bis zu vier Sonden (Ort aus orte.txt,
+# „pegel“, „mitte“ oder Name; Ost; Nord). Gerechnet wird ein Vergleich in der App beim ersten Öffnen (Kachel oder Menü
+# Labor › Vergleich) oder vorab mit
+#   java … com.dan.steuerhaus.ausgabe.Ausgabe --manifest src\szenen\Hooge.steuerhaus --vergleichsfolge <schluessel>
+# Ablage: ausgabe.vergleiche im Manifest (docs\vergleich\<schluessel>). Ändert sich ein Eintrag, rechnet die App neu.
+#
+# ausrichten: Seite A | Seite B
+#   hochwasser <Zeit>   das Hochwasser am Pegel, das der Zeit (UTC) am nächsten liegt (ohne Zeit: auf B das zur gleichen Uhrzeit)
+#   niedrigwasser …     ebenso
+#   scheitel            der höchste Stand der Reihe
+#   zeit <Zeit>         genau diese Zeit;  uhrzeit (nur B): dieselbe Uhrzeit wie A, um ganze Tage verschoben
+# Die Archive: Sturmflut und Seegang 25.10. 06:00 bis 26.10. 00:00 UTC, ruhiger Tag 30.10. 00:00 bis 31.10. 00:00 UTC,
+# Xaver 5.12.2013 06:00 bis 6.12.2013 18:00 UTC; was außerhalb liegt, fällt aus dem Bereich.
+
+vergleich.1.schluessel = ruhig_sturm
+vergleich.1.name       = Ruhiger Tag und Sturmflut
+vergleich.1.text       = Zwei Hochwasser über den Warften, beide am Tag: am 30. Oktober bleibt das Wasser in den Prielen, am 25. Oktober steigt es über die Krone des Sommerdeichs (2,01 m NHN) und läuft auf die Fennen.
+vergleich.1.a          = ruhig
+vergleich.1.b          = sturm
+vergleich.1.ansicht    = warften
+vergleich.1.ausrichten = hochwasser 2026-10-30T15:00:00Z | hochwasser 2026-10-25T12:00:00Z
+vergleich.1.bereich    = -3 2.5
+vergleich.1.schritt    = 5
+vergleich.1.sonde.1    = pegel
+vergleich.1.sonde.2    = Fenne vor der Hanswarft; 470750; 6046500
+vergleich.1.sonde.3    = Japsand
+
+vergleich.2.schluessel = sturm_seegang
+vergleich.2.name       = Sturmflut ohne und mit Seegang
+vergleich.2.text       = Dieselbe Sturmflut zur selben Uhrzeit, einmal nur mit Strömung und Wasserstand, einmal mit dem Seegang aus der Nordsee: Brecher am Sommerdeich der Westspitze.
+vergleich.2.a          = sturm
+vergleich.2.b          = seegang
+vergleich.2.ansicht    = westkante
+vergleich.2.ausrichten = zeit 2026-10-25T12:20:00Z | uhrzeit
+vergleich.2.bereich    = -2 2
+vergleich.2.schritt    = 5
+vergleich.2.sonde.1    = pegel
+vergleich.2.sonde.2    = Vor der Westspitze; 468150; 6047650
+vergleich.2.sonde.3    = Japsand
+
+vergleich.3.schluessel = sturm_xaver
+vergleich.3.name       = Sturmflut 2026 und Xaver 2013
+vergleich.3.text       = Zwei Landunter an der Hanswarft, beide auf ihren Scheitel ausgerichtet: die Sturmflut vom 25. Oktober 2026 und das Orkantief Xaver im Dezember 2013. Die Kurven zeigen, wie viel höher das Wasser bei Xaver stand.
+vergleich.3.a          = sturm
+vergleich.3.b          = xaver
+vergleich.3.ansicht    = landunter_hanswarft
+vergleich.3.ausrichten = scheitel
+vergleich.3.bereich    = -4 0.25
+vergleich.3.schritt    = 5
+vergleich.3.sonde.1    = pegel
+vergleich.3.sonde.2    = Fenne vor der Hanswarft; 470750; 6046500
+vergleich.3.sonde.3    = Hooge

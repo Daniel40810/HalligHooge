@@ -1,0 +1,14 @@
+HalligHooge (Teil A bis D1)
+
+Der Renderer aus dem Projekt HalligHooge: der Kern com.dan.core mit core.gpu (Vulkan 1.3 über
+LWJGL), die Physik com.dan.physics.* (hydro, tide, antrieb, waves, sediment, atmos, aeolian,
+vegetation), das Bild com.dan.render.* (frame, terrain, water, air, reference, analysis, overlay,
+bau, bewuchs, brandung), Lauf und Bühne com.dan.lauf, die Aufbereitung des Kartenmaterials
+com.dan.aufbereitung und die verlustfrei gepackten Archive (D1). Prüfberichte der Phasen in
+docs/status.
+
+_p5 und nbproject/private sind nicht mehr im Repository (stehen in .gitignore, bleiben auf der
+Platte). LWJGL liegt nicht im Repository, siehe README.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_017B1juzy9zDkHcnBVz928cb

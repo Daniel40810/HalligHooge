@@ -1,0 +1,29 @@
+# HalligHooge · Rundgang 1 (X3, Werkbuch HalligHooge 148): Quelle von Hand. Den Weg rechnet  --wege  (OSM-Wege und
+# Gelände auf D:) nach warften.weg; die App spielt warften.weg. Texte: Entwurf Claude; Quellen am Ende.
+Rundgang: Von Warft zu Warft
+Beschreibung: Mit dem Rad vom Anleger über sechs Warften bis zur Westerwarft, ein Nachmittag im Oktober
+
+szenario    = ruhig
+zeit        = 30.10.2026 13:00
+raffer      = 12
+tempo       = 6            # m/s: zügig mit dem Rad
+auge        = 1.9          # m über dem Boden, im Sattel
+neigung     = -3
+bildwinkel  = 60
+einblendung = uhr,minikarte
+vorschau    = hanswarft
+# Halt 1 „boden 2.6 45“ (X3b): das Deck des Anlegers liegt bei 2,6 m NHN (Rezept gestalt.anleger); das Gelände kennt
+# es nicht, ohne diese Angabe stünde die Kamera unter dem Anleger.
+
+halt.1 = Fährpersonenanleger Hallig Hooge | Am Anleger | Hier legt die Fähre aus Schlüttsiel an, nach rund 75 Minuten über das Watt. Im Südwesten liegen die ersten Warften: links die Hanswarft, dann die Backenswarft und die Kirchwarft. Die Kurve zeigt den Wasserstand am Anleger über den Tag. | blick 215 | sonde 471381 6047983 | boden 2.6 45
+halt.2 = Backenswarft | Backenswarft | Mit der Hanswarft und der Kirchwarft gehört sie zu den Stationen der Rundfahrten über die Hallig. Von hier sieht man weit über die Fennen, das flache Grasland zwischen den Warften. Im Modell liegt die Kuppe bei 5,48 m NHN, die Fenne davor gut vier Meter tiefer. | blick 200
+halt.3 = Hanswarft | Hanswarft | Die Hauptwarft und die größte Warft im Wattenmeer: Gemeinde- und Touristikbüro, Halligkaufmann, Schutzstation Wattenmeer und Sturmflutkino. Zuletzt hat sie einen Ringdeich bekommen, mit dem Plateau 5,80 m hoch. Im Kapitänshaus von 1776 liegt der Königspesel; der dänische König musste hier 1825 wegen Sturm und Hochwasser übernachten. | blick 300
+halt.4 = Kirchwarft | Kirchwarft | Hier stehen die Halligkirche St. Johannis und das Pfarrhaus; daneben liegt der Friedhof mit dem Kreuz der Heimatlosen. Ein Sturmflutpfahl am Weg zur Warft zeigt, wie hoch das Wasser bei der Flut von 1825 stand. Im Modell liegt die Kuppe bei 5,54 m NHN.
+halt.5 = Ockelützwarft | Ockelützwarft | Oben auf der Warft liegt der Fething, ein angelegter Teich an der höchsten Stelle. Er sammelte das Regenwasser für das Vieh; Trinkwasser bekommt die Hallig heute über eine Leitung vom Festland. Die Kuppe liegt im Modell bei 5,70 m NHN.
+halt.6 = Lorenzwarft | Lorenzwarft und Mitteltritt | Lorenzwarft und Mitteltritt bilden eine Doppelwarft. Sie gehört zu den Warften, die der Landesbetrieb für Küstenschutz als nächste verstärken will – so wie zuletzt die Hanswarft. Im Modell: Kuppe 5,63 m NHN, 19 Gebäude in 120 m Umkreis.
+halt.7 = Westerwarft | Westerwarft | Die westlichste bewohnte Warft, und mit 6,32 m NHN die höchste Kuppe der Hallig im Modell. Hinter dem Sommerdeich beginnt das Watt; im Westen liegt der Japsand, der nördlichste der drei Außensände. Am Ende des Nachmittags steht die Sonne dort tief über dem Meer. | blick 255
+
+# Quellen: hooge.de (Fähre Schlüttsiel – Hooge, rund 75 min); Wikivoyage, Hallig Hooge (Blick vom Fähranleger auf
+# Hanswarft, Backenswarft, Kirchwarft); Texte der Tafeln in Hooge.atlas (Hanswarft, Kirchwarft, Backenswarft, Japsand);
+# Uni Siegen, Halligenquartett (Fething, Trinkwasser vom Festland); LKN.SH 2024, Ringdeich (Lorenzwarft-Mitteltritt);
+# Wikipedia, Hooge (Doppelwarft Lorenzwarft/Mitteltritt). Höhen und Gebäude: eigene Rechnung (atlas.werte).

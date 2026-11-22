@@ -1,0 +1,23 @@
+# HalligHooge · Rundgang 2 (X3, Werkbuch HalligHooge 148): Quelle von Hand; den Weg rechnet  --wege  nach landunter.weg.
+# Texte: Entwurf Claude; Quellen am Ende.
+Rundgang: Landunter mit dem Boot
+Beschreibung: Nacht zum 26. Oktober 2026 – mit dem Boot von der Hanswarft über die Fennen zur Kirchwarft
+
+szenario    = seegang
+zeit        = 25.10.2026 23:30
+raffer      = 8
+tempo       = 5            # m/s: ein Boot
+auge        = 1.7          # m über dem Boden, auf den Warften
+wasser      = 2.9          # m NHN: über den Fennen schwimmt das Auge
+boot        = 1.0          # m über diesem Wasser
+neigung     = -2
+bildwinkel  = 60
+einblendung = uhr,minikarte
+vorschau    = landunter_hanswarft
+
+halt.1 = Hanswarft | Auf der Hanswarft | 23:30 in der Nacht zum 26. Oktober. Seit dem Abend läuft das Wasser über den Sommerdeich; die Fennen stehen unter Wasser, nur die Warften ragen heraus. Die Kuppe der Hanswarft liegt im Modell bei 5,95 m NHN, fast drei Meter über dem Scheitel dieser Flut. | blick 10 | sonde
+halt.2 = Backenswarft | Backenswarft | Über die Fenne geht es nur mit dem Boot: Die Kamera fährt einen Meter über dem Wasser, darunter liegt der Weg, auf dem man sonst mit dem Rad fährt. Die Kurve zeigt, wie hoch das Wasser kurz vor der Warft über dem Weg steht. | blick 250 | sonde
+halt.3 = Kirchwarft | Kirchwarft | Die Kirchwarft mit St. Johannis steht wie eine Insel im Meer. Gegen 00:55 erreicht die Sturmflut am Anleger ihren Scheitel mit +3,03 m NHN. Der Sturmflutpfahl am Weg zur Warft zeigt, wie hoch das Wasser bei der Flut von 1825 stand. | blick 200 | sonde
+
+# Quellen: Kapitel „Landunter“ (kapitel/landunter.kapitel: Zeiten und Scheitel aus dem Szenario seegang); Texte der
+# Tafeln in Hooge.atlas (Hooge: Sommerdeich und Landunter; Kirchwarft: Sturmflutpfahl). Höhen: eigene Rechnung.

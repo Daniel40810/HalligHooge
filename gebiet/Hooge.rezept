@@ -1,0 +1,170 @@
+# Rezept der Aufbereitung für HalligHooge (Werkbuch HalligHooge Teil A, 10.4; F20–F24 A, 12.11.2026; P5b und F30 A, 13.11.2026)
+# Ausführen im Renderer (alle Schritte; nur P3d: --schritte grob,schliessen,backen; nur P4d: --schritte vorgabe; nur P5b: --schritte eot20,pegel,antrieb; nur P5e: --schritte backen,antrieb,wind):
+#   java -Xmx8g -cp dist\Renderer.jar com.dan.aufbereitung.Aufbereitung ..\HalligHooge\gebiet\Hooge.rezept
+#   java -Xmx8g -cp dist\Renderer.jar com.dan.aufbereitung.demo.GebietCheck --rezept ..\HalligHooge\gebiet\Hooge.rezept
+# Pfade sind relativ zu 'daten', wenn sie nicht absolut sind. [G] heißt gesetzt.
+
+name            = HalligHooge
+daten           = D:\Daten\HalligHooge
+ziel            = D:\Daten\HalligHooge\gebiet
+
+# Grund: TrilaWatt 2021 (10 m, Quellen 2017–2022), über G2 (Westrand Südrand Ostrand Nordrand, UTM 32; seit P5b nach F30 A bis O 502 km, N 6 097 km)
+grund.datei     = bathymetrie\trilawatt_topographie\2021\topography_2021_ger.zip!GeoTiff/topography_2021_ger.tif
+grund.gebiet    = 428000 6011000 502000 6097000
+grund.stufe     = 10m
+
+# Land: DGM1 von 2024, nur gemessene Pixel, über G3
+land.ordner     = hoehe\dgm1
+land.jahre      = 2024
+land.gebiet     = 454000 6025000 478000 6057000
+land.stufe      = 1m
+land.fuellwert  = 1.30      # m NHN: über Wasser und Watt (Befund 12.4)
+land.toleranz   = 0.002     # m [G]
+land.flaeche    = 100       # m², kleinste Fläche des Füllwerts [G]
+
+# Naht zwischen Land und Grund
+naht.saum       = 10        # m, kleinste Breite des Saums [G]
+naht.saum.max   = 40        # m, größte Breite [G]
+naht.steigung   = 0.2       # m je m, Neigung der Rampe im Saum [G]
+
+# Gitterkette (Werkbuch 10.1; Backen 10.4, Schritt 7, P3d)
+g0.gebiet       = -15 43 13 64       # Grad: West Süd Ost Nord
+g0.zelle        = 12 18              # Teiler: Zellen zu 1/12° × 1/18°
+g0.teilung      = 3                  # Teile je GEBCO-Pixel und Richtung (dann liegen die Zellgrenzen genau auf Teilen)
+g1.gebiet       = 6.0 53.2 9.1 55.8  # Grad; G1 ist die UTM-Hülle auf vollen km
+g1.zelle        = 1000
+g1.fein         = 10                 # Feinpixel je Zellseite: 100 m
+g2.gebiet       = 428000 6011000 502000 6097000   # F30 A: Husum (O 501,6 km) und List (N 6 096,8 km) in G2
+g2.zelle        = 200
+g2.fein         = 20                 # 10 m
+g3.gebiet       = 454000 6025000 478000 6057000   # Deiche und Siele liegen auf seinen Kanten
+g3.zelle        = 20
+g3.fein         = 20                 # 1 m
+g4.suedwest     = 469900 6045600     # Probe an der Hanswarft (F19: 1000² Zellen zu 2 m)
+g4.zelle        = 2
+g4.zellen       = 1000
+g4.fein         = 2
+
+# Stufe 100 m und Höhenbezug (10.4, Schritte 4 und 7a; F22)
+grob.stufe      = 100m
+grob.emodnet    = bathymetrie\emodnet\emodnet_mean_6.00_53.20.tif; bathymetrie\emodnet\emodnet_mean_6.00_54.50.tif; bathymetrie\emodnet\emodnet_mean_7.55_53.20.tif; bathymetrie\emodnet\emodnet_mean_7.55_54.50.tif
+grob.gebco      = bathymetrie\gebco\GEBCO_2025_schelf_30s.tif
+grob.unter      = -0.5      # m NHN: TrilaWatt tiefer als das für die Korrektur [G]
+grob.feld       = 10000     # m, Feld für den Median [G]
+grob.punkte     = 100       # kleinste Zahl der Punkte je Feld [G]
+natural_earth   = vektor\natural_earth\ne_10m_admin_0_countries.zip
+
+# Schließen: Land hinter Deichen (10.4, Schritt 7b; F23, F24)
+schliessen.hoehe  = 4.0     # m NHN, ab hier Wand [G]
+schliessen.luecke = 60      # m, größte Lücke der Wand, die geschlossen wird [G]
+schliessen.auf    = 10.0    # m NHN, Höhe geschlossener Pixel beim Backen [G]
+zu.Pellworm     = 478500 6043500     # Sonden für Prüfstein 18
+zu.Foehr        = 470000 6066000
+zu.SyltOst      = 460100 6081300     # Mitte der Marsch (460000 6082000 lag 200 m vom Deich; die Zelle reichte ins Vorland)
+offen.Hooge     = 470779 6047148
+
+# Bauwerke (10.4, Schritt 5; P3c)
+bauwerke.osm        = vektor\osm_szene\osm_szene.json
+bauwerke.deiche     = man_made=dyke|embankment; embankment=yes
+bauwerke.ohne       = historic=*
+bauwerke.korridor   = 5       # m, halbe Breite des Querschnitts für die Krone [G]
+bauwerke.luecke     = 60      # m, größte Lücke zwischen zwei Linien, die geschlossen wird [G]
+siel.punkte         = waterway=lock_gate|sluice_gate
+siel.wege           = waterway=* & tunnel=culvert; waterway=* & name~siel|schleuse
+siel.bruecke        = bridge=yes
+siel.abstand        = 20      # m, Kandidaten in diesem Abstand sind ein Siel [G]
+siel.rinne          = 0.5     # m, Tiefe einer Rinne unter der Krone der Umgebung [G]
+siel.umgebung       = 50      # m, ± längs der Linie für die Krone der Umgebung [G]
+siel.a              = 1.0     # m², Querschnitt [G]
+siel.mu             = 0.6     # Beiwert [G]
+ring.Hooge          = 470779 6047148    # Sonde auf der Fenne (Prüfstein 10)
+
+# Rauheit (10.4, Schritt 6; P3c)
+rauheit.osm         = vektor\osm_szene\osm_szene.json; vektor\osm_kueste\osm_kueste.json
+rauheit.dtk5        = karten\dtk5\kacheln
+rauheit.n           = 0.020 0.022 0.030 0.035 0.030 0.060 0.025 0.035   # Watt Sand Fenne Salzwiese Deich Warft Wasser Deckwerk [G]
+rauheit.wasser.unter = -2.0   # m NHN, darunter Wasser [G]
+rauheit.sand.ueber   = 1.0    # m NHN, darüber Sand, wo kein Land gemessen ist [G]
+rauheit.deich.breite = 8      # m, ± um die Deichlinie [G]
+rauheit.grob         = 0.030  # Manning-n für G0 und G1, die keine Klassen haben (seit P5d, Werkbuch 12.6 Stand P5d; vorher 0,025) [G]
+rauheit.grob.cd     = 0.0025   # P5e, F35 A: Manning-n je Pixel aus der Tiefe für C_d = 0,0025 (n = max(-z, 1 m)^(1/6) * sqrt(C_d/g)); ersetzt rauheit.grob
+rauheit.grob.tiefe  = 1        # kleinste Tiefe dafür (m) [G]
+
+# Inventar (gebiet.txt, Prüfstein 1): Lizenz und, wo die Datei es nicht sagt, Stand je Gruppe
+lizenz.grund    = TrilaWatt (BAW), CC BY 4.0
+lizenz.land     = DGM1 Schleswig-Holstein (LVermGeo SH), CC BY 4.0
+lizenz.osm      = OpenStreetMap-Mitwirkende, ODbL 1.0
+lizenz.dtk5     = DTK5 Schleswig-Holstein (LVermGeo SH), CC BY 4.0
+lizenz.emodnet  = EMODnet Bathymetry Consortium, frei mit Namensnennung
+lizenz.gebco    = GEBCO Compilation Group (2025), gemeinfrei mit Namensnennung
+lizenz.natural_earth = Natural Earth, gemeinfrei
+stand.grund     = TrilaWatt Topographie 2021
+stand.emodnet   = EMODnet DTM über WCS, geladen 11.11.2026
+stand.gebco     = GEBCO 2025
+stand.dtk5      = DTK5 Ausgabe 2025
+
+# Vorgabe der Tide am Rand von G2, bis P5 den Rand rechnet (Werkbuch 12.5, Plan P4d): M2 und Mittelwasser aus EasyGSH 2015
+vorgabe.gitter     = G2
+vorgabe.tide       = M2 28.9841042      # Name, Winkelgeschwindigkeit in °/h
+vorgabe.amplitude  = gezeiten\easygsh_kennwerte\2015\2015_100m_m2_amplitude.tif
+vorgabe.phase      = gezeiten\easygsh_kennwerte\2015\2015_100m_m2_phase.tif
+vorgabe.mittel     = gezeiten\easygsh_kennwerte\2015\2015_100m_mean_tide_level_50q.tif
+vorgabe.umkreis    = 2000      # m, nächstes Pixel mit allen drei Werten und Gelände unter Mittel − Amplitude [G]
+pegel.Hooge        = 470410 6048090   # Hafen: tiefste Zelle von G3 bis 400 m nördlich des Schleusentors (Bezugspegel des Laufs)
+pegel.Wittduen     = 460232 6053990   # PEGELONLINE 9570010
+pegel.Pellworm     = 480703 6039297   # PEGELONLINE 9550021 (Anleger)
+pegel.Hoernum      = 454698 6068100   # PEGELONLINE 9570050
+pegel.Dagebuell    = 479842 6064848   # PEGELONLINE 9570040
+lizenz.vorgabe     = EasyGSH-DB (BAW), Lizenz laut Datenrepository (prüfen)
+stand.vorgabe      = EasyGSH-DB Kennwerte 2015
+
+# Tide, Pegel, Antrieb (P5b; Werkbuch 12.6; F28 A)
+eot20.datei         = gezeiten\eot20\EOT20.zip   # darin ocean_tides.zip mit 17 Partialtiden
+eot20.rand          = 0.5       # Grad über G0 hinaus [G]
+eot20.umkreis       = 2         # Punkte von EOT20: am Rand von G0 der nächste nasse Punkt, wo die vier umgebenden Land sind [G]
+pegelonline.ordner  = gezeiten\pegelonline
+pegelonline.grenzen = -6 8      # m NHN, außerhalb Ausreißer [G]
+pegelonline.spitze  = 0.3       # m neben dem Median im Fenster: Ausreißer [G]
+pegelonline.fenster = 15        # Minuten, halbe Breite des Fensters [G]
+antrieb.ordner      = wetter\era5_cds   # GRIB aus dem Climate Data Store: python tools\kartenmaterial\kartenmaterial.py laden --quellen era5_cds --monate 202610 --ziel D:\Daten\HalligHooge
+antrieb.schub       = wetter\era5_cds_schub   # Schubspannung und Charnock (P5e, F34): python tools\kartenmaterial\kartenmaterial.py laden --quellen era5_cds_schub --monate 202610 --ziel D:\Daten\HalligHooge
+antrieb.monat       = 202610    # P13a: dieser Monat liegt in antrieb/; ein anderer Zeitraum mit --antrieb.zeitraum JJJJMM nach antrieb/JJJJMM/
+#                     Xaver (P13a): python tools\kartenmaterial\kartenmaterial.py laden --quellen era5_cds,era5_cds_schub,era5_cds_seegang --monate 201312 --ziel D:\Daten\HalligHooge
+#                     dann im Renderer: Aufbereitung ..\HalligHooge\gebiet\Hooge.rezept --schritte antrieb,seegang --antrieb.zeitraum 201312
+wind.ordner         = wetter\dwd_wind   # Wind des DWD (P5e, F36 A): python tools\kartenmaterial\kartenmaterial.py laden --quellen dwd_wind --ziel D:\Daten\HalligHooge
+wind.station.Helgoland = 02115
+wind.station.List   = 03032
+seegang.ordner      = wetter\era5_cds_seegang   # Seegang (P8b, F74 A): python tools\kartenmaterial\kartenmaterial.py laden --quellen era5_cds_seegang --monate 202610 --ziel D:\Daten\HalligHooge; Schritt nur mit --schritte seegang
+luft.ordner         = wetter\era5_cds_luft   # Luft, Strahlung, Temperatur des Meers (P10b, F90 A): python tools\kartenmaterial\kartenmaterial.py laden --quellen era5_cds_luft --monate 202610 --ziel D:\Daten\HalligHooge; Schritt nur mit --schritte luft
+lizenz.eot20        = EOT20 (DGFI-TUM, Hart-Davis u. a. 2021), CC BY 4.0
+lizenz.pegelonline  = PEGELONLINE (WSV), DL-DE Zero 2.0
+lizenz.antrieb      = ERA5 (Copernicus Climate Change Service, Hersbach u. a. 2023), Copernicus-Lizenz; enthält veränderte Copernicus-Informationen
+stand.eot20         = EOT20 Version 1.0.0 (2021)
+
+# Sediment (P9b, 12.10): Boden am Anfang für physics.sediment aus der EasyGSH-DB 2016 (BAW), nur mit --schritte sediment
+#   python tools\kartenmaterial\kartenmaterial.py laden --quellen easygsh_sediment --ziel D:\Daten\HalligHooge
+sediment.quelle     = sediment\easygsh_sediment\EasyGSH_DB_Sedimentologie_2016.zip
+sediment.vorgabe    = 2e-4 0.40 0   # d50 (m), Porosität, Schlickanteil für Pixel ohne Wert und ohne Nachbarn mit Wert [G]
+sediment.reichweite = 10            # Pixel zu 100 m, aus denen Lücken gefüllt werden [G]
+lizenz.sediment     = EasyGSH-DB (Bundesanstalt für Wasserbau, 2020), Sedimentologie 2016, CC BY 4.0
+# Gebäude (P12a, F125 A, F126 A): 3D-Gebäudemodell LoD2 des LVermGeo SH (Kartenwerkzeug: laden --quellen lod2); nur mit --schritte gebaeude
+gebaeude.ordner     = gebaeude\lod2
+gebaeude.gebiet     = 461000 6043000 475000 6051000   # Kern: Hooge und Japsand
+gebaeude.ausnahmen  = keine     # Daniel 19.11.2026: grundsätzlich rote Backsteinbauten mit Reetdach; "farbe" führte rote Dächer als Ziegel
+
+# Gestalt (P12b, F132–F134 A): Karte zu 0,5 m (Fenne, Salzwiese, Deich, Warft, Deckwerk, Wasser in Gräben, Prielen und
+# Fethingen mit eigenem Stand, Wege nach Belag) und Körper (Lahnungen, Steinbuhnen, Anleger, Stege) aus OSM; nur mit --schritte gestalt
+gestalt.gebiet      = 461000 6043000 475000 6051000   # wie die Gebäude
+gestalt.osm         = vektor\osm_szene\osm_szene.json
+gestalt.unter_ufer  = 0.3       # F134 A: Wasser in Gräben, Prielen und Fethingen 0,3 m unter dem Ufer
+gestalt.anleger     = 2.6       # Deck der Anleger (m NHN), mindestens 0,3 m über dem Gelände
+# Zonen der Salzwiese (P13b, F151-F152 A): Hoehe ueber dem MThw aus Lauf B1; nur mit --schritte zonen
+zonen.ueberflutung = _p13\ueberflutung   # Statistik aus com.dan.lauf.demo.VegetationLaufCheck --teil statistik
+zonen.pionier      = -0.40     # m ueber MThw: Unterkante der Pionierzone [G, Literatur]
+zonen.oben         = 0.35      # m ueber MThw: Grenze untere/obere Salzwiese [G, Literatur]
+zonen.fenne        = ohne_tide # F155 A: Fenne hinter dem Sommerdeich ohne Tidezone (Zone 4); tide: nach der Hoehe
+
+# Gehölze (P12c, F136 A, F137 A): bDOM (20 cm, Kartenwerkzeug: laden --quellen bdom) minus DGM1, NDVI aus dem DOP20; nur mit --schritte gehoelz
+gehoelz.bdom        = hoehe\bdom
+gehoelz.ndvi        = 0.15      # Pflanze ab diesem NDVI [G]
+gehoelz.hoehe       = 1.0       # und ab dieser Höhe über dem Boden (m) [G]

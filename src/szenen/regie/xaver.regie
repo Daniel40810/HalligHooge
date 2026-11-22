@@ -1,0 +1,31 @@
+# HalligHooge · Regiebuch 3 (Teil C, Werkbuch HalligHooge 135; F225 A). Zeiten in MEZ, Zahlen aus der Motivsuche
+# (docs/motivsuche/xaver_motive.txt, Pegel Hooge). Bekannte Abweichung F149: Im Modell ist die erste Tide die höchste
+# (+3,81 m am 5.12.), gemessen war es die zweite (4,00 m NHN laut LKN-SH, 6.12. gegen 04 Uhr MEZ); das Buch nennt beides.
+# Befund der Motivsuche: Die Hallig läuft am 5.12. erst gegen 15 Uhr voll und steht am 6.12. bei Tag noch unter Wasser.
+# Gestaltet [G]: Abfolge, Blicke, Wortlaut.
+Regiebuch: Xaver, 5./6. Dezember 2013
+Beschreibung: Orkantief Xaver: drei Sturmfluten in 36 Stunden, dreimal Landunter auf Hooge
+Länge: 3:00
+0:00 szenario xaver
+0:00 zeit 05.12.2013 11:00 | 5. Dezember 2013, 11:00 – Orkantief Xaver. Wind 17 m/s, Pegel Hooge +0,70 m NHN
+0:00 raffer 300
+0:00 einblendung aus
+0:00 ansicht steinkante_west
+0:19 sage 12:35: Das Wasser steigt über die Marke von 2,01 m NHN
+0:24 ansicht landunter_kirchwarft | Noch bleibt die Hallig trocken: Das Wasser braucht Zeit, um über den Sommerdeich zu laufen
+0:36 ansicht brandung_hanswarft | 14:00, +3,06 m NHN, Wind 22 m/s: Brecher an der Hanswarft
+0:36 raffer 120
+0:56 ansicht vogelblick | Landunter: Die Hallig läuft voll
+1:06 ansicht landunter_kirchwarft | 15:00, +3,63 m NHN: Die Kirchwarft steht im Meer
+1:34 sage 15:55 Hochwasser bei Sonnenuntergang: im Modell +3,81 m NHN
+1:45 zeit 06.12.2013 03:30 | 6. Dezember, 03:30 – die zweite Sturmflut in der Nacht
+1:45 ansicht warften
+1:58 sage 03:55: im Modell +3,52 m NHN – gemessen am Anleger Hooge 4,00 m NHN (LKN-SH)
+2:08 zeit 06.12.2013 09:00 | 09:00, Tageslicht: Die Hallig steht noch unter Wasser, Pegel +1,40 m NHN
+2:08 raffer 300
+2:08 ansicht vogelblick
+2:22 ansicht warften | Nur die Warften ragen heraus
+2:36 ansicht landunter_hanswarft
+2:46 einblendung uhr
+2:50 sage Xaver: drei Sturmfluten in 36 Stunden, dreimal Landunter
+3:00 einblendung aus

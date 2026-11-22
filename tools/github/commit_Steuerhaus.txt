@@ -1,0 +1,10 @@
+Initial commit: Steuerhaus 2.3
+
+Werkzeugkasten für Szenen-Apps auf dem Renderer (com.dan.steuerhaus): Fenster, Docks,
+Befehlspalette, Einblendungen, Regie und Kino, Ausgabe von Video und Standbild, Analyse und
+Betrieb, Themen Labor und Nautik, Startseite und Atlas, Kapitel, Rundgang, Postkarte, Ton,
+Vergleich, Regler, Jahr, Gezeiten. Entstanden mit dem Projekt HalligHooge (W1 bis W5, X1 bis Z3).
+Die Bibliotheken in lib liegen nicht im Repository, siehe README.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_017B1juzy9zDkHcnBVz928cb

@@ -1,0 +1,328 @@
+# Szenendatei für HalligHooge (Werkbuch HalligHooge Teil B, B.3 bis B.5; F71 A, F72 A)
+# Format wie das Rezept: Schlüssel = Wert; # beginnt einen Kommentar. Gelesen von com.dan.lauf.Szenen.
+# Ansichten und Szenarien erscheinen in der Anwendung in der Reihenfolge dieser Datei.
+# Orte in UTM 32 (Ost Nord, m), Zeiten in UTC. [G] heißt gesetzt.
+
+# seit W5 (Werkbuch HalligHooge 126, F214 A): der Ort der Daten; ${daten} steht in den Pfaden. Die App setzt ihn aus den
+# Einstellungen (Datei › Ort der Daten …), sonst gilt dieser Wert; dazu -Dszenen.daten=…
+daten                           = C:\Users\Dan40810\Documents\NetBeansProjects\HalligHooge\daten
+gebiet                          = ${daten}\gebiet
+
+# Pegel Hooge (Anleger), wie in der Vorgabe des Gebiets; es gilt die tiefste Zelle im Umkreis
+pegel.name                      = Hooge
+pegel.ort                       = 470410 6048090
+pegel.umkreis                   = 300
+pegel.marke                     = 2.01          # m NHN: niedrigste Krone des Sommerdeichs; darüber läuft die Hallig voll
+pegel.marke.name                = Landunter
+
+# ---------------------------------------------------------------- Ansichten
+
+ansicht.westspitze.name         = Deich an der Westspitze
+ansicht.westspitze.ort          = 468290 6047690
+ansicht.westspitze.hoehe        = 1.7 boden     # auf der Krone des Sommerdeichs
+ansicht.westspitze.richtung     = 259           # über den Japsand
+ansicht.westspitze.neigung      = -2
+ansicht.westspitze.bildwinkel   = 55
+
+ansicht.hanswarft.name          = Hanswarft nach Westen
+ansicht.hanswarft.ort           = 470900 6046615
+ansicht.hanswarft.hoehe         = 1.7 boden
+ansicht.hanswarft.richtung      = 270
+ansicht.hanswarft.neigung       = -2
+ansicht.hanswarft.bildwinkel    = 55
+
+ansicht.japsand.name            = Japsand
+ansicht.japsand.ort             = 466800 6047200
+ansicht.japsand.hoehe           = 4 nhn
+ansicht.japsand.richtung        = 90            # zurück nach Hooge
+ansicht.japsand.neigung         = -2
+ansicht.japsand.bildwinkel      = 55
+
+ansicht.abend.name              = Südwestdeich zur Sonne
+ansicht.abend.ort               = 470200 6046370
+ansicht.abend.hoehe             = 1.7 boden
+ansicht.abend.richtung          = sonne         # Azimut der Sonne zur Szenenzeit
+ansicht.abend.neigung           = -1
+ansicht.abend.bildwinkel        = 55
+
+ansicht.vogelblick.name         = Vogelblick über Hooge
+ansicht.vogelblick.ort          = 470400 6044300
+ansicht.vogelblick.hoehe        = 300 nhn
+ansicht.vogelblick.richtung     = 20
+ansicht.vogelblick.neigung      = -30
+ansicht.vogelblick.bildwinkel   = 60
+
+# Brandung (P8b): über dem Wasser westlich des Japsands nach Westen, wo der Seegang aus der Nordsee einläuft
+ansicht.brandung.name           = Brandung vor dem Japsand
+ansicht.brandung.ort            = 466300 6047300
+ansicht.brandung.hoehe          = 8 nhn
+ansicht.brandung.richtung       = 265
+ansicht.brandung.neigung        = -3
+ansicht.brandung.bildwinkel     = 55
+
+# Sediment (P9b): von oben auf die Enge zwischen Japsand und Norderoogsand, wo der Ebbstrom Sand aufnimmt
+ansicht.prielmuendung.name      = Prielmündung im Ebbstrom
+ansicht.prielmuendung.ort       = 466600 6043700
+ansicht.prielmuendung.hoehe     = 500 nhn
+ansicht.prielmuendung.richtung  = 350
+ansicht.prielmuendung.neigung   = -30
+ansicht.prielmuendung.bildwinkel = 60
+
+# Rippel (P9b): im trockengefallenen Watt zwischen Japsand und Hooge, quer über die Kämme
+ansicht.rippel.name             = Rippel im Watt
+ansicht.rippel.ort              = 468990 6045410
+ansicht.rippel.hoehe            = 1.2 boden
+ansicht.rippel.richtung         = 250
+ansicht.rippel.neigung          = -22
+ansicht.rippel.bildwinkel       = 50
+
+# Häuser (P12a, F124–F128 A): von der Fenne auf die Warften, Augenhöhe; dazu von oben über die Warften
+ansicht.hanswarft_haeuser.name  = Hanswarft von der Fenne
+ansicht.hanswarft_haeuser.ort   = 470800 6046470
+ansicht.hanswarft_haeuser.hoehe = 1.7 boden
+ansicht.hanswarft_haeuser.richtung = 45
+ansicht.hanswarft_haeuser.neigung = 1
+ansicht.hanswarft_haeuser.bildwinkel = 45
+
+ansicht.kirchwarft.name         = Kirchwarft mit St. Johannis
+ansicht.kirchwarft.ort          = 470560 6047190
+ansicht.kirchwarft.hoehe        = 1.7 boden
+ansicht.kirchwarft.richtung     = 355
+ansicht.kirchwarft.neigung      = 2
+ansicht.kirchwarft.bildwinkel   = 45
+
+ansicht.backenswarft.name       = Backenswarft von Westen
+ansicht.backenswarft.ort        = 470850 6047620
+ansicht.backenswarft.hoehe      = 1.7 boden
+ansicht.backenswarft.richtung   = 80
+ansicht.backenswarft.neigung    = 1
+ansicht.backenswarft.bildwinkel = 45
+
+ansicht.warften.name            = Warften von oben
+ansicht.warften.ort             = 470650 6046300
+ansicht.warften.hoehe           = 120 nhn
+ansicht.warften.richtung        = 30
+ansicht.warften.neigung         = -22
+ansicht.warften.bildwinkel      = 55
+
+# Gestalt (P12b, F132–F134 A): Fething an der Ockelützwarft, Lahnungen im Osten bei Niedrigwasser, Anleger am Hafen
+ansicht.fething.name            = Fething an der Ockelützwarft
+ansicht.fething.ort             = 470060 6047440
+ansicht.fething.hoehe           = 1.7 boden
+ansicht.fething.richtung        = 0
+ansicht.fething.neigung         = -3
+ansicht.fething.bildwinkel      = 50
+
+ansicht.lahnungen.name          = Lahnungen im Osten
+ansicht.lahnungen.ort           = 472150 6046600
+ansicht.lahnungen.hoehe         = 1.7 boden
+ansicht.lahnungen.richtung      = 60
+ansicht.lahnungen.neigung       = -4
+ansicht.lahnungen.bildwinkel    = 50
+
+ansicht.hafen.name              = Hafen mit Anleger
+ansicht.hafen.ort               = 471250 6047880
+ansicht.hafen.hoehe             = 1.7 boden
+ansicht.hafen.richtung          = 30
+ansicht.hafen.neigung           = -2
+ansicht.hafen.bildwinkel        = 50
+
+# Bewuchs (P12c, F135–F138 A): Gehölze an der Hanswarft im Gegenlicht, Halme auf der Fenne
+ansicht.gehoelz.name            = Gehölze an der Hanswarft
+ansicht.gehoelz.ort             = 471030 6046470
+ansicht.gehoelz.hoehe           = 1.7 boden
+ansicht.gehoelz.richtung        = 320
+ansicht.gehoelz.neigung         = 4
+ansicht.gehoelz.bildwinkel      = 50
+
+ansicht.halme.name              = Halme auf der Fenne
+ansicht.halme.ort               = 470800 6046470
+ansicht.halme.hoehe             = 1.7 boden
+ansicht.halme.richtung          = 45
+ansicht.halme.neigung           = -8
+ansicht.halme.bildwinkel        = 60
+
+# Salzwiese (P13b): auf dem Vorland im Osten, mitten in Pionierzone und unterer Salzwiese (Halme nur bis 30 m vom Auge)
+ansicht.vorland.name            = Vorland mit Salzwiese
+ansicht.vorland.ort             = 472440 6046360
+ansicht.vorland.hoehe           = 1.7 boden
+ansicht.vorland.richtung        = 20
+ansicht.vorland.neigung         = -15
+ansicht.vorland.bildwinkel      = 60
+
+# Xaver (P13a, F145 A): Landunter vom Wasser aus – das Auge 6 m über NHN, rund 2 m über dem Scheitel auf der Hallig
+ansicht.landunter_hanswarft.name = Hanswarft im Landunter
+ansicht.landunter_hanswarft.ort  = 470800 6046470
+ansicht.landunter_hanswarft.hoehe = 6 nhn
+ansicht.landunter_hanswarft.richtung = 45
+ansicht.landunter_hanswarft.neigung = 0
+ansicht.landunter_hanswarft.bildwinkel = 50
+
+ansicht.landunter_kirchwarft.name = Kirchwarft im Landunter
+ansicht.landunter_kirchwarft.ort  = 470560 6047190
+ansicht.landunter_kirchwarft.hoehe = 6 nhn
+ansicht.landunter_kirchwarft.richtung = 355
+ansicht.landunter_kirchwarft.neigung = 0
+ansicht.landunter_kirchwarft.bildwinkel = 45
+
+ansicht.westkante.name          = Westspitze über dem Sommerdeich
+ansicht.westkante.ort           = 468290 6047690
+ansicht.westkante.hoehe         = 9 nhn
+ansicht.westkante.richtung      = 259
+ansicht.westkante.neigung       = -4
+ansicht.westkante.bildwinkel    = 55
+
+# ---------------------------------------------------------------- Szenarien
+
+# Ruhiger Tag (F48 A): Hochdruck, wenig Wind, kurz nach Vollmond. Niedrigwasser 09:15 UTC, das Watt fällt weit trocken.
+szenario.ruhig.name             = Ruhiger Tag, 30.10.2026
+szenario.ruhig.archiv           = ${daten}\_p6\archiv_ruhig
+szenario.ruhig.beginn           = 2026-10-30T07:30:00Z
+szenario.ruhig.zeitraffer       = 300
+szenario.ruhig.ansicht          = westspitze
+
+# Sturmflut: Hochwasser 12:20 UTC am Deich, Landunter in der Nacht (Scheitel 23:45 UTC, +2,97 m NHN).
+szenario.sturm.name             = Sturmflut, 25.10.2026
+szenario.sturm.archiv           = ${daten}\_p6\archiv
+szenario.sturm.beginn           = 2026-10-25T10:00:00Z
+szenario.sturm.zeitraffer       = 300
+szenario.sturm.ansicht          = westspitze
+
+# Sturmflut mit Seegang (P8b): dasselbe Wetter, dazu der Seegang aus physics.waves (Rand aus ERA5) im Bild (Stufe 2).
+szenario.seegang.name           = Sturmflut mit Seegang, 25.10.2026
+szenario.seegang.archiv         = ${daten}\_p8c\archiv
+szenario.seegang.beginn         = 2026-10-25T10:00:00Z
+szenario.seegang.zeitraffer     = 300
+szenario.seegang.ansicht        = brandung
+
+# Ruhiger Tag mit Seegang (P8b): Dünung aus der Nordsee bei wenig Wind.
+szenario.ruhigsee.name          = Ruhiger Tag mit Seegang, 30.10.2026
+szenario.ruhigsee.archiv        = ${daten}\_p8c\archiv_ruhig
+szenario.ruhigsee.beginn        = 2026-10-30T07:30:00Z
+szenario.ruhigsee.zeitraffer    = 300
+szenario.ruhigsee.ansicht       = westspitze
+
+# Sturmflut mit Sediment (P9b): dazu Schwebstoff, Rippel und Schlick aus physics.sediment; die Trübung des Wassers folgt
+# dem Schwebstoff am Ort. G3 ist hier das Fenster O 462–476 km (F82 A), der Japsand liegt ganz darin.
+szenario.sediment.name          = Sturmflut mit Sediment, 25.10.2026
+szenario.sediment.archiv        = ${daten}\_p9b\archiv
+szenario.sediment.beginn        = 2026-10-25T10:00:00Z
+szenario.sediment.zeitraffer    = 300
+szenario.sediment.ansicht       = prielmuendung
+szenario.sediment.schwebstoff   = 20            # g/m³ außerhalb des Fensters von G3 (der Hintergrund am Rand des Sediments)
+
+# Ruhiger Tag mit Sediment (P9b): Niedrigwasser 09:40 UTC; die Rippel liegen bis gegen Mittag trocken.
+szenario.ruhigsed.name          = Ruhiger Tag mit Sediment, 30.10.2026
+szenario.ruhigsed.archiv        = ${daten}\_p9b\archiv_ruhig
+szenario.ruhigsed.beginn        = 2026-10-30T11:00:00Z
+szenario.ruhigsed.zeitraffer    = 300
+szenario.ruhigsed.ansicht       = rippel
+szenario.ruhigsed.schwebstoff   = 20
+
+# Xaver (P13a, F145 A): Orkantief Xaver, drei Sturmfluttiden; der Scheitel am 6.12. gegen 03 Uhr UTC (Hooge Anleger
+# 4,00 m NHN laut LKN-SH). Archiv aus Lauf A2: Kette G0–G3 mit Seegang und Sediment, 5.12. 06 Uhr bis 6.12. 18 Uhr UTC.
+szenario.xaver.name             = Sturmflut Xaver, 5./6.12.2013
+szenario.xaver.archiv           = ${daten}\_p13\archiv_xaver
+szenario.xaver.beginn           = 2013-12-05T12:30:00Z
+szenario.xaver.zeitraffer       = 300
+szenario.xaver.ansicht          = landunter_hanswarft
+szenario.xaver.schwebstoff      = 20
+
+# Live: der Lauf rechnet neben dem Bild, aus der Ruhe mit 3 h Anlauf; die Physik begrenzt den Zeitraffer (rund 125).
+szenario.live.name              = Live ab 29.10.2026, 03:00 UTC
+szenario.live.start             = 2026-10-29T03:00:00Z
+szenario.live.stufen            = G0 | G1 | G2 G3
+szenario.live.fenster3          = 600 850 500 400      # G3 als Fenster um Hooge: i0 j0 ni nj
+szenario.live.zeitraffer        = 100
+szenario.live.ansicht           = vogelblick
+
+# Seit P9c (12.10): Japsand von oben (seit Steuerhaus W1 eigener Schlüssel japsand_oben: vorher überschrieb er die Ansicht japsand am Boden); ein Jahr Morphologie in drei Läufen (Kette vom 18.11.2026); live mit Sediment
+ansicht.japsand_oben.name            = Japsand von oben
+ansicht.japsand_oben.ort             = 466000 6046500
+ansicht.japsand_oben.hoehe           = 4000 nhn
+ansicht.japsand_oben.richtung        = 0
+ansicht.japsand_oben.neigung         = -85
+ansicht.japsand_oben.bildwinkel      = 60
+
+szenario.morpho.name            = Ein Jahr Morphologie, erstes Halbjahr (14.–16.10.2026, Boden mal 60)
+szenario.morpho.archiv          = ${daten}\_p9c\archiv_m1a
+szenario.morpho.beginn          = 2026-10-14T00:00:00Z
+szenario.morpho.zeitraffer      = 1800
+szenario.morpho.ansicht         = japsand_oben
+szenario.morpho.schwebstoff     = 20
+
+szenario.morpho2.name           = Ein Jahr Morphologie, zweites Halbjahr (17.–19.10.2026, Boden mal 60)
+szenario.morpho2.archiv         = ${daten}\_p9c\archiv_m1b
+szenario.morpho2.beginn         = 2026-10-17T00:00:00Z
+szenario.morpho2.zeitraffer     = 1800
+szenario.morpho2.ansicht        = japsand_oben
+szenario.morpho2.schwebstoff    = 20
+
+szenario.morphosturm.name       = Ein Jahr Morphologie, Sturm (25./26.10.2026, Boden mal 4)
+szenario.morphosturm.archiv     = ${daten}\_p9c\archiv_m2
+szenario.morphosturm.beginn     = 2026-10-25T06:00:00Z
+szenario.morphosturm.zeitraffer = 600
+szenario.morphosturm.ansicht    = japsand_oben
+szenario.morphosturm.schwebstoff = 20
+
+szenario.livesed.name           = Live mit Sediment ab 29.10.2026, 03:00 UTC
+szenario.livesed.start          = 2026-10-29T03:00:00Z
+szenario.livesed.stufen         = G0 | G1 | G2 G3
+szenario.livesed.fenster3       = 600 850 500 400
+szenario.livesed.zeitraffer     = 100
+szenario.livesed.ansicht        = vogelblick
+szenario.livesed.sediment       = an
+
+
+# Seit P10b (12.11, F95 A): Kimmung. Am 18.10. um 08:00 UTC liegt kalte Luft (9 °C) über dem wärmeren Wasser (12 °C);
+# die Kimm sinkt um rund 3 Bogenminuten, darüber steht das Spiegelbild der Ferne. Zu sehen ist das durch das Fernglas:
+# Bildwinkel 5,6° senkrecht (10° waagerecht bei 16:9). Das Auge 4 m über NHN über dem tiefen Wasser westlich des
+# Japsands, der Blick nach Nordwesten über freies Wasser auf den Kniepsand (6 km) und die Dünen im Süden von Amrum
+# (8 bis 10 km, bis 20 m hoch); die Sonne steht im Rücken. Die Bildmitte liegt an der Kimm; dorthin rückt auch die
+# feine Mitte des Geländes.
+ansicht.fernglas.name           = Fernglas: über das Wasser nach Amrum
+ansicht.fernglas.ort            = 462600 6046900
+ansicht.fernglas.hoehe          = 4 nhn
+ansicht.fernglas.richtung       = 325
+ansicht.fernglas.neigung        = 0
+ansicht.fernglas.bildwinkel     = 5.6
+
+szenario.kimmung.name           = Kimmung, 18.10.2026 (kalte Luft über warmem Wasser)
+szenario.kimmung.archiv         = ${daten}\_p9c\archiv_m1b
+szenario.kimmung.beginn         = 2026-10-18T08:00:00Z
+szenario.kimmung.zeitraffer     = 60
+szenario.kimmung.ansicht        = fernglas
+szenario.kimmung.schwebstoff    = 20
+
+# P10c (Flugsand): Sandfegen auf dem hohen Sand am Südrand der Szene, 17.10.2026 abends bei Nordnordostwind.
+# Der Sand fliegt in diesen Tagen nur vom 17.10., 15:20 UTC, bis zum Regen am 18.10., 06:30 UTC – bei Tageslicht also nur
+# in der letzten Stunde vor Sonnenuntergang (16:15 UTC). Blick gegen den Wind, die Sonne links im Rücken.
+ansicht.sandfegen.name          = Sandfegen: gegen den Wind über den hohen Sand
+ansicht.sandfegen.ort           = 465850 6042890
+ansicht.sandfegen.hoehe         = 1.7 boden
+ansicht.sandfegen.richtung      = 20
+ansicht.sandfegen.neigung       = -3
+ansicht.sandfegen.bildwinkel    = 55
+
+szenario.flugsand.name          = Flugsand, 17.10.2026 (Abend, Wind aus Nordnordost)
+szenario.flugsand.archiv        = ${daten}\_p9c\archiv_m1b
+szenario.flugsand.beginn        = 2026-10-17T15:40:00Z
+szenario.flugsand.zeitraffer    = 10
+szenario.flugsand.ansicht       = sandfegen
+szenario.flugsand.schwebstoff   = 20
+
+# Brandung (P13c, F160 A): Brecher an der Hanswarft im Landunter (Auge 2 m über dem Wasser, 60 m vor dem Westhang der
+# Warft) und an der Steinkante im Westen bei steigendem Wasser (Krone 2,9 m NHN, Wasser um 2,3 m am 5.12. 13:00 MEZ)
+ansicht.brandung_hanswarft.name = Brandung an der Hanswarft
+ansicht.brandung_hanswarft.ort  = 470732 6046628
+ansicht.brandung_hanswarft.hoehe = 5.8 nhn
+ansicht.brandung_hanswarft.richtung = 100
+ansicht.brandung_hanswarft.neigung = -3
+ansicht.brandung_hanswarft.bildwinkel = 50
+
+ansicht.steinkante_west.name    = Steinkante im Westen
+ansicht.steinkante_west.ort     = 468350 6047449
+ansicht.steinkante_west.hoehe   = 4.5 nhn
+ansicht.steinkante_west.richtung = 60
+ansicht.steinkante_west.neigung = -4
+ansicht.steinkante_west.bildwinkel = 50
