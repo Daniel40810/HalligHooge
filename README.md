@@ -35,6 +35,7 @@ Regiebücher, Texte und die Werkzeuge, mit denen Kartenmaterial und Daten entsta
 - [Bauen](#bauen)
 - [Daten](#daten)
 - [Starten](#starten)
+- [Messarchiv (Datenbank, freiwillig)](#messarchiv-datenbank-freiwillig)
 - [Werkzeuge](#werkzeuge)
 - [Quellen und Lizenzen der Daten](#quellen-und-lizenzen-der-daten)
 
@@ -68,7 +69,8 @@ NetBeansProjects/
     │                              Regiebücher, Gezeiten, Watt, Vergleiche, Vorschaubilder, Programmsymbol
     ├── gebiet/Hooge.rezept        Rezept des Gebiets für die Aufbereitung (com.dan.aufbereitung im Renderer)
     ├── tools/                     Bauen, Daten umziehen, Läufe der Stufen, Kartenmaterial, Orte, Landschaft
-    ├── db/                        Anlage des Oracle-Schemas HalligHooge (nur Vorlagen; die App braucht keine Datenbank)
+    ├── db/                        Oracle-Schema HALLIGHOOGE für das Messarchiv: sql/ (Tabellen, Sichten), Vorlagen
+    │                              für Zugang und Anlage (die App selbst braucht keine Datenbank)
     ├── lib/                       Bibliotheken – nicht im Repository
     ├── daten/                     Gebiet und Archive – nicht im Repository
     └── docs/                      Prüfberichte, Fotos, Videos – nicht im Repository
@@ -174,13 +176,44 @@ Die Daten gehören nicht ins Abbild; es liest sie aus dem Ordner, den `daten =` 
 
 ---
 
+## Messarchiv (Datenbank, freiwillig)
+
+PEGELONLINE gibt den Wasserstand nur 30 Tage rückwirkend her. Das Messarchiv hält ihn fest: Ein Sammler ohne Fenster
+(`com.dan.steuerhaus.messung.Sammler`) holt jede Stunde die Minutenwerte der 22 Pegel des Gebiets und einmal am Tag den
+Wind des DWD (Helgoland, List) in ein Oracle-Schema `HALLIGHOOGE` (Präfix `HH_`, Lage in ETRS89 / UTM 32, SRID 25832).
+Daraus werden 10-Minuten-Mittel, Hoch- und Niedrigwasser mit Windstau, Sturmfluten nach den Klassen des BSH und, für
+den Anleger Hooge ohne eigenen Pegel, das geschätzte Hochwasser mit Landunter (Gezeit aus dem Tidenkalender plus
+Windstau an Pellworm Anleger und Wittdün, wie die Landunter-Uhr). **Die App läuft ohne Datenbank.**
+
+| Teil | Inhalt |
+|---|---|
+| `db/sql/01_tabellen.sql` … `04_startdaten.sql` | Schema: Stationen, Konstanten der Gezeit, Schwellen, Orte, Minutenwerte, Mittel, Scheitel, Protokoll; Sichten `HH_STATION_V`, `HH_FUELLSTAND_V`, `HH_HOCHWASSER_V`, `HH_STURMFLUT_V`, `HH_SCHAETZUNG_V`, `HH_LANDUNTER_V` |
+| `messung.*` in `src/szenen/Hooge.steuerhaus` | Zugang, Aufbewahrung, Grenze, Quellen, Ort |
+| `tools/lauf_DB1.cmd` | einmal: bauen, prüfen, Schema einrichten, Bestand aus `daten/gebiet` übernehmen, erster Abruf, Aufgabe anlegen |
+| `tools/sammler_aufgabe.cmd` | die stündliche Aufgabe „HalligHooge Messarchiv“ anlegen (`aus`: entfernen) |
+| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet` |
+
+**Wachstumsgrenze.** Nur der Sammler lässt die Datenbank wachsen, darum räumt er bei jedem Lauf selbst auf. Die
+Minutenwerte liegen in Monatsfächern (Partitionen nach Intervall) und fallen nach `messung.roh.monate` (6) als Ganzes
+weg; ihre 10-Minuten-Mittel, die Scheitel und die Ereignisse bleiben. Über `messung.grenze.mb` (1 500 MB) fallen
+weitere Fächer, das älteste zuerst (nie der laufende und der vorige Monat, nie das laufende Jahr); reicht das nicht,
+fügt der Sammler nichts mehr ein und meldet es. Das Protokoll der Abrufe bleibt `messung.abruf.tage` (400) Tage,
+die Protokolldatei `%USERPROFILE%\.steuerhaus\HalligHooge\sammler.log` höchstens 1 MB (dann eine Stufe zurück).
+
+**Einrichten.** Das Schema einmal als Admin anlegen (`db/USER.sql`, Vorlage `db/USER.sql.example`, mit
+`GRANT CREATE TABLE, CREATE SEQUENCE TO HALLIGHOOGE` für die räumlichen Indizes), `db/db.properties` aus der Vorlage
+(das Passwort fragt der Sammler einmal und trägt es ein), dann `tools\lauf_DB1.cmd`.
+
+---
+
 ## Werkzeuge
 
 | Datei | Zweck |
 |---|---|
 | `tools/bauen.cmd` | Renderer, Steuerhaus und HalligHooge der Reihe nach bauen |
 | `tools/daten_umziehen.cmd`, `tools/daten_zurueck.cmd` | die Daten in das Projekt holen und zurückstellen |
-| `tools/lauf_X1.cmd` … `tools/lauf_D1.cmd` | Läufe der Stufen mit Prüfungen; sie schreiben nach `docs/status` |
+| `tools/lauf_X1.cmd` … `tools/lauf_DB1.cmd` | Läufe der Stufen mit Prüfungen; sie schreiben nach `docs/status` |
+| `tools/sammler.cmd`, `tools/sammler_aufgabe.cmd` | Messarchiv: Sammler von Hand, stündliche Aufgabe |
 | `tools/kartenmaterial/` | Laden des Kartenmaterials, mit den Indizes der Massendownloads des LVermGeo SH |
 | `tools/orte/orte.py` | Ortsnamen aus OpenStreetMap für die Einblendungen |
 | `tools/landschaft/landschaft.py` | Farbe der Hänge aus Sentinel-2 |

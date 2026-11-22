@@ -190,3 +190,26 @@ watt.priel   = 120
 watt.modell  = morpho, morpho2, ruhig
 watt.gehen   = 3
 watt.hinweis = Modell, nicht zur Navigation. Trocken heißt hier: Der höchste Weg im Gelände (DGM1, TrilaWatt 2021) liegt über dem Wasser; wann das Watt leerläuft und wieder vollläuft, kommt aus dem Modell, die Gezeit aus dem Tidenkalender (ohne Wind; Wind kann das Fenster verschieben, kürzen oder schließen). Priele verlagern sich, Nebel und Schlick sind nicht enthalten. Ins Watt zum Japsand nur mit Nationalpark-Wattführerin oder -Wattführer.
+
+# Messarchiv (DB1, Werkbuch HalligHooge 167; F261–F265 A): ein Sammler ohne Fenster (com.dan.steuerhaus.messung.Sammler)
+# holt stündlich den Wasserstand der Pegel von PEGELONLINE und täglich den Wind des DWD in das Oracle-Schema HALLIGHOOGE
+# (Präfix HH_, Lage in ETRS89 / UTM 32), verdichtet auf 10 Minuten, sucht Hoch- und Niedrigwasser und schätzt das
+# Hochwasser am Anleger Hooge (Gezeit aus gezeiten.datei plus Windstau der Bezugspegel, Schwellen aus landunter.krone und
+# landunter.nass). Die App braucht die Datenbank nicht. Wachstumsgrenze: Minutenwerte in Monatsfächern, nach
+# messung.roh.monate weg (ihre Mittel bleiben); über messung.grenze.mb fallen die ältesten Fächer, reicht das nicht, fügt
+# der Sammler nichts mehr ein. Einrichten: tools\lauf_DB1.cmd; die stündliche Aufgabe: tools\sammler_aufgabe.cmd.
+messung.name        = Messarchiv
+messung.db          = ../../db/db.properties
+messung.sql         = ../../db/sql
+messung.schema      = HALLIGHOOGE
+messung.praefix     = HH_
+messung.passwort    = HalligHooge_DB_PASSWORD
+messung.srid        = 25832
+messung.roh.monate  = 6
+messung.abruf.tage  = 400
+messung.grenze.mb   = 1500
+messung.warnung     = 80
+messung.pegelonline = https://www.pegelonline.wsv.de/webservices/rest-api/v2
+messung.dwd         = https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/wind/recent
+messung.dwd.stunden = 20
+messung.ort         = HOOGE_ANLEGER; Anleger Hooge

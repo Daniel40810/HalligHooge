@@ -6,3 +6,8 @@ BEGIN
 	-- Vorlage: nach USER.sql kopieren und das Passwort eintragen. USER.sql steht in .gitignore und kommt nie ins Git.
 		manage_user('HalligHooge', '<Passwort>');
 END;
+/
+
+-- Seit DB1 (Messarchiv, Werkbuch HalligHooge 167): Die raeumlichen Indizes (db/sql/02_spatial.sql) legen Tabellen und eine
+-- Sequence im Schema an; dafuer braucht HALLIGHOOGE die Rechte direkt, nicht nur ueber die Rolle DB_CONNECT.
+GRANT CREATE TABLE, CREATE SEQUENCE TO HALLIGHOOGE;

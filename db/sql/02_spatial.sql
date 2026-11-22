@@ -1,0 +1,17 @@
+-- HalligHooge · Messarchiv (DB1, Werkbuch HalligHooge 167): Spatial-Metadaten und räumliche Indizes, SRID 25832
+-- (ETRS89 / UTM 32, Meter). Grenzen: ganz Deutschland in der Zone 32 mit Rand, Toleranz 5 cm.
+--
+-- Rechte: Ein räumlicher Index legt Tabellen und eine Sequence im Schema an; dafür braucht HALLIGHOOGE die Rechte
+-- CREATE TABLE und CREATE SEQUENCE direkt, nicht nur über die Rolle DB_CONNECT. Fehlt der Index, als Admin einmal:
+--   GRANT CREATE TABLE, CREATE SEQUENCE TO HALLIGHOOGE;
+-- (steht auch in db/USER.sql.example) und dann noch einmal einrichten.
+
+INSERT INTO USER_SDO_GEOM_METADATA (TABLE_NAME, COLUMN_NAME, DIMINFO, SRID) VALUES ('HH_STATION', 'LAGE', MDSYS.SDO_DIM_ARRAY(MDSYS.SDO_DIM_ELEMENT('X', 100000, 900000, 0.05), MDSYS.SDO_DIM_ELEMENT('Y', 5200000, 6200000, 0.05)), 25832);
+
+INSERT INTO USER_SDO_GEOM_METADATA (TABLE_NAME, COLUMN_NAME, DIMINFO, SRID) VALUES ('HH_ORT', 'LAGE', MDSYS.SDO_DIM_ARRAY(MDSYS.SDO_DIM_ELEMENT('X', 100000, 900000, 0.05), MDSYS.SDO_DIM_ELEMENT('Y', 5200000, 6200000, 0.05)), 25832);
+
+COMMIT;
+
+CREATE INDEX HH_STATION_LAGE_SX ON HH_STATION (LAGE) INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;
+
+CREATE INDEX HH_ORT_LAGE_SX ON HH_ORT (LAGE) INDEXTYPE IS MDSYS.SPATIAL_INDEX_V2;

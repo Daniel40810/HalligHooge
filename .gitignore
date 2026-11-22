@@ -23,6 +23,9 @@
 /db/db.properties
 /db/USER.sql
 
+# Liste aller Objekte der lokalen Datenbank aus der Projektvorlage (F265 A): bleibt lokal
+/db/Objecte_nach_Schema.sql
+
 # Arbeitsstaende, Absturzprotokolle
 /_to_delete/
 /Claude outputs/
