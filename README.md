@@ -185,17 +185,27 @@ Daraus werden 10-Minuten-Mittel, Hoch- und Niedrigwasser mit Windstau, Sturmflut
 den Anleger Hooge ohne eigenen Pegel, das geschätzte Hochwasser mit Landunter (Gezeit aus dem Tidenkalender plus
 Windstau an Pellworm Anleger und Wittdün, wie die Landunter-Uhr). **Die App läuft ohne Datenbank:** Was das Archiv findet,
 steht seit DB2 in der Chronik `src/szenen/Hooge.chronik` (Landunter, Wasser über der Krone, Sturmfluten), die der Sammler
-nur bei einem neuen Ereignis neu schreibt; die App liest nur diese Datei.
+nur bei einem neuen Ereignis neu schreibt; die App liest nur diese Datei. Seit DB3 misst das Archiv auch das Modell:
+`src/szenen/Hooge.guete` stellt den Wasserstand der App an sieben Pegeln neben die Messung, je Lauf der Szenarien
+(Kurven, Hoch- und Niedrigwasser, RMSE, Bias, Skill, Windstau; bei Xaver das höchste Tidehochwasser HThw).
 
 | Teil | Inhalt |
 |---|---|
-| `db/sql/01_tabellen.sql` … `04_startdaten.sql` | Schema: Stationen, Konstanten der Gezeit, Schwellen, Orte, Minutenwerte, Mittel, Scheitel, Protokoll; Sichten `HH_STATION_V`, `HH_FUELLSTAND_V`, `HH_HOCHWASSER_V`, `HH_STURMFLUT_V`, `HH_SCHAETZUNG_V`, `HH_LANDUNTER_V` |
+| `db/sql/01_tabellen.sql` … `04_startdaten.sql` | Schema: Stationen, Konstanten der Gezeit, Schwellen, Orte, Minutenwerte, Mittel, Scheitel, Protokoll; Sichten `HH_STATION_V`, `HH_FUELLSTAND_V`, `HH_HOCHWASSER_V`, `HH_STURMFLUT_V`, `HH_SCHAETZUNG_V`, `HH_LANDUNTER_V`; seit DB3 Läufe, Reihen und Scheitel des Modells, Kennzahlen (`HH_LAUF`, `HH_MODELL`, `HH_MODELL_SCHEITEL`, `HH_GUETE`) mit `HH_VERGLEICH_V`, `HH_SCHEITEL_PAAR_V`, `HH_GUETE_V` |
 | `messung.*` in `src/szenen/Hooge.steuerhaus` | Zugang, Aufbewahrung, Grenze, Quellen, Ort |
+| `guete.*` in `src/szenen/Hooge.steuerhaus` | seit DB3: Pegel, Umkreis der Zelle, Einschwingen, Windstau, Dateien |
 | `tools/lauf_DB1.cmd` | einmal: bauen, prüfen, Schema einrichten, Bestand aus `daten/gebiet` übernehmen, erster Abruf, Aufgabe anlegen |
 | `tools/sammler_aufgabe.cmd` | die stündliche Aufgabe „HalligHooge Messarchiv“ anlegen (`aus`: entfernen) |
-| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet`, `--chronik`, `--wind-nachladen` |
+| `tools/sammler.cmd` | von Hand: `--bericht`, `--abruf`, `--pflege --nur-plan`, `--pruefen --gebiet daten\gebiet`, `--chronik`, `--wind-nachladen`, `--guete` |
 | `src/szenen/Hooge.chronik` | seit DB2: die Chronik der Hochwasser, vom Sammler geschrieben, nur wenn ein Ereignis dazukommt; die App zeigt sie unter Labor › Chronik der Hochwasser (Strg Umschalt H) und unter der Landunter-Uhr |
 | `tools/lauf_DB2.cmd` | DB2: Chronik, Wind 2020 bis 2025, Füllstand je Tabelle, Abbild 2.4.0 |
+| `src/szenen/Hooge.guete` | seit DB3: Modell gegen Messung, vom Sammler geschrieben (nur bei Änderung); die App zeigt es unter Labor › Modell gegen Messung (Strg Umschalt M) |
+| `daten/guete/Hooge.modell` | seit DB3: der Wasserstand des Modells an den Pegeln, aus den Archiven gelesen (`Ausgabe --guete`); bleibt lokal bei den Daten |
+| `tools/lauf_DB3.cmd` | DB3: Schema Stufe 3, HThw, Archive lesen, Kennzahlen, Abbild 2.5.0 |
+
+**Modell gegen Messung (DB3).** Wenn ein Archiv neu gerechnet ist: `Ausgabe --guete` (liest je Archiv und Pegel nur die
+Zelle, rund eine Sekunde je Archiv), dann `tools\sammler.cmd --guete`. Der Sammler ersetzt einen Lauf nur, wenn sich
+seine Kennung (SHA-256 über die Reihen des Modells) ändert, und schreibt `Hooge.guete` nur bei Änderung.
 
 **Wachstumsgrenze.** Nur der Sammler lässt die Datenbank wachsen, darum räumt er bei jedem Lauf selbst auf. Die
 Minutenwerte liegen in Monatsfächern (Partitionen nach Intervall) und fallen nach `messung.roh.monate` (6) als Ganzes
@@ -216,7 +226,7 @@ die Protokolldatei `%USERPROFILE%\.steuerhaus\HalligHooge\sammler.log` höchsten
 |---|---|
 | `tools/bauen.cmd` | Renderer, Steuerhaus und HalligHooge der Reihe nach bauen |
 | `tools/daten_umziehen.cmd`, `tools/daten_zurueck.cmd` | die Daten in das Projekt holen und zurückstellen |
-| `tools/lauf_X1.cmd` … `tools/lauf_DB1.cmd` | Läufe der Stufen mit Prüfungen; sie schreiben nach `docs/status` |
+| `tools/lauf_X1.cmd` … `tools/lauf_DB3.cmd` | Läufe der Stufen mit Prüfungen; sie schreiben nach `docs/status` |
 | `tools/sammler.cmd`, `tools/sammler_aufgabe.cmd` | Messarchiv: Sammler von Hand, stündliche Aufgabe |
 | `tools/kartenmaterial/` | Laden des Kartenmaterials, mit den Indizes der Massendownloads des LVermGeo SH |
 | `tools/orte/orte.py` | Ortsnamen aus OpenStreetMap für die Einblendungen |

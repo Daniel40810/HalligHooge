@@ -3,7 +3,7 @@
 
 app.titel          = HalligHooge
 app.unterzeile     = Gezeiten, Priele und Landunter um die Hallig
-app.version        = 2.4
+app.version        = 2.5
 app.logo           = HARBOR
 app.icon           = HalligHooge.png
 app.szenen         = Hooge.szenen
@@ -225,3 +225,22 @@ chronik.datei   = Hooge.chronik
 chronik.kopie   = ../../dist/abbild/HalligHooge/app/szenen/Hooge.chronik
 chronik.ansicht = landunter_hanswarft
 chronik.hinweis = Landunter und Wasser über der Krone am Anleger Hooge sind geschätzt: Gezeit aus dem Tidenkalender plus Windstau an Pellworm Anleger und Wittdün (PEGELONLINE, WSV, ungeprüfte Rohdaten); Landunter ab 2,50 m außen ist im Modell abgelesen. Sturmfluten nach den Klassen des BSH über dem mittleren Hochwasser (MThw) der Pegel. Nicht amtlich: amtlich warnen das BSH und der LKN.SH.
+
+# Modell gegen Messung (DB3, Werkbuch HalligHooge 171; F268–F271 A): wie gut das Modell die Pegel trifft. Die Ausgabe
+# (Ausgabe --guete) liest aus jedem Archiv der Szenarien den Wasserstand an den Pegeln guete.pegel (tiefste Zelle im
+# Umkreis guete.umkreis auf dem feinsten Gitter, das den Pegel enthält; erst nach guete.einschwingen Stunden) nach
+# guete.modell (bleibt lokal bei den Daten). Der Sammler (Sammler --guete) legt die Reihen ins Messarchiv (HH_LAUF,
+# HH_MODELL, HH_MODELL_SCHEITEL), stellt sie neben die Messung (HH_VERGLEICH_V, HH_SCHEITEL_PAAR_V), rechnet die
+# Kennzahlen (HH_GUETE) und schreibt guete.datei neben dieses Manifest (und in die Kopie im Abbild), nur bei Änderung.
+# Die App liest nur die Datei: Menü Labor › Modell gegen Messung (Strg Umschalt M), Startseite (Gruppe „Labor“).
+# guete.stau: Hochwasser mit mindestens so viel gemessenem Windstau (m) zählen für den Anteil des Windstaus im Modell.
+guete.name         = Modell gegen Messung
+guete.pegel        = PELLWORM_ANLEGER; WITTDÜN; HÖRNUM; DAGEBÜLL; HUSUM; LIST_AUF_SYLT; EIDER-SPERRWERK_AP
+guete.umkreis      = 500
+guete.einschwingen = 24
+guete.stau         = 0.5
+guete.modell       = ../../daten/guete/Hooge.modell
+guete.datei        = Hooge.guete
+guete.kopie        = ../../dist/abbild/HalligHooge/app/szenen/Hooge.guete
+guete.ansicht      =
+guete.hinweis      = Modell: Wasserstand der App an der Zelle mit dem tiefsten Grund im Umkreis von 500 m um den Pegel (Gitter G2, 200 m). Messung: PEGELONLINE (WSV, ungeprüfte Rohdaten), Mittel über 10 Minuten; Hoch- und Niedrigwasser aus der Scheitelsuche des Messarchivs. Bias und Versatz: Modell minus Messung. Skill nach Willmott (1 = deckungsgleich). Windstau im Modell: Hochwasser des Modells minus die Gezeit am Pegel. Xaver (Dezember 2013): nur das höchste Tidehochwasser (HThw) der Kennwerte von PEGELONLINE, ohne Reihe.
