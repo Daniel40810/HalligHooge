@@ -114,7 +114,8 @@ tools\bauen.cmd
 ```
 
 `bauen.cmd` baut jedes Projekt mit `ant clean jar` und kopiert `Renderer.jar` und `Steuerhaus.jar` dorthin, wo sie
-gebraucht werden. Die Projekte erwarten in NetBeans eine Java-Plattform mit dem Namen **JDK_21**
+gebraucht werden. Danach legt es das Abbild `HalligHooge.exe` und die Verknüpfung auf dem Desktop neu an
+(`tools\abbild.cmd`, siehe Starten). Die Projekte erwarten in NetBeans eine Java-Plattform mit dem Namen **JDK_21**
 (*Werkzeuge › Java-Plattformen*). Ohne NetBeans setzt man vorher den JDK:
 
 ```bat
@@ -166,11 +167,17 @@ HalligHooge.cmd --szenario sturm
 Die Namen der Szenarien stehen in `src/szenen/Hooge.szenen` (`ruhig`, `sturm`, `seegang`, `sediment`, `xaver`, `live`,
 `morpho`, `kimmung`, `flugsand`, …).
 
-Ein Abbild mit eigener Java-Laufzeit (`dist/abbild/HalligHooge/HalligHooge.exe`) baut das Steuerhaus mit jpackage:
+Ein Abbild mit eigener Java-Laufzeit (`dist/abbild/HalligHooge/HalligHooge.exe`) und gleich eine Verknüpfung
+**HalligHooge** auf dem Desktop legt an:
 
 ```bat
-..\Steuerhaus\tools\abbild.cmd "%CD%" HalligHooge 2.3.0
+tools\abbild.cmd
 ```
+
+Die Version kommt als erster Wert (`tools\abbild.cmd 2.9.0`), sonst gilt die Vorgabe im Skript. Es nimmt
+`dist/HalligHooge.jar`, `dist/lib` und `src/szenen` und ruft dafür `..\Steuerhaus\tools\abbild.cmd` (jpackage, JDK 21).
+`bauen.cmd` ruft es am Ende selbst. *Clean and Build* in NetBeans löscht `dist/abbild`; danach `tools\abbild.cmd`
+einmal doppelklicken. Die App muss dabei geschlossen sein.
 
 Die Daten gehören nicht ins Abbild; es liest sie aus dem Ordner, den `daten =` nennt.
 
@@ -236,7 +243,8 @@ die Protokolldatei `%USERPROFILE%\.steuerhaus\HalligHooge\sammler.log` höchsten
 
 | Datei | Zweck |
 |---|---|
-| `tools/bauen.cmd` | Renderer, Steuerhaus und HalligHooge der Reihe nach bauen |
+| `tools/bauen.cmd` | Renderer, Steuerhaus und HalligHooge der Reihe nach bauen, danach das Abbild |
+| `tools/abbild.cmd` | Abbild `HalligHooge.exe` mit eigener Java-Laufzeit und Verknüpfung auf dem Desktop |
 | `tools/daten_umziehen.cmd`, `tools/daten_zurueck.cmd` | die Daten in das Projekt holen und zurückstellen |
 | `tools/lauf_X1.cmd` … `tools/lauf_DB3.cmd` | Läufe der Stufen mit Prüfungen; sie schreiben nach `docs/status` |
 | `tools/sammler.cmd`, `tools/sammler_aufgabe.cmd` | Messarchiv: Sammler von Hand, stündliche Aufgabe |
