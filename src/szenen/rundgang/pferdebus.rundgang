@@ -1,0 +1,26 @@
+# HalligHooge · Rundgang 3 (K4, Werkbuch HalligHooge 183, F300 A, F301 A): Quelle von Hand; --wege schreibt daraus
+# pferdebus.weg. Auf dem Bock von Pferdebus 1 (Fuchs und Rotschimmel): Die Zeiten der Abschnitte nimmt die App aus dem
+# Plan der Kutschen (Abfahrt 10 min nach der Ankunft der Fähre). Halte ohne „vorbei“ sind Halte des Busses (Namen wie in
+# Hooge.kutschen), Halte mit „vorbei“ Orte unterwegs (Zwischentafel). Texte: Entwurf Claude; Quellen am Ende.
+Rundgang: Mit dem Pferdebus
+Beschreibung: Auf dem Bock des gelben Pferdebusses vom Anleger über die Warften, ein Nachmittag im Oktober
+
+szenario    = ruhig
+zeit        = 30.10.2026 13:00
+kutsche     = 1
+ansicht     = bock
+raffer      = 4            # unterwegs: Schritt für Schritt, mit Hufschlag
+vor         = 240          # s vor der ersten Abfahrt: der Bus wartet noch
+einblendung = uhr,minikarte
+vorschau    = bock
+
+halt.1 = Anleger | Am Kutschenplatz | Am Anleger warten die gelben Pferdebusse auf die Gäste der Fähre. Heute ist der Adler-Express gekommen; zehn Minuten nach seiner Ankunft beginnt die Rundfahrt über die Warften. Gefahren wird vom Fuhrservice auf der Backenswarft. Man sitzt neben dem Kutscher auf dem Bock – mit der Maus umsehen (ziehen).
+halt.2 = 471040 6047600 | Vorbei an der Backenswarft | Auf der Backenswarft steht das Kutscherhaus, hier sind die Pferde zu Hause. Die Rundfahrt biegt nicht ab, sie bleibt auf der Ringstraße und fährt weiter zur Hanswarft. Auf dem Asphalt klingt der Hufschlag dumpf, auf den Klinkerwegen der Warften heller. | vorbei
+halt.3 = Hanswarft | Hanswarft | Die Hauptwarft und die größte Warft im Wattenmeer: Gemeinde- und Touristikbüro, Halligkaufmann, Schutzstation Wattenmeer und Sturmflutkino. Hier steigen die Gäste aus und vereinbaren mit dem Kutscher die Rückfahrt; nach dem Plan steht der Bus 45 Minuten. „Weiter“ springt zur Abfahrt.
+halt.4 = Kirchwarft | Kirchwarft | Hier stehen die Halligkirche St. Johannis und das Pfarrhaus; daneben liegt der Friedhof mit dem Kreuz der Heimatlosen. Ein Sturmflutpfahl am Weg zur Warft zeigt, wie hoch das Wasser bei der Flut von 1825 stand. Nach dem Plan hält der Bus hier 15 Minuten.
+halt.5 = Anleger | Zurück am Anleger | Rechtzeitig vor der Abfahrt der Fähre ist der Bus wieder am Kutschenplatz. Die Runde ist rund 3,8 km lang, gut 40 Minuten im Schritt; die Pferde gehen auf der Ringstraße über Asphalt, auf den Warften über Klinker. Bei Landunter fährt kein Bus: Steht Wasser auf dem Weg, bleibt die Runde aus.
+
+# Quellen: hooge.de, Kutschfahrten (die Kutschen warten am Fähranleger; Rundreise zur Backenswarft, Hanswarft und
+# Kirchwarft; Fuhrservice auf der Backenswarft); schimmelrieder.de (an der Hanswarft steigen die Gäste aus, die Rückfahrt
+# wird vereinbart); OpenStreetMap (Kutscherhaus, Backenswarft 4; Belag der Wege); Texte der Hanswarft und Kirchwarft aus
+# warften.rundgang. Länge, Dauer und Halte: Plan der Kutschen (Werkbuch HalligHooge 181).

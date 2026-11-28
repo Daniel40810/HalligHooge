@@ -1,0 +1,37 @@
+# Rundgang auf dem Bock (K4, Werkbuch HalligHooge 183): erzeugt von com.dan.steuerhaus.rundgang.RundgangBau (--wege) aus pferdebus.rundgang am 2026-11-28T15:51:21Z. Nicht von Hand ändern: die Quelle ändern und --wege neu rechnen.
+# Die Zeiten der Abschnitte kommen in der App aus dem Plan der Kutschen (kutsche, warte kutsche); Pferdebus 1, unterwegs 4.0-fach.
+Regiebuch: Mit dem Pferdebus
+Beschreibung: Auf dem Bock des gelben Pferdebusses vom Anleger über die Warften, ein Nachmittag im Oktober
+# 4 Halte, 1 Orte unterwegs
+Länge: 0:12.5
+0:00 weiter
+0:00 szenario ruhig
+0:00 zeit 30.10.2026 13:00
+0:00 raffer 1
+0:00 einblendung uhr,minikarte
+0:00 warte szene
+0:00 ansicht bock
+0:00 kutsche 1 ab Anleger vor 240
+0:00 tafel Am Kutschenplatz | Am Anleger warten die gelben Pferdebusse auf die Gäste der Fähre. Heute ist der Adler-Express gekommen; zehn Minuten nach seiner Ankunft beginnt die Rundfahrt über die Warften. Gefahren wird vom Fuhrservice auf der Backenswarft. Man sitzt neben dem Kutscher auf dem Bock – mit der Maus umsehen (ziehen).
+0:02 warte klick
+0:02.5 kutsche 1 ab Anleger vor 20
+0:02.5 raffer 4.0
+0:03 warte kutsche 1 bei 471040 6047600
+0:03 unterwegs Vorbei an der Backenswarft | Auf der Backenswarft steht das Kutscherhaus, hier sind die Pferde zu Hause. Die Rundfahrt biegt nicht ab, sie bleibt auf der Ringstraße und fährt weiter zur Hanswarft. Auf dem Asphalt klingt der Hufschlag dumpf, auf den Klinkerwegen der Warften heller.
+0:03.5 warte kutsche 1 an Hanswarft
+0:03.5 raffer 1
+0:03.5 tafel Hanswarft | Die Hauptwarft und die größte Warft im Wattenmeer: Gemeinde- und Touristikbüro, Halligkaufmann, Schutzstation Wattenmeer und Sturmflutkino. Hier steigen die Gäste aus und vereinbaren mit dem Kutscher die Rückfahrt; nach dem Plan steht der Bus 45 Minuten. „Weiter“ springt zur Abfahrt.
+0:05.5 warte klick
+0:06 kutsche 1 ab Hanswarft vor 20
+0:06 raffer 4.0
+0:06.5 warte kutsche 1 an Kirchwarft
+0:06.5 raffer 1
+0:06.5 tafel Kirchwarft | Hier stehen die Halligkirche St. Johannis und das Pfarrhaus; daneben liegt der Friedhof mit dem Kreuz der Heimatlosen. Ein Sturmflutpfahl am Weg zur Warft zeigt, wie hoch das Wasser bei der Flut von 1825 stand. Nach dem Plan hält der Bus hier 15 Minuten.
+0:08.5 warte klick
+0:09 kutsche 1 ab Kirchwarft vor 20
+0:09 raffer 4.0
+0:09.5 warte kutsche 1 an Anleger
+0:09.5 raffer 1
+0:09.5 tafel Zurück am Anleger | Rechtzeitig vor der Abfahrt der Fähre ist der Bus wieder am Kutschenplatz. Die Runde ist rund 3,8 km lang, gut 40 Minuten im Schritt; die Pferde gehen auf der Ringstraße über Asphalt, auf den Warften über Klinker. Bei Landunter fährt kein Bus: Steht Wasser auf dem Weg, bleibt die Runde aus.
+0:11.5 warte klick
+0:11.5 einblendung aus

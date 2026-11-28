@@ -59,6 +59,7 @@ katalog.ansichten.4 = Watt und Priele: prielmuendung, rippel, sandfegen
 katalog.ansichten.5 = Japsand und Brandung: japsand, japsand_oben, brandung, brandung_hanswarft
 katalog.ansichten.6 = Überblick: vogelblick, fernglas
 katalog.ansichten.7 = Schiffe und Tonnen: anleger_see, faehre, kutter, tonne, kielwasser, bord_kutter, bord_faehre
+katalog.ansichten.8 = Kutschen: kutschen_anleger, kutschen_hanswarft, bock
 
 # Vorschaubilder (--vorschau): Szenario und Zeit (UTC) je Ansicht; ohne Eintrag das erste Szenario zu seinem Beginn
 vorschau.ansicht.landunter_hanswarft  = sturm 2026-10-25T23:30:00Z
@@ -80,6 +81,10 @@ vorschau.ansicht.tonne                = seegang 2026-10-25T13:30:00Z
 vorschau.ansicht.kielwasser           = ruhigsee 2026-10-30T12:43:10Z
 vorschau.ansicht.bord_kutter          = seegang 2026-10-25T13:30:00Z
 vorschau.ansicht.bord_faehre          = ruhigsee 2026-10-30T12:46:00Z
+# seit K3: die Kutschen am ruhigen Tag (die Bilder legt auch GespanneCheck --vorschau an)
+vorschau.ansicht.kutschen_anleger     = ruhig 2026-10-30T12:26:00Z
+vorschau.ansicht.kutschen_hanswarft   = ruhig 2026-10-30T12:58:00Z
+vorschau.ansicht.bock                 = ruhig 2026-10-30T12:37:00Z
 
 # Motivsuche für die Regiebücher (Teil C, Werkbuch HalligHooge 134, F226 A): je Szenario die Ansichten der Kontaktbögen;
 # hinter „@“ die Ebenen des Messblicks (partikel, lic, linien). Optional .bereich = von bis (UTC), sonst das ganze Archiv.
@@ -123,8 +128,24 @@ kapitel.6 = kapitel/luft.kapitel
 # Rundgänge (X3, Werkbuch HalligHooge 148, F240 A): Halte an Orten der Karte, dazwischen auf Augenhöhe die Wege entlang.
 # Die Quellen schreibt man von Hand; die Wege rechnet einmal  ... --manifest src\szenen\Hooge.steuerhaus --wege
 # (OSM-Wege und Gelände auf D:) nach rundgang\<name>.weg. Startseite (Gruppe „Rundgänge“) und Menü Regie › Rundgang.
+# seit K4: die OSM-Wege blieben auf D: (nicht mit den Daten nach HalligHooge\daten umgezogen); sonst rechnete --wege gerade Strecken
+rundgang.osm = D:\Daten\HalligHooge\vektor\osm_szene\osm_szene.json
 rundgang.1 = rundgang/warften.rundgang
 rundgang.2 = rundgang/landunter.rundgang
+# seit K4 (Werkbuch HalligHooge 183): auf dem Bock des Pferdebusses
+rundgang.3 = rundgang/pferdebus.rundgang
+
+# Seit K3 (Werkbuch HalligHooge 181, F294 A, F299 A): die Strecken der Pferdebusse. --kutschen rechnet sie aus den
+# OSM-Wegen dieser Arten (und dem Gelände auf D:) nach kutschen.datei: Anfahrt von der Remise am Kutscherhaus
+# (OSM way 196839194, Backenswarft 4) zum Anleger, die Runde über die Warften (Halt in min) und die Heimfahrt.
+kutschen.datei   = Hooge.kutschen
+# Die OSM-Wege blieben auf D: (nicht mit den Daten nach HalligHooge\daten umgezogen).
+kutschen.osm     = D:\Daten\HalligHooge\vektor\osm_szene\osm_szene.json
+kutschen.anleger = Fährpersonenanleger Hallig Hooge
+kutschen.remise  = 471065.9 6047617.8
+kutschen.runde   = Backenswarft; Hanswarft 45; Kirchwarft 15
+kutschen.wege    = tertiary unclassified service track residential living_street
+kutschen.wende   = 6
 
 # Postkarte (X4, Werkbuch HalligHooge 150): Datei › Postkarte (Strg P) – der Blick jetzt mit Rahmen und Unterschrift.
 # Vorlage = Name; Stil (gold, weiss, ohne); Titel; Zeile. Platzhalter: {titel} {ort} {ansicht} {szenario} {datum} {uhr}
@@ -134,6 +155,8 @@ postkarte.vorlage.1 = Goldkante; gold; {titel}; {ort} · {datum}, {uhr} · {pege
 postkarte.vorlage.2 = Gruß von der Hallig; weiss; Gruß von der {titel}; {ort} · {datum}, {uhr}
 postkarte.vorlage.3 = Randlos; ohne; {ort}; {titel} · {datum}, {uhr} · Wind {wind}
 postkarte.vorlage.4 = Landunter; gold; Landunter auf {titel}; {datum}, {uhr} · {pegelname} {pegel} · {ort}
+# seit K4 (F303 A): vom Bock des Pferdebusses (Ansicht „Auf dem Bock“)
+postkarte.vorlage.5 = Vom Bock; gold; Mit dem Pferdebus über {titel}; {ort} · {datum}, {uhr}
 
 # Vergleiche (Y1, Werkbuch HalligHooge 152; F246 B): zwei Szenarien, dieselbe Kamera, gleiche Phase der Tide – als
 # Bildfolge der Ausgabe, im Spieler mit Schieber und den Kurven derselben Sonden. Menü Labor › Vergleich, Startseite

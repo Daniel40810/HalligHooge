@@ -254,6 +254,46 @@ ansicht.schwimmer.neigung       = 0
 ansicht.schwimmer.bildwinkel    = 70
 ansicht.schwimmer.bord          = schwimmer
 
+# Seit K3 (Werkbuch HalligHooge 181, F298 A): die Pferdebusse. Am Kutschenplatz vor dem Anleger warten die Gespanne in der
+# Wendeschleife; an der Hanswarft halten sie am Ende des Stichs an der Warft; vom Bock blickt man neben dem Kutscher nach
+# vorn (frei drehbar mit der Maus, ohne Wiegen; F290 B). Ort der Ansicht bock nur, solange kein Gespann im Bild ist.
+ansicht.kutschen_anleger.name       = Kutschen am Anleger
+ansicht.kutschen_anleger.ort        = 471318 6047935
+ansicht.kutschen_anleger.hoehe      = 1.7 boden
+ansicht.kutschen_anleger.richtung   = 63
+ansicht.kutschen_anleger.neigung    = -3
+ansicht.kutschen_anleger.bildwinkel = 55
+
+ansicht.kutschen_hanswarft.name       = Kutschen an der Hanswarft
+ansicht.kutschen_hanswarft.ort        = 470910 6046632
+ansicht.kutschen_hanswarft.hoehe      = 1.7 boden
+ansicht.kutschen_hanswarft.richtung   = 105
+ansicht.kutschen_hanswarft.neigung    = -2
+ansicht.kutschen_hanswarft.bildwinkel = 60
+
+ansicht.bock.name               = Auf dem Bock
+ansicht.bock.ort                = 471345 6047943
+ansicht.bock.hoehe              = 2.7 boden
+ansicht.bock.richtung           = 0
+ansicht.bock.neigung            = -4
+ansicht.bock.bildwinkel         = 70
+ansicht.bock.kutsche            = 1
+
+# ---------------------------------------------------------------- Kutschen
+
+# Seit K3 (Werkbuch HalligHooge 181, F293–F299 A): drei Pferdebusse (Fuhrservice auf der Backenswarft, Remise am
+# Kutscherhaus). Die Strecken rechnet das Steuerhaus aus OSM (--kutschen, kutschen.* in Hooge.steuerhaus) nach
+# Hooge.kutschen; die App liest nur diese Datei. Zu jeder Ankunft der Fähren (Hilligenlei, Adler-Express) eine Runde,
+# abfahrt min nach der Ankunft, zurück zurueck min vor der Abfahrt der Fähre; Saison in der Ortszeit (hooge.de, Adler:
+# Kutschfahrt bis 31.10.) [G]. Gespanne: Bauart (lang, kurz) und die Felle links, rechts.
+kutschen.datei      = Hooge.kutschen
+kutschen.gespanne   = lang fuchs rotschimmel; lang brauner hellfuchs; kurz fuchs brauner
+kutschen.faehren    = hilligenlei adler
+kutschen.saison     = 04-01 10-31
+kutschen.zone       = Europe/Berlin
+kutschen.abfahrt    = 10
+kutschen.zurueck    = 15
+
 # ---------------------------------------------------------------- Schwimmer
 
 # Seegang S7b (Seegang Werkbuch 88, SF106 A, SF107 A): Körper aus com.dan.physics.auftrieb.Vorgaben; Lagen in UTM 32.
