@@ -27,7 +27,8 @@
 /db/Objecte_nach_Schema.sql
 
 # Arbeitsstaende, Absturzprotokolle
-/_to_delete/
+# _to_delete in jedem Ordner, nicht nur oben (Seegang Werkbuch 113, Daniel 28.11.)
+_to_delete/
 /Claude outputs/
 hs_err_pid*.log
 
