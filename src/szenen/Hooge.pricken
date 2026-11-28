@@ -1,0 +1,31 @@
+# Pricken um den Anleger von Hooge (Seegang Werkbuch 99, S7e1; SF149 A): aus OpenStreetMap/OpenSeaMap (ODbL), Auszug
+# der Szene aus P3 (osm_szene.json), seamark:type = beacon_lateral, Umkreis 5 km um den Fährpersonenanleger
+# (471381 6047983). Nicht für die Navigation. Je Zeile: pricke Ost Nord Seite Länge(m) Name; Seite nach
+# seamark:beacon_lateral:category (port → backbord: Besen aufwärts, starboard → steuerbord: Besen abwärts);
+# Länge des Stamms 5 m, davon 1 m im Grund [G]. Name: seamark:name, sonst P und die Nummer des Knotens in OSM.
+pricke     473626.7   6047979.6 backbord   5.0  P11836906003
+pricke     473619.7   6048438.9 backbord   5.0  P11836906004
+pricke     473643.4   6047534.6 backbord   5.0  P11836906002
+pricke     473726.9   6047103.6 backbord   5.0  P11836906005
+pricke     474055.4   6046941.2 backbord   5.0  P11836906006
+pricke     472196.2   6045228.8 backbord   5.0  P11836906009
+pricke     471851.6   6045047.7 backbord   5.0  P11836906008
+pricke     472770.7   6045321.7 backbord   5.0  P11836906007
+pricke     473219.5   6045285.8 backbord   5.0  P11836906000
+pricke     474488.9   6046691.8 backbord   5.0  P11836905970
+pricke     473611.3   6045208.8 backbord   5.0  P11836906001
+pricke     474831.1   6046446.0 backbord   5.0  P11836905971
+pricke     474097.5   6045187.8 backbord   5.0  P11836874012
+pricke     475048.6   6046270.9 backbord   5.0  P11836905972
+pricke     474963.0   6045971.7 backbord   5.0  P11836905955
+pricke     474866.0   6045670.6 backbord   5.0  P11836905958
+pricke     474758.8   6045429.6 backbord   5.0  P11836873978
+pricke     474768.0   6045429.0 backbord   5.0  P11836873979
+pricke     474653.6   6045162.8 backbord   5.0  P11836873981
+pricke     475073.8   6045256.9 backbord   5.0  P11836873980
+pricke     468679.4   6051968.8 backbord   5.0  P11836905992
+pricke     468419.0   6051824.1 backbord   5.0  P11836905993
+pricke     468896.1   6052187.5 backbord   5.0  P11836906010
+pricke     475552.6   6045362.3 backbord   5.0  P11836873977
+pricke     469072.7   6052367.0 backbord   5.0  P11836932323
+pricke     468152.0   6051755.0 backbord   5.0  P11836905994

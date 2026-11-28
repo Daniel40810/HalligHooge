@@ -127,6 +127,15 @@ ansicht.hafen.richtung          = 30
 ansicht.hafen.neigung           = -2
 ansicht.hafen.bildwinkel        = 50
 
+# Seegang S3 (SF16 A): vom Wasser aus auf Anleger und Fähre – das Auge rund 280 m nordnordöstlich des Anlegers
+# (471381 6047983) über der Rinne (Grund rund −7,5 m NHN), auf Deckshöhe eines Boots
+ansicht.anleger_see.name        = Anleger von See
+ansicht.anleger_see.ort         = 471480 6048250
+ansicht.anleger_see.hoehe       = 3 nhn
+ansicht.anleger_see.richtung    = 197
+ansicht.anleger_see.neigung     = -3
+ansicht.anleger_see.bildwinkel  = 50
+
 # Bewuchs (P12c, F135–F138 A): Gehölze an der Hanswarft im Gegenlicht, Halme auf der Fenne
 ansicht.gehoelz.name            = Gehölze an der Hanswarft
 ansicht.gehoelz.ort             = 471030 6046470
@@ -172,6 +181,133 @@ ansicht.westkante.richtung      = 259
 ansicht.westkante.neigung       = -4
 ansicht.westkante.bildwinkel    = 55
 
+# Schwimmer (Seegang S7b, Seegang Werkbuch 88): der Krabbenkutter vor Anker in der Rinne vor dem Anleger, von einem Boot
+# aus 200 m südöstlich (seit S7d, Datei 89: der Kutter liegt 175 m neben dem Weg der Fähre); dazu die Tonne Ho 7 am
+# Fahrwasser nach Nordosten
+ansicht.kutter.name             = Krabbenkutter vor Anker
+ansicht.kutter.ort              = 471422 6048277                # seit S7d2: 80 m vor dem versetzten Kutter
+ansicht.kutter.hoehe            = 4 nhn
+ansicht.kutter.richtung         = 328
+ansicht.kutter.neigung          = -3
+ansicht.kutter.bildwinkel       = 40
+
+ansicht.tonne.name              = Tonne Ho 7 am Fahrwasser
+ansicht.tonne.ort               = 472060 6048470
+ansicht.tonne.hoehe             = 3 nhn
+ansicht.tonne.richtung          = 42
+ansicht.tonne.neigung           = -4
+ansicht.tonne.bildwinkel        = 40
+
+# Seit S7b-4 (Seegang Werkbuch 89): die Hilligenlei am Anleger von der Seite, 100 m ostsüdöstlich auf dem Wasser, die
+# Sonne von links
+ansicht.faehre.name             = Hilligenlei am Anleger
+# seit S7e2 (Befund L5e2): von Westen, damit der Adler-Express am Pierkopf die Fähre nicht verdeckt; Sonne weiter von der
+# Seite (bis S7e1 471420 6048010, 284°; von Nordosten 215° kam sie von vorn)
+ansicht.faehre.ort              = 471230 6048060
+ansicht.faehre.hoehe            = 3 nhn
+ansicht.faehre.richtung         = 105
+ansicht.faehre.neigung          = -3
+ansicht.faehre.bildwinkel       = 40
+
+# Seit S7d: das Fahrwasser nordöstlich des Anlegers, wo die Fähre ankommt und abfährt (Kielwasser), von Nordosten
+ansicht.kielwasser.name         = Fahrwasser mit Kielwasser
+ansicht.kielwasser.ort          = 472449 6048420                # seit S7d6 (SF135 A): 80 m suedlich der Route, 300 m hinter ihrem Knick, rund 1,2 km vor dem Anleger
+ansicht.kielwasser.hoehe        = 15 nhn                        # die Faehre am Punkt der Ansicht rund 80 m vom Auge: Stufe des Bilds mit 2-m-Zellen (Befund L5d5 5) [G]
+ansicht.kielwasser.richtung     = 343                           # nach Norden auf die Route, die Sonne am Nachmittag im Ruecken
+ansicht.kielwasser.neigung      = -10
+ansicht.kielwasser.bildwinkel   = 70
+
+# Seit S7c: an Bord (Bordkamera, SF110 A) – Ort und Höhe gelten nur, bis die Flotte steht; Richtung und Neigung gegen den Bug
+ansicht.bord_kutter.name        = An Bord des Krabbenkutters
+ansicht.bord_kutter.ort         = 471380 6048345
+ansicht.bord_kutter.hoehe       = 4 nhn
+ansicht.bord_kutter.richtung    = 0
+ansicht.bord_kutter.neigung     = -4
+ansicht.bord_kutter.bildwinkel  = 60
+ansicht.bord_kutter.bord        = kutter
+
+ansicht.bord_faehre.name        = An Bord der Hilligenlei
+ansicht.bord_faehre.ort         = 471325 6048035
+ansicht.bord_faehre.hoehe       = 8 nhn
+ansicht.bord_faehre.richtung    = 0
+ansicht.bord_faehre.neigung     = -3
+ansicht.bord_faehre.bildwinkel  = 60
+ansicht.bord_faehre.bord        = hilligenlei
+
+# Seit S8e (Seegang Werkbuch 104): der Adler-Express kommt an – vom Platz der Ansicht faehre nach Nordosten; er kommt auf
+# seinem Weg von Westnordwest 66 m nördlich am Auge vorbei, läuft nach Osten und dreht auf 166° zum Pierkopf [G, nach
+# Hooge.route_adler_wittduen und dem Plan des Lotsen: 13:19:00 rund 245 m, 13:19:25 rund 145 m vor dem Pierkopf].
+ansicht.adler.name              = Adler-Express kommt an
+ansicht.adler.ort               = 471230 6048060
+ansicht.adler.hoehe             = 3 nhn
+ansicht.adler.richtung          = 60
+ansicht.adler.neigung           = -3
+ansicht.adler.bildwinkel        = 50
+
+# Seit S8d (Seegang Werkbuch 104, SF160 A): der Schwimmerblick, die Kamera am Kopf eines Schwimmers in der Rinne vor dem
+# Anleger; das Auge an der Wasserlinie, unter ihr das Wasser von unten. Richtung gegen die Schwimmrichtung.
+ansicht.schwimmer.name          = Schwimmerblick in der Rinne
+ansicht.schwimmer.ort           = 471405 6048300
+ansicht.schwimmer.hoehe         = 1 nhn
+ansicht.schwimmer.richtung      = 0
+ansicht.schwimmer.neigung       = 0
+ansicht.schwimmer.bildwinkel    = 70
+ansicht.schwimmer.bord          = schwimmer
+
+# ---------------------------------------------------------------- Schwimmer
+
+# Seegang S7b (Seegang Werkbuch 88, SF106 A, SF107 A): Körper aus com.dan.physics.auftrieb.Vorgaben; Lagen in UTM 32.
+# Die Fähre Hilligenlei liegt mit dem Bug an der Rampe des Fähranlegers (OSM: Rampe 471317 6048017, Anleger nach 25°),
+# an Leinen zu Pollern an der Rampe und zu Pfählen hinter dem Heck, Fender am Bug [G]. Der Krabbenkutter liegt vor Anker
+# in der Rinne vor dem Anleger (Grund rund −7,5 m NHN), Kette 30 m [G]. Die Tonnen aus OpenSeaMap (Hooge.tonnen).
+schwimmer.hilligenlei.art       = faehre
+schwimmer.hilligenlei.name      = Fähre Hilligenlei
+schwimmer.hilligenlei.ort       = 471325.2 6048034.6
+schwimmer.hilligenlei.kurs      = 205
+schwimmer.hilligenlei.fest      = anleger 471317 6048017 25     # Rampe Ost Nord, Richtung des Anlegers ins Wasser (Grad)
+schwimmer.hilligenlei.route     = Hooge.route_schluettsiel      # seit S7d: Weg ab dem Anleger (OSM, Schlüttsiel-Hooge)
+schwimmer.hilligenlei.fahrplan  = tide -2:00 +1:30              # seit S7d2 (SF117 A): Ankunft 2 h vor, Abfahrt 1 h 30 nach dem Hochwasser am Pegel, bei Tag [G]
+
+schwimmer.kutter.art            = krabbenkutter
+schwimmer.kutter.name           = Krabbenkutter
+schwimmer.kutter.ort            = 471380 6048345
+schwimmer.kutter.kurs           = 180
+schwimmer.kutter.fest           = anker 471380 6048320 30       # Anker Ost Nord, Kette (m); seit S7d 175 m neben dem Weg der Fähre
+
+# Seit S7e2 (Seegang Werkbuch 101, SF150 A): der Adler-Express (Adler-Schiffe, Nordstrand–Amrum–Hooge, 42 × 8 m, 24 kn).
+# Fahrplan 2026 (Faltblatt der Adler-Schiffe): an Hooge 13:20 (von Amrum), ab Hooge 18:30 (nach Nordstrand), Ortszeit, täglich
+# 28.3.–1.11. Er liegt mit dem Bug am Pierkopf des Fährpersonenanlegers (OSM node 292269503, Achse nach 346° [G]), kommt auf
+# dem Weg von Wittdün und fährt auf dem Weg nach Nordstrand ab. Lotse [G]: 12,3 m/s (24 kn), Plan 11 m/s, Hebel 0,55 bei voller
+# Fahrt (GleitCheck: 80 kN von 150 kN), tideunabhängig; bei Sturm (Wind über 14 m/s) kommt er nicht.
+schwimmer.adler.art             = adlerExpress
+schwimmer.adler.name            = Adler-Express
+schwimmer.adler.ort             = 471374.2 6048001.5
+schwimmer.adler.kurs            = 166
+schwimmer.adler.fest            = anleger 471379.4 6047980.6 346
+schwimmer.adler.route           = Hooge.route_adler_wittduen
+schwimmer.adler.route_ab        = Hooge.route_adler_nordstrand
+schwimmer.adler.fahrplan        = 13:20 18:30 Europe/Berlin
+schwimmer.adler.lotse           = fahrt 12.3 plan 11 anlegen 175 hebel 0.55 pegel -9 sturm weg
+
+# Seit S8d (SF160 A): ein Schwimmer in der Rinne vor dem Anleger, 50 m südöstlich des Kutters, mit dem Blick nach Südwesten
+# zur Hallig [G]; nur der Kopf ist gerechnet (Vorgaben.kopf), er treibt frei.
+schwimmer.schwimmer.art         = kopf
+schwimmer.schwimmer.name        = Schwimmer
+schwimmer.schwimmer.ort         = 471405 6048300
+schwimmer.schwimmer.kurs        = 225
+
+schwimmer.tonnen.datei          = Hooge.tonnen
+# Seit S7e1 (Seegang Werkbuch 99, SF149 A): 26 Pricken aus OSM im Umkreis von 5 km um den Anleger, Birkenstämme mit Besen
+schwimmer.pricken.datei         = Hooge.pricken
+# seit S7e2 (Seegang Werkbuch 101, SF151 A): 12 Stück Treibgut, frei, und zwei Trupps Eiderenten (19 Tiere)
+schwimmer.treibgut.datei        = Hooge.treibgut
+schwimmer.enten.datei           = Hooge.enten
+
+# Seit S7d4 (Seegang Werkbuch 92, SF121 A): Mitte der Koerperflaeche, einer festen Flaeche des Seegangs (grob 5 km, fein 1 km)
+# nur fuer das Wasser unter den Schwimmern, damit es nicht davon abhaengt, wohin das Auge schaut. Zwischen Anleger und
+# Kutter: beide liegen im feinen Gitter [G].
+seegang.koerper                 = 471350 6048190
+
 # ---------------------------------------------------------------- Szenarien
 
 # Ruhiger Tag (F48 A): Hochdruck, wenig Wind, kurz nach Vollmond. Niedrigwasser 09:15 UTC, das Watt fällt weit trocken.
@@ -180,6 +316,7 @@ szenario.ruhig.archiv           = ${daten}\_p6\archiv_ruhig
 szenario.ruhig.beginn           = 2026-10-30T07:30:00Z
 szenario.ruhig.zeitraffer       = 300
 szenario.ruhig.ansicht          = westspitze
+szenario.ruhig.schwimmer        = hilligenlei kutter adler tonnen pricken treibgut enten
 
 # Sturmflut: Hochwasser 12:20 UTC am Deich, Landunter in der Nacht (Scheitel 23:45 UTC, +2,97 m NHN).
 szenario.sturm.name             = Sturmflut, 25.10.2026
@@ -187,6 +324,7 @@ szenario.sturm.archiv           = ${daten}\_p6\archiv
 szenario.sturm.beginn           = 2026-10-25T10:00:00Z
 szenario.sturm.zeitraffer       = 300
 szenario.sturm.ansicht          = westspitze
+szenario.sturm.schwimmer        = hilligenlei kutter adler tonnen pricken treibgut enten
 
 # Sturmflut mit Seegang (P8b): dasselbe Wetter, dazu der Seegang aus physics.waves (Rand aus ERA5) im Bild (Stufe 2).
 szenario.seegang.name           = Sturmflut mit Seegang, 25.10.2026
@@ -194,6 +332,7 @@ szenario.seegang.archiv         = ${daten}\_p8c\archiv
 szenario.seegang.beginn         = 2026-10-25T10:00:00Z
 szenario.seegang.zeitraffer     = 300
 szenario.seegang.ansicht        = brandung
+szenario.seegang.schwimmer      = hilligenlei kutter adler tonnen pricken treibgut enten
 
 # Ruhiger Tag mit Seegang (P8b): Dünung aus der Nordsee bei wenig Wind.
 szenario.ruhigsee.name          = Ruhiger Tag mit Seegang, 30.10.2026
@@ -201,6 +340,7 @@ szenario.ruhigsee.archiv        = ${daten}\_p8c\archiv_ruhig
 szenario.ruhigsee.beginn        = 2026-10-30T07:30:00Z
 szenario.ruhigsee.zeitraffer    = 300
 szenario.ruhigsee.ansicht       = westspitze
+szenario.ruhigsee.schwimmer     = hilligenlei kutter adler tonnen pricken treibgut enten schwimmer
 
 # Sturmflut mit Sediment (P9b): dazu Schwebstoff, Rippel und Schlick aus physics.sediment; die Trübung des Wassers folgt
 # dem Schwebstoff am Ort. G3 ist hier das Fenster O 462–476 km (F82 A), der Japsand liegt ganz darin.
@@ -209,6 +349,7 @@ szenario.sediment.archiv        = ${daten}\_p9b\archiv
 szenario.sediment.beginn        = 2026-10-25T10:00:00Z
 szenario.sediment.zeitraffer    = 300
 szenario.sediment.ansicht       = prielmuendung
+szenario.sediment.schwimmer     = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.sediment.schwebstoff   = 20            # g/m³ außerhalb des Fensters von G3 (der Hintergrund am Rand des Sediments)
 
 # Ruhiger Tag mit Sediment (P9b): Niedrigwasser 09:40 UTC; die Rippel liegen bis gegen Mittag trocken.
@@ -217,6 +358,7 @@ szenario.ruhigsed.archiv        = ${daten}\_p9b\archiv_ruhig
 szenario.ruhigsed.beginn        = 2026-10-30T11:00:00Z
 szenario.ruhigsed.zeitraffer    = 300
 szenario.ruhigsed.ansicht       = rippel
+szenario.ruhigsed.schwimmer     = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.ruhigsed.schwebstoff   = 20
 
 # Xaver (P13a, F145 A): Orkantief Xaver, drei Sturmfluttiden; der Scheitel am 6.12. gegen 03 Uhr UTC (Hooge Anleger
@@ -226,6 +368,7 @@ szenario.xaver.archiv           = ${daten}\_p13\archiv_xaver
 szenario.xaver.beginn           = 2013-12-05T12:30:00Z
 szenario.xaver.zeitraffer       = 300
 szenario.xaver.ansicht          = landunter_hanswarft
+szenario.xaver.schwimmer        = hilligenlei kutter tonnen pricken treibgut enten
 szenario.xaver.schwebstoff      = 20
 
 # Live: der Lauf rechnet neben dem Bild, aus der Ruhe mit 3 h Anlauf; die Physik begrenzt den Zeitraffer (rund 125).
@@ -235,6 +378,7 @@ szenario.live.stufen            = G0 | G1 | G2 G3
 szenario.live.fenster3          = 600 850 500 400      # G3 als Fenster um Hooge: i0 j0 ni nj
 szenario.live.zeitraffer        = 100
 szenario.live.ansicht           = vogelblick
+szenario.live.schwimmer         = hilligenlei kutter adler tonnen pricken treibgut enten
 
 # Seit P9c (12.10): Japsand von oben (seit Steuerhaus W1 eigener Schlüssel japsand_oben: vorher überschrieb er die Ansicht japsand am Boden); ein Jahr Morphologie in drei Läufen (Kette vom 18.11.2026); live mit Sediment
 ansicht.japsand_oben.name            = Japsand von oben
@@ -249,6 +393,7 @@ szenario.morpho.archiv          = ${daten}\_p9c\archiv_m1a
 szenario.morpho.beginn          = 2026-10-14T00:00:00Z
 szenario.morpho.zeitraffer      = 1800
 szenario.morpho.ansicht         = japsand_oben
+szenario.morpho.schwimmer       = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.morpho.schwebstoff     = 20
 
 szenario.morpho2.name           = Ein Jahr Morphologie, zweites Halbjahr (17.–19.10.2026, Boden mal 60)
@@ -256,6 +401,7 @@ szenario.morpho2.archiv         = ${daten}\_p9c\archiv_m1b
 szenario.morpho2.beginn         = 2026-10-17T00:00:00Z
 szenario.morpho2.zeitraffer     = 1800
 szenario.morpho2.ansicht        = japsand_oben
+szenario.morpho2.schwimmer      = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.morpho2.schwebstoff    = 20
 
 szenario.morphosturm.name       = Ein Jahr Morphologie, Sturm (25./26.10.2026, Boden mal 4)
@@ -263,6 +409,7 @@ szenario.morphosturm.archiv     = ${daten}\_p9c\archiv_m2
 szenario.morphosturm.beginn     = 2026-10-25T06:00:00Z
 szenario.morphosturm.zeitraffer = 600
 szenario.morphosturm.ansicht    = japsand_oben
+szenario.morphosturm.schwimmer  = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.morphosturm.schwebstoff = 20
 
 szenario.livesed.name           = Live mit Sediment ab 29.10.2026, 03:00 UTC
@@ -271,6 +418,7 @@ szenario.livesed.stufen         = G0 | G1 | G2 G3
 szenario.livesed.fenster3       = 600 850 500 400
 szenario.livesed.zeitraffer     = 100
 szenario.livesed.ansicht        = vogelblick
+szenario.livesed.schwimmer      = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.livesed.sediment       = an
 
 
@@ -292,6 +440,7 @@ szenario.kimmung.archiv         = ${daten}\_p9c\archiv_m1b
 szenario.kimmung.beginn         = 2026-10-18T08:00:00Z
 szenario.kimmung.zeitraffer     = 60
 szenario.kimmung.ansicht        = fernglas
+szenario.kimmung.schwimmer      = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.kimmung.schwebstoff    = 20
 
 # P10c (Flugsand): Sandfegen auf dem hohen Sand am Südrand der Szene, 17.10.2026 abends bei Nordnordostwind.
@@ -309,6 +458,7 @@ szenario.flugsand.archiv        = ${daten}\_p9c\archiv_m1b
 szenario.flugsand.beginn        = 2026-10-17T15:40:00Z
 szenario.flugsand.zeitraffer    = 10
 szenario.flugsand.ansicht       = sandfegen
+szenario.flugsand.schwimmer     = hilligenlei kutter adler tonnen pricken treibgut enten
 szenario.flugsand.schwebstoff   = 20
 
 # Brandung (P13c, F160 A): Brecher an der Hanswarft im Landunter (Auge 2 m über dem Wasser, 60 m vor dem Westhang der

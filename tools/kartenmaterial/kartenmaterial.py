@@ -14,6 +14,7 @@ Python 3.8+ ohne Fremdpakete (Windows, Linux, macOS). Gebiete nach Werkbuch Teil
     python tools/kartenmaterial/kartenmaterial.py laden --quellen era5_cds_schub --monate 202610   dazu die Schubspannung (F34)
     python tools/kartenmaterial/kartenmaterial.py laden --quellen era5_cds_seegang --monate 202610 Seegang (P8b, F74 A)
     python tools/kartenmaterial/kartenmaterial.py laden --quellen era5_cds_luft --monate 202610    Luft und Strahlung (P10b)
+    python tools/kartenmaterial/kartenmaterial.py laden --quellen era5_cds_boee --monate 202610,201312  Boee fg10 (Seegang S8b)
     python tools/kartenmaterial/kartenmaterial.py laden --quellen dwd_wind                         Wind des DWD, Helgoland und List (F36 A)
     python tools/kartenmaterial/kartenmaterial.py laden --quellen sentinel2 --baender B02,B03,B04  Baender fuer die Eichung der Albedo (F44 A)
     python tools/kartenmaterial/kartenmaterial.py laden --quellen lod2 --ziel D:/Daten/HalligHooge    3D-Gebaeude LoD2 (P12a, F125 A)
@@ -1278,6 +1279,21 @@ CDS_LUFT = ["2m_temperature", "2m_dewpoint_temperature", "sea_surface_temperatur
         "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels")
 def _p(ctx):
     return _cds_monate(ctx, CDS_LUFT, "bucht")
+
+
+# Boee in 10 m (Seegang S8b, SF156 A): Staerke der Katzenpfoten. fg10 (Parameter 49, m/s) ist die staerkste Boee der Stunde
+# vor der gueltigen Zeit nach dem Nachbearbeiten von ECMWF (WMO: 3-s-Mittel), auf dem Raster des Atmosphaerenmodells.
+CDS_BOEE = ["10m_wind_gust_since_previous_post_processing"]
+
+
+@quelle("era5_cds_boee", "wetter", "ERA5 stündlich aus dem Climate Data Store: Böe in 10 m über der Deutschen Bucht",
+        "ECMWF / Copernicus Climate Change Service", "Copernicus-Lizenz (frei, Namensnennung; Konto nötig)", "bucht", "konto",
+        """Böe für die Katzenpfoten im Seegang (S8b, SF156 A): fg10 (10 m wind gust since previous post-processing, m/s,
+        stärkste Böe der Stunde vor der Zeit) stündlich auf 0,25°, Bereich G1 und 0,5° darüber hinaus, GRIB, je Monat eine
+        Datei (unter 1 MB). Vorgabe --monate 202610; für Xaver 201312. Braucht ein Konto und %USERPROFILE%\\.cdsapirc wie era5_cds.""",
+        "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels")
+def _p(ctx):
+    return _cds_monate(ctx, CDS_BOEE, "bucht")
 
 
 # Wind an Stationen des DWD (Werkbuch 12.6, F36 A): 10-Minuten-Werte, Ordner "recent" (rund die letzten 500 Tage, taeglich neu)

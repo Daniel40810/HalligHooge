@@ -1,0 +1,32 @@
+# Tonnen um den Anleger von Hooge (Seegang Werkbuch 88, S7b-2; SF107 A): aus OpenStreetMap/OpenSeaMap (ODbL), Auszug
+# der Szene aus P3 (osm_szene.json), Umkreis 5 km um den Fährpersonenanleger (471381 6047983). Nicht für die Navigation.
+# Je Zeile: Vorgabe Ost Nord Farbe Kette(m) Name [Kennung]. Vorgabe nach der Form in OSM: spar → spierentonne,
+# conical → spitztonne, pillar oder befeuert → leuchttonne [G]. Kette = 2 m NHN − Grund + 4 m, mindestens 6 m [G];
+# Grund aus dem Gelände 10 m des Gebiets.
+spitztonne      472096.2   6048510.6 gruen   13.7  Ho_7
+spitztonne      470446.9   6048322.6 gruen   18.9  Ho_5
+leuchttonne     470783.8   6049633.4 gelb    16.9  Sondertonne Fl(5) Y 20s
+leuchttonne     470715.3   6049691.4 gruen   18.6  SA_13 Fl(2) G 9s
+spierentonne    470909.8   6050131.5 rot     19.5  SA_16
+spitztonne      472326.1   6049994.7 gruen   12.0  SA_15
+spierentonne    472278.1   6050247.2 rot     18.1  SA_18
+spitztonne      473090.8   6049843.6 gruen   14.8  SA_17
+spierentonne    473093.3   6050081.0 rot     12.0  SA_20
+spitztonne      468663.1   6048974.4 gruen   15.8  Ho_3
+spitztonne      469237.3   6049940.4 gruen   17.8  SA_11
+spierentonne    469539.4   6050351.9 rot     19.6  SA_14
+spitztonne      474280.1   6048779.6 gruen   18.2  Ho_9
+spitztonne      472268.8   6045098.1 gelb     7.4  K
+spitztonne      474046.3   6049902.9 gruen   11.6  SA_19
+leuchttonne     474000.8   6050034.9 rot     18.8  SA_22 Fl(2) R 9s
+spierentonne    468376.5   6050806.8 rot     22.3  SA_12
+spierentonne    470400.9   6052009.8 rot     16.3  L_18
+spitztonne      468021.7   6050423.6 gruen   19.8  SA_9/Hooge_1
+spierentonne    474942.5   6050330.0 rot     13.8  SA_22a
+spitztonne      475104.1   6050162.2 gruen   12.3  SA_19a
+spitztonne      475553.7   6049264.0 gruen   13.7  Ho_11
+spierentonne    472362.6   6052461.0 rot     11.3  L_20
+spitztonne      472996.5   6043579.2 gelb     6.7  K_2
+spierentonne    475671.2   6049890.2 rot     10.2  Ho_2
+spierentonne    468595.6   6051825.3 rot     10.2  L_16
+spierentonne    467732.2   6051358.5 rot     11.9  L_2/14

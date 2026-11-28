@@ -29,6 +29,7 @@ regie.4          = regie/stroemung.regie
 regie.5          = regie/sediment.regie
 regie.6          = regie/luft.regie
 regie.7          = regie/hooge.regie
+regie.8          = regie/seegang.regie                   # seit S8e (Seegang Werkbuch 104)
 regie.aufnahmen  = regie/aufnahmen.regie
 app.lesezeichen  = Hooge.lesezeichen
 
@@ -57,6 +58,7 @@ katalog.ansichten.3 = Deich und Kante: westspitze, westkante, steinkante_west, a
 katalog.ansichten.4 = Watt und Priele: prielmuendung, rippel, sandfegen
 katalog.ansichten.5 = Japsand und Brandung: japsand, japsand_oben, brandung, brandung_hanswarft
 katalog.ansichten.6 = Überblick: vogelblick, fernglas
+katalog.ansichten.7 = Schiffe und Tonnen: anleger_see, faehre, kutter, tonne, kielwasser, bord_kutter, bord_faehre
 
 # Vorschaubilder (--vorschau): Szenario und Zeit (UTC) je Ansicht; ohne Eintrag das erste Szenario zu seinem Beginn
 vorschau.ansicht.landunter_hanswarft  = sturm 2026-10-25T23:30:00Z
@@ -68,6 +70,16 @@ vorschau.ansicht.rippel               = ruhigsed 2026-10-30T10:00:00Z
 vorschau.ansicht.abend                = ruhig 2026-10-30T15:00:00Z
 vorschau.ansicht.fernglas             = kimmung 2026-10-18T08:00:00Z
 vorschau.ansicht.sandfegen            = flugsand 2026-10-17T15:40:00Z
+# seit Seegang S7d2: Schiffe und Tonnen (die Fähre fährt nach der Tide: am 30.10. Ankunft rund 12:45 UTC); in diesen
+# Ansichten laufen die Schwimmer vor dem Bild 10 s (Ansichten an Bord immer)
+vorschau.schwimmer                    = hafen, anleger_see, faehre, kutter, tonne, kielwasser
+vorschau.ansicht.anleger_see          = seegang 2026-10-25T13:30:00Z
+vorschau.ansicht.faehre               = ruhigsee 2026-10-30T13:30:00Z
+vorschau.ansicht.kutter               = ruhigsee 2026-10-30T13:30:00Z
+vorschau.ansicht.tonne                = seegang 2026-10-25T13:30:00Z
+vorschau.ansicht.kielwasser           = ruhigsee 2026-10-30T12:43:10Z
+vorschau.ansicht.bord_kutter          = seegang 2026-10-25T13:30:00Z
+vorschau.ansicht.bord_faehre          = ruhigsee 2026-10-30T12:46:00Z
 
 # Motivsuche für die Regiebücher (Teil C, Werkbuch HalligHooge 134, F226 A): je Szenario die Ansichten der Kontaktbögen;
 # hinter „@“ die Ebenen des Messblicks (partikel, lic, linien). Optional .bereich = von bis (UTC), sonst das ganze Archiv.
